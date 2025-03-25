@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post1_Feb_3-9_Week1/Post_1.html</loc>
-    <lastmod>2025-03-24T20:19:36.136Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/000_test_post/index.html</loc>
-    <lastmod>2025-03-24T20:19:36.136Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post2_Feb_3-9_Week1/Post2.html</loc>
-    <lastmod>2025-03-24T20:19:36.142Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2025-03-24T20:19:36.135Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2025-03-24T20:19:36.135Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post3_Feb_10-16_Week2/Post3.html</loc>
-    <lastmod>2025-03-24T20:19:36.144Z</lastmod>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post5_Feb_17-23_Week3/Post_5.html</loc>
+    <lastmod>2025-03-25T14:55:51.810Z</lastmod>
   </url>
   <url>
     <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post4_Feb_10-16/Post4_Feb_10-14.html</loc>
-    <lastmod>2025-03-24T20:19:36.150Z</lastmod>
+    <lastmod>2025-03-25T14:55:51.808Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post3_Feb_10-16_Week2/Post3.html</loc>
+    <lastmod>2025-03-25T14:55:51.801Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/about.html</loc>
+    <lastmod>2025-03-25T14:55:51.792Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/index.html</loc>
+    <lastmod>2025-03-25T14:55:51.792Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post2_Feb_3-9_Week1/Post2.html</loc>
+    <lastmod>2025-03-25T14:55:51.799Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/000_test_post/index.html</loc>
+    <lastmod>2025-03-25T14:55:51.793Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post1_Feb_3-9_Week1/Post_1.html</loc>
+    <lastmod>2025-03-25T14:55:51.793Z</lastmod>
   </url>
 </urlset>

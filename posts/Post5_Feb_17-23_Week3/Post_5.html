@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="An LLM User">
+<meta name="dcterms.date" content="2025-02-17">
+<meta name="description" content="Testing Probabilistic Text Generation">
 
-<title>My Explorations with LLMs</title>
+<title>Fill in the Blank – My Explorations with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8647a4a42273f773479d27c00df3f9ed.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8647a4a42273f773479d27c00df3f9ed.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +69,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">My Explorations with LLMs</span>
     </a>
   </div>
@@ -149,7 +92,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -172,272 +115,112 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">My Explorations with LLMs</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Fill in the Blank</h1>
+                  <div>
+        <div class="description">
+          Testing Probabilistic Text Generation
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">probability</div>
+                <div class="quarto-category">embedding</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>An LLM User </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 17, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="LWdlbmVyYXRpdmUlMjBBSSUyMC1Qcm9tcHRpbmclMjAtTG9naWMlMkMlMjBjYWxjdWxhdGlvbnM=">-generative AI -Prompting -Logic, calculations <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TExNcw==">LLMs <span class="quarto-category-count">(5)</span></div><div class="category" data-category="ZW1iZWRkaW5n">embedding <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bG9naWM=">logic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3BlbiUyMHdlaWdodCUyMG1vZGVscw==">open weight models <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvYmFiaWxpdGllcw==">probabilities <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvYmFiaWxpdHk=">probability <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvbXB0JTIwZW5naW5lZXJpbmc=">prompt engineering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cHJvbXB0aW5n">prompting <span class="quarto-category-count">(3)</span></div><div class="category" data-category="d29yZCUyMHByZWRpY3Rpb24=">word prediction <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<section id="probabilistic-text-generation-oreilly" class="level2">
+<h2 class="anchored" data-anchor-id="probabilistic-text-generation-oreilly">Probabilistic Text Generation (O’Reilly):</h2>
+<p>A significant feature that drives LLM text generation is its ability to pick out patterns of text input (prompts you feed it) and provide text output according to those patterns. It does so through a process of assigning probabilities to certain words within texts and according to the data it’s trained on, and spits out text that appears most likely. So in a process of election, each word in a sentence “casts votes on the importance of other words for its meaning” (Pheonix &amp; Taylor, Chapter 2).</p>
+<blockquote class="blockquote">
+<p>For reference: Phoenix, J. &amp; Taylor, M.(2024) Prompt Engineering for Generative AI. O’Reilly Media, Inc.</p>
+</blockquote>
+<section id="relatedly-numerical-representations-of-language" class="level3">
+<h3 class="anchored" data-anchor-id="relatedly-numerical-representations-of-language">Relatedly: Numerical Representations of Language:</h3>
+<p>Further, word embeddings describe words (represented as word vectors) situated close to each other (within a space/plane), allowing the model to calculate and “understand” the relationship between these two words and hence its ability to follow along an input’s context, syntax, and other broader language relationship features.</p>
+<p>It can be pictured as such (also referencing the O’Reilly textbook on: Prompt Engineering for Generative AI):</p>
+<p><img src="pic1.png" width="75%"></p>
+</section>
+</section>
+<section id="testing-llms" class="level2">
+<h2 class="anchored" data-anchor-id="testing-llms">Testing LLMs…</h2>
+<section id="model-anthropicclaude-3.5-sonnet" class="level3">
+<h3 class="anchored" data-anchor-id="model-anthropicclaude-3.5-sonnet">(model: anthropic/claude-3.5-sonnet)</h3>
+<p>This led to a small experiment that tests the language model’s ability to process certain texts/prompts, particularly when maybe they don’t follow typical conventions.</p>
+<p><strong><em>One experiment:</em></strong> testing its probabilistic text feature to finish sentences with a particular rhyming structure:</p>
+<blockquote class="blockquote">
+<p>We can see here it does a good job of completing the sentences according to the patterns within each text input (It guessed all of the words correctly that I had in mind for completing these sentences!).</p>
+</blockquote>
+<p><img src="pic2.png" width="75%"></p>
+</section>
+<section id="interestingly" class="level3">
+<h3 class="anchored" data-anchor-id="interestingly"><strong>Interestingly</strong></h3>
+<p>the system inititally fails to guess correctly when colloquialisms are expected to finish a sentence.</p>
+<p><img src="pic3.png" width="75%"></p>
+<ul>
+<li><strong>Or at least…</strong> it was not its first guess to finish the sentence with a slang term. What’s also interesting is that it chose to maintain strict/perfect rhyming patterns by default, and not neccessarily look to creating or maintaining assonance (as it notes upon correction in its response).</li>
+</ul>
+<p><strong><em>A “second” experiment:</em></strong> examining how it learns from your rhyming patterns/speech tendencies based on the context of your previous prompts and inputs. * it assigns new probabilities to words based on previous inputs you give it</p>
+<p><img src="pic4.png" width="75%"></p>
+<ul>
+<li>Still had a little bit of trouble getting exactly the word in mind, but was definitely on the right track!</li>
+</ul>
+<section id="another-example" class="level4">
+<h4 class="anchored" data-anchor-id="another-example">Another example:</h4>
+<p><img src="pic5.png" width="75%"></p>
+<ul>
+<li>Here it got the question with ease (granted, the slang term is well-established/less obscure than the previous examples…); let’s try to see if the model can predict a slang term that is more recent (from 2024-25):</li>
+</ul>
+</section>
+<section id="a-third-example-new-slang-term" class="level4">
+<h4 class="anchored" data-anchor-id="a-third-example-new-slang-term">A third example: New slang term</h4>
+<p><img src="pic6.png" width="75%"></p>
+<ul>
+<li>It picked up on the slang usage!</li>
+</ul>
+<blockquote class="blockquote">
+<p>This shows just how adaptable LLMs are, and how it learns to pick up modern language particularities.</p>
+</blockquote>
 
 
+</section>
+</section>
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TExNcyUyQ29wZW4lMjB3ZWlnaHQlMjBtb2RlbHMlMkNwcm9tcHRpbmc=" data-listing-date-sort="1741564800000" data-listing-file-modified-sort="1742914551808" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="612">
-<div class="thumbnail">
-<p><a href="./posts/Post4_Feb_10-16/Post4_Feb_10-14.html" class="no-external"></a></p><a href="./posts/Post4_Feb_10-16/Post4_Feb_10-14.html" class="no-external">
-<p class="card-img-top"><img src="posts/Post4_Feb_10-16/pic1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/Post4_Feb_10-16/Post4_Feb_10-14.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Post4_Feb_10-16/Post4_Feb_10-14.html" class="no-external">Model Comparison</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Post4_Feb_10-16/Post4_Feb_10-14.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('b3BlbiUyMHdlaWdodCUyMG1vZGVscw=='); return false;">
-open weight models
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvbXB0aW5n'); return false;">
-prompting
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Post4_Feb_10-16/Post4_Feb_10-14.html" class="no-external">Testing out Different Open Weight Models</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/Post4_Feb_10-16/Post4_Feb_10-14.html" class="no-external">
-<div class="listing-date">
-Mar 10, 2025
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="TExNcyUyQ3Byb2JhYmlsaXR5JTJDZW1iZWRkaW5n" data-listing-date-sort="1739750400000" data-listing-file-modified-sort="1742914551810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
-<div class="thumbnail">
-<p><a href="./posts/Post5_Feb_17-23_Week3/Post_5.html" class="no-external"></a></p><a href="./posts/Post5_Feb_17-23_Week3/Post_5.html" class="no-external">
-<p class="card-img-top"><img src="posts/Post5_Feb_17-23_Week3/pic1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/Post5_Feb_17-23_Week3/Post_5.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Post5_Feb_17-23_Week3/Post_5.html" class="no-external">Fill in the Blank</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Post5_Feb_17-23_Week3/Post_5.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvYmFiaWxpdHk='); return false;">
-probability
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ZW1iZWRkaW5n'); return false;">
-embedding
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Post5_Feb_17-23_Week3/Post_5.html" class="no-external">Testing Probabilistic Text Generation</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/Post5_Feb_17-23_Week3/Post_5.html" class="no-external">
-<div class="listing-date">
-Feb 17, 2025
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="TExNcyUyQ3Byb21wdGluZyUyQ3Byb21wdCUyMGVuZ2luZWVyaW5n" data-listing-date-sort="1739145600000" data-listing-file-modified-sort="1742914551801" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="564">
-<div class="thumbnail">
-<p><a href="./posts/Post3_Feb_10-16_Week2/Post3.html" class="no-external"></a></p><a href="./posts/Post3_Feb_10-16_Week2/Post3.html" class="no-external">
-<p class="card-img-top"><img src="posts/Post3_Feb_10-16_Week2/Pic1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/Post3_Feb_10-16_Week2/Post3.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Post3_Feb_10-16_Week2/Post3.html" class="no-external">How to Get the Best Response</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Post3_Feb_10-16_Week2/Post3.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvbXB0aW5n'); return false;">
-prompting
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvbXB0JTIwZW5naW5lZXJpbmc='); return false;">
-prompt engineering
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Post3_Feb_10-16_Week2/Post3.html" class="no-external">Prompt Engineering &amp; Response Optimization</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/Post3_Feb_10-16_Week2/Post3.html" class="no-external">
-<div class="listing-date">
-Feb 10, 2025
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="LWdlbmVyYXRpdmUlMjBBSSUyMC1Qcm9tcHRpbmclMjAtTG9naWMlMkMlMjBjYWxjdWxhdGlvbnM=" data-listing-date-sort="1738540800000" data-listing-file-modified-sort="1742914551793" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="749">
-<div class="thumbnail">
-<p><a href="./posts/Post1_Feb_3-9_Week1/Post_1.html" class="no-external"></a></p><a href="./posts/Post1_Feb_3-9_Week1/Post_1.html" class="no-external">
-<p class="card-img-top"><img src="posts/Post1_Feb_3-9_Week1/pic1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/Post1_Feb_3-9_Week1/Post_1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Post1_Feb_3-9_Week1/Post_1.html" class="no-external">Chatgpt: Can It Really Perform Simple Calculations?</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Post1_Feb_3-9_Week1/Post_1.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('LWdlbmVyYXRpdmUlMjBBSSUyMC1Qcm9tcHRpbmclMjAtTG9naWMlMkMlMjBjYWxjdWxhdGlvbnM='); return false;">
--generative AI -Prompting -Logic, calculations
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Post1_Feb_3-9_Week1/Post_1.html" class="no-external">Using Chatgpt to answer math problems</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/Post1_Feb_3-9_Week1/Post_1.html" class="no-external">
-<div class="listing-date">
-Feb 3, 2025
-</div>
-<div class="listing-author">
-An LLM user
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="TExNcyUyQ3dvcmQlMjBwcmVkaWN0aW9uJTJDcHJvYmFiaWxpdGllcw==" data-listing-date-sort="1706832000000" data-listing-file-modified-sort="1742914551799" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="283">
-<div class="thumbnail">
-<p><a href="./posts/Post2_Feb_3-9_Week1/Post2.html" class="no-external"></a></p><a href="./posts/Post2_Feb_3-9_Week1/Post2.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/Post2_Feb_3-9_Week1/Post2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Post2_Feb_3-9_Week1/Post2.html" class="no-external">Language Mdoels &amp; Word Prediction</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Post2_Feb_3-9_Week1/Post2.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('d29yZCUyMHByZWRpY3Rpb24='); return false;">
-word prediction
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvYmFiaWxpdGllcw=='); return false;">
-probabilities
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Post2_Feb_3-9_Week1/Post2.html" class="no-external">How Do Large Language Models Generate Answers</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/Post2_Feb_3-9_Week1/Post2.html" class="no-external">
-<div class="listing-date">
-Feb 2, 2024
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-categories="TExNcyUyQ3Byb21wdGluZyUyQ2xvZ2lj" data-listing-date-sort="1706832000000" data-listing-file-modified-sort="1742914551793" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="450">
-<div class="thumbnail">
-<p><a href="./posts/000_test_post/index.html" class="no-external"></a></p><a href="./posts/000_test_post/index.html" class="no-external">
-<p class="card-img-top"><img src="posts/000_test_post/gpt3-5.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/000_test_post/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/000_test_post/index.html" class="no-external">A test post</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/000_test_post/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TExNcw=='); return false;">
-LLMs
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('cHJvbXB0aW5n'); return false;">
-prompting
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('bG9naWM='); return false;">
-logic
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/000_test_post/index.html" class="no-external">An example post from a Jupyter notebook</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/000_test_post/index.html" class="no-external">
-<div class="listing-date">
-Feb 2, 2024
-</div>
-<div class="listing-author">
-An LLM User
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
