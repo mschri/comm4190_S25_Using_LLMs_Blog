@@ -1,8 +1,8 @@
 ---
-title: About
-image: profile.jpg
+title: About: Miranda's Blog Page
+image: upd_profile.jpeg
 about:
   template: jolla
 ---
 
-About this blog
+Hello, my name is Miranda and welcome to my blog page! Here, you'll see me running some experiments with different LLMs and writing about the various effects and outcomes. I'm a student from the University of Pennsylvania Annenberg School for Communications with a concentration in Data and Network Science, and am looking forward to graduating in May 2025. My interests lie in data and computer science, machine learning research, and keeping up with the latest feats in AI capabilities. This blog page is intended to be a creative outlet for which I can explore AI technology, and further my understanding how it works. Thank you for visiting my page and looking at some of my work!
