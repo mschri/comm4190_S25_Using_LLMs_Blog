@@ -1,5 +1,5 @@
 ---
-title: About: Miranda's Blog Page
+title: About Miranda's Page
 image: upd_profile.jpeg
 about:
   template: jolla

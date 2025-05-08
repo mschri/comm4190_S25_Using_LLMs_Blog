@@ -1,5 +1,5 @@
 ---
-title: Having Fun With LLMs: Experimenting with AI
+title: Experimenting with LLMs
 listing:
   contents: posts
   sort: date desc
