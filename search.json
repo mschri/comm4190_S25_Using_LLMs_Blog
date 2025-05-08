@@ -268,133 +268,133 @@
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html",
     "href": "posts/Post8_Feb24-Mar2/index.html",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "",
     "text": "As discussed before LLMs operate as a token-generation technology, in essence spitting out relevant words (tokens) based on what it was prompted…\n----&gt; through a circular process of probability assignment, in which words are more probable than others to be generated according to the initial request, and whose probabilities are updated and re-generated as the conversation proceeds...\nAnyways, the point is that with each user input the LLM “learns” (looks for patterns) and responds, according to what it learns with each successive prompt.\nIn most cases, an average conversation or set of queries by a user will involve similar, related topics that build off of each other. This is related to the concept of priming, in which the model is primed with a web of related information that you’re feeding it, and so it knows to respond and search for information within the realm of the topic.\n\n\nOne might want to read up on the key points of the Treaty of Versailles, &gt; Particularly its effect on Germany & theories speculating its punative measures as a significant cause of World War 2, for instance…\nA prime for the system might be the following user prompt:"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#priming",
     "href": "posts/Post8_Feb24-Mar2/index.html#priming",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "",
     "text": "As discussed before LLMs operate as a token-generation technology, in essence spitting out relevant words (tokens) based on what it was prompted…\n----&gt; through a circular process of probability assignment, in which words are more probable than others to be generated according to the initial request, and whose probabilities are updated and re-generated as the conversation proceeds...\nAnyways, the point is that with each user input the LLM “learns” (looks for patterns) and responds, according to what it learns with each successive prompt.\nIn most cases, an average conversation or set of queries by a user will involve similar, related topics that build off of each other. This is related to the concept of priming, in which the model is primed with a web of related information that you’re feeding it, and so it knows to respond and search for information within the realm of the topic.\n\n\nOne might want to read up on the key points of the Treaty of Versailles, &gt; Particularly its effect on Germany & theories speculating its punative measures as a significant cause of World War 2, for instance…\nA prime for the system might be the following user prompt:"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#chat-log",
     "href": "posts/Post8_Feb24-Mar2/index.html#chat-log",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "Chat Log",
     "text": "Chat Log"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#user",
     "href": "posts/Post8_Feb24-Mar2/index.html#user",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "User:",
     "text": "User:\nI came across some sources that claimed the Allied Forces in WW1 imposed too strict of reparation (and other) measures on the Central Powers, particularly Germany, which led to their severe debilitation and therefore pent up rage against the Allied powers that would manifest later on with another world war."
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#model-output-chatgpt-4o",
     "href": "posts/Post8_Feb24-Mar2/index.html#model-output-chatgpt-4o",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "Model Output (ChatGPT-4o):",
     "text": "Model Output (ChatGPT-4o):\nYes, you’re touching on a well-established and widely discussed historical interpretation of the aftermath of World War I, particularly in relation to the Treaty of Versailles (1919). Here’s a breakdown of that viewpoint and some nuances around it:\n\n\n💥 The Harsh Terms Imposed on Germany\nThe Treaty of Versailles, which officially ended WWI, placed heavy blame and burdens on Germany:\n\nWar Guilt Clause (Article 231):\n\nGermany had to accept full responsibility for causing the war.\nThis was politically and emotionally humiliating, especially since many Germans believed the war had been a shared fault.\n\nReparations:\n\nGermany was required to pay massive reparations to the Allied countries (initially set at 132 billion gold marks, an enormous sum).\nThese payments strained the already devastated German economy.\n\nTerritorial Losses:\n\nGermany lost about 13% of its territory and all its overseas colonies.\nKey areas like Alsace-Lorraine were returned to France, and new nations like Poland were formed with slices of German land.\n\nMilitary Restrictions:\n\nThe German army was limited to 100,000 troops.\nNo air force, submarines, or tanks allowed.\nThe Rhineland (bordering France) had to be demilitarized.\n\n\n\n\n\n📉 The Effects on Germany\n\nEconomic Collapse:\n\nHyperinflation in the early 1920s devastated savings and caused massive instability.\nThe Great Depression later compounded this suffering.\n\nNational Humiliation:\n\nMany Germans felt the treaty was a “Diktat”—a dictated peace forced upon them without negotiation.\nRight-wing groups used this sentiment to gain support, claiming the Weimar Republic (Germany’s postwar democratic government) had “stabbed Germany in the back.”\n\nRise of Extremism:\n\nThe Nazis, among others, capitalized on resentment toward the treaty.\nHitler frequently referenced the Treaty of Versailles in his speeches as a symbol of German victimhood and betrayal.\n\n\n\n\n\n🔄 Alternative Perspectives\nHistorians debate how unfair or unprecedented the treaty really was:\n\nSome argue the treaty was not unusually harsh by the standards of wartime treaties; Germany had imposed much harsher terms on Russia in the 1918 Treaty of Brest-Litovsk.\nOthers point out that the Allies never fully enforced the treaty’s terms. For instance, reparations were reduced multiple times and Germany eventually defaulted.\nThe economic chaos in Germany was also driven by internal issues, not just the treaty itself.\n\n\n\n\n🧭 So, Did the Treaty Cause WWII?\nThe Treaty of Versailles is often seen as a major contributing factor, but not the sole cause of World War II. Other key ingredients included:\n\nThe global economic downturn in the 1930s.\nThe failure of democratic governments in Europe.\nThe rise of fascism and militarism.\nWeak responses from the League of Nations and Western powers to early Nazi aggression.\n\n\nIf you’re interested, I can recommend a few books or documentaries that explore this in more depth. Want to dive deeper into any part of this?\n\nPriming: of the relationship between the Treaty, Germany, and WW2\nSo now the model is primed on the Treaty of Versailles, its effects on the German State, and relatedly its bigger picture influence on the cause of WW2. While it notes the effects of the Treaty were not a sole factor, we may see how it influences following prompts.\n\n\n\nSuccessive Prompts:\nMaybe one could ask what the effects of the Treaty were, and see how the previous response may impact its response with respect to what points it emphasizes."
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#chat-log-1",
     "href": "posts/Post8_Feb24-Mar2/index.html#chat-log-1",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "Chat Log:",
     "text": "Chat Log:"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#user-1",
     "href": "posts/Post8_Feb24-Mar2/index.html#user-1",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "User:",
     "text": "User:\nWhat were the effects of the Treaty of Versailles?"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#model-output",
     "href": "posts/Post8_Feb24-Mar2/index.html#model-output",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "Model Output:",
     "text": "Model Output:\nGreat question — the Treaty of Versailles, signed in 1919, had wide-ranging political, economic, and social effects, especially on Germany, but also on Europe and the world. Here’s a breakdown of the key effects:\n\n\n🇩🇪 Effects on Germany\n\n1. Political Instability\n\nThe treaty delegitimized the Weimar Republic, which signed the treaty under pressure.\nMany Germans saw the treaty as a betrayal and blamed democratic leaders for accepting it (“stab-in-the-back myth”).\nExtremist political movements like the Nazis and Communists gained popularity, feeding on national resentment and instability.\n\n\n\n2. Economic Hardship\n\nThe reparations demanded from Germany were enormous and contributed to:\n\nHyperinflation in the early 1920s (e.g., a loaf of bread cost billions of marks at one point).\nMassive debt, unemployment, and suffering for average Germans.\nDependency on foreign loans (like the U.S. Dawes Plan), which collapsed during the Great Depression.\n\n\n\n\n3. Military and National Humiliation\n\nThe treaty limited the German military to 100,000 troops, with no air force, submarines, or heavy weapons.\nGermans saw this as a national disgrace, fueling resentment.\nThe “War Guilt Clause” (Article 231) forced Germany to accept sole blame for the war, deepening the sense of injustice.\n\n\n\n\n\n🌍 Effects on Europe and the World\n\n1. Redrawing Borders\n\nThe Austro-Hungarian and Ottoman empires were dismantled.\nNew countries were formed: Poland, Czechoslovakia, Yugoslavia, etc.\nThese borders often ignored ethnic lines, creating tensions and minority issues that lingered for decades.\n\n\n\n2. Rise of Fascism and Nationalism\n\nThe treaty indirectly encouraged authoritarian regimes:\n\nIn Germany (Nazism)\nIn Italy (Fascism under Mussolini)\nIn other parts of Eastern Europe, where democracies failed\n\n\n\n\n3. Weakness of the League of Nations\n\nThe League of Nations was created to maintain peace, but:\n\nIt had no real enforcement power.\nThe U.S. never joined, weakening its credibility.\nIt failed to stop aggression in the 1930s (e.g., Japan in Manchuria, Italy in Ethiopia, Hitler in the Rhineland).\n\n\n\n\n4. Seed of WWII\n\nThe treaty failed to create lasting peace.\nGermany remained powerful enough to recover and retaliate, but too weak to feel secure.\nHitler used the treaty’s terms as a rallying cry to justify rearmament and expansion.\n\n\n\n\n\n🔄 Other Long-Term Effects\n\nColonialism: The treaty handed German colonies to Allied powers as “mandates,” reinforcing colonialism.\nU.S. Isolationism: The U.S. Senate rejected the treaty and the League of Nations, retreating from international involvement.\nDiplomatic Distrust: The harshness of Versailles led to efforts like the appeasement policies in the 1930s, which backfired.\n\n\nLet me know if you want a timeline, map visuals, or how other Central Powers (Austria, Hungary, Ottoman Empire) were affected — it’s all tied together in this big postwar puzzle.\nNotice here how the majority of points and facts mentioned when describing the treaty involve Germany and its infamous effects on this particular state. This is illustrated by a new conversation log that asks the same question:"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#chat-log-2",
     "href": "posts/Post8_Feb24-Mar2/index.html#chat-log-2",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "Chat Log:",
     "text": "Chat Log:"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#user-2",
     "href": "posts/Post8_Feb24-Mar2/index.html#user-2",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "User:",
     "text": "User:\nWhat were the effects of the Treaty of Versailles?"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#model",
     "href": "posts/Post8_Feb24-Mar2/index.html#model",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "Model:",
     "text": "Model:\nThe Treaty of Versailles, signed in 1919 to officially end World War I, had several major and far-reaching effects—politically, economically, and socially. Here are the key impacts:\n\n\n1. Punishment of Germany\n\nTerritorial Losses: Germany lost significant territory (e.g., Alsace-Lorraine to France, the Polish Corridor to Poland).\nMilitary Restrictions: The German army was limited to 100,000 troops, with no tanks, submarines, or air force allowed.\nWar Guilt Clause: Article 231 placed full blame for the war on Germany, which humiliated the country and fueled resentment.\nReparations: Germany was required to pay massive reparations, severely damaging its economy and contributing to hyperinflation in the early 1920s.\n\n\n\n\n2. Political Consequences\n\nInstability in Germany: The harsh terms contributed to political unrest, economic hardship, and ultimately the rise of extremist movements like the Nazi Party.\nDissolution of Empires: The Austro-Hungarian and Ottoman Empires were dismantled, leading to the creation of new nations and increased nationalism in Eastern Europe and the Middle East.\n\n\n\n\n3. League of Nations\n\nCreation of the League: Aimed to prevent future wars through diplomacy and collective security. However, it was weak and lacked enforcement power.\nU.S. Non-Participation: The U.S. Senate refused to ratify the treaty, so the U.S. never joined the League, weakening its influence.\n\n\n\n\n4. Seeds of World War II\n\nThe treaty is widely considered a contributing factor to World War II. The punitive nature of the treaty bred resentment in Germany, which Adolf Hitler exploited to gain support and ultimately start another war.\n\n\n\n\n5. Colonial Reallocations\n\nFormer German colonies and Ottoman territories were redistributed among the Allied powers through the mandate system, often ignoring local populations’ wishes and fostering future conflicts.\n\n\nLet me know if you want this broken down for a presentation, paper, or specific region (like how it affected the Middle East or Eastern Europe).\n\n\nExample 2:\nOne might ask about another historical event, say, the Glorious Revolution. &gt;This famous turning point in history led to one of the most significant developments in democratic rule\nHighlighting more specifically the political effects of this revolution might prime the machine to think more critically about democracy, limited monarchy, human rights, and so forth. So, what might it think about the current English monarchy given this prime?"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#user-original-prompt",
     "href": "posts/Post8_Feb24-Mar2/index.html#user-original-prompt",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "User (original prompt):",
     "text": "User (original prompt):\nWhat were the most famous and influential political effects of the Glorious Revolution?"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#model-1",
     "href": "posts/Post8_Feb24-Mar2/index.html#model-1",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "Model:",
     "text": "Model:\nThe Glorious Revolution of 1688–1689 was a pivotal moment in British history with far-reaching political consequences, both in Britain and beyond. Here are the most famous and influential political effects:\n\n\n1. Establishment of Constitutional Monarchy\n\nThe Glorious Revolution effectively ended the idea of absolute monarchy in England.\nWilliam III and Mary II ascended the throne under the condition that they accepted limits on royal power, setting the precedent that monarchs rule with the consent of Parliament, not by divine right.\n\n\n\n\n2. Bill of Rights (1689)\n\nThis was a landmark document that:\n\nLimited the powers of the monarchy\nAffirmed Parliament’s supremacy over the crown\nGuaranteed certain individual rights, such as:\n\nFree speech in Parliament\nRegular elections\nProhibition of cruel and unusual punishments\n\n\nThe Bill of Rights became a foundational document for liberal democracy and heavily influenced later documents like the U.S. Constitution and the Declaration of the Rights of Man in France.\n\n\n\n\n3. Rise of Parliamentary Sovereignty\n\nThe revolution marked the real start of a parliamentary government in England.\nParliament gained control over taxation, the army, and legislation, which became core features of modern constitutional governance.\n\n\n\n\n4. Toleration Act of 1689\n\nWhile it didn’t provide complete religious freedom, it granted limited toleration to non-Anglican Protestants, such as Baptists and Presbyterians.\nIt excluded Catholics, reinforcing anti-Catholic laws, but still marked a step toward religious pluralism.\n\n\n\n\n5. Shift in Political Thought\n\nInspired political theorists like John Locke, whose work on natural rights and government by consent became incredibly influential.\nLocke’s Two Treatises of Government (published shortly after the revolution) justified the right of people to overthrow a government that violated their rights—laying ideological groundwork for later democratic revolutions.\n\n\n\n\n6. Impact on British Colonies\n\nThe Glorious Revolution influenced colonial governance, especially in North America:\n\nColonists began to assert more self-governance.\nIt influenced early American political ideas about liberty, rights, and resistance to tyranny.\nContributed to a legacy of limited government and constitutionalism in the Anglo-American world.\n\n\n\nWant a quick summary version of this, like for a study guide or flashcard?\n\n\nAfter the prime:"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#chat-log-4",
     "href": "posts/Post8_Feb24-Mar2/index.html#chat-log-4",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "Chat Log",
     "text": "Chat Log"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#user-3",
     "href": "posts/Post8_Feb24-Mar2/index.html#user-3",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "User:",
     "text": "User:\nWhat are your opinions on the English monarchy"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#model-2",
     "href": "posts/Post8_Feb24-Mar2/index.html#model-2",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "## Model:",
     "text": "## Model:\nI don’t have personal opinions, but I can break down the different perspectives people have on the English (or more accurately, British) monarchy—and how those views have evolved, especially in the modern era. Here’s a quick take on both sides:\n\n\n🏛️ Supporters say:\n\nStability & Tradition: The monarchy is a symbol of continuity, especially in times of political change or crisis.\nNon-political Leadership: Monarchs serve as apolitical figureheads, unifying the nation beyond party lines.\nCultural & Economic Impact: Royal events (like weddings, jubilees, funerals) draw global attention and boost tourism and soft power.\nCharity & Diplomacy: Members of the royal family engage in philanthropy and international diplomacy, often supporting important causes.\n\n\n\n\n👑 Critics argue:\n\nUndemocratic: The monarchy is inherited, not elected—so it conflicts with modern democratic ideals.\nCost to Taxpayers: Maintaining the monarchy costs millions, and some question whether the value it provides justifies the expense.\nColonial Legacy: The British monarchy is closely tied to the history of empire and colonialism, which remains a source of criticism, especially in former colonies.\nCultural Relevance: Some see the monarchy as outdated, especially younger generations who may not feel as connected to its symbolism.\n\n\n\n\n🧠 Historically Speaking:\nThe monarchy has transformed dramatically from the days of royal absolutism (e.g., Henry VIII) to today’s constitutional monarchy, where the monarch has no real political power and acts on the advice of Parliament.\n\nSo overall, the monarchy is a cultural institution with symbolic importance—but whether it remains relevant or necessary is still very much debated, especially as the UK continues to evolve politically and socially.\nDo you lean one way or the other on it?\n\n\n\nOnce again…\nthis effect is best illuminated by contrasting this response with another given the same prompt, but within a new conversation."
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#chat-log-5",
     "href": "posts/Post8_Feb24-Mar2/index.html#chat-log-5",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "Chat Log",
     "text": "Chat Log"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#user-4",
     "href": "posts/Post8_Feb24-Mar2/index.html#user-4",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "User:",
     "text": "User:\nWhat are your opinions on the English monarchy"
   },
   {
     "objectID": "posts/Post8_Feb24-Mar2/index.html#model-3",
     "href": "posts/Post8_Feb24-Mar2/index.html#model-3",
-    "title": "Context Window Memory Test",
+    "title": "What’s ChatGPT’s Opinion on WW1?",
     "section": "Model:",
     "text": "Model:\n\nThe English monarchy is a fascinating institution with a deep history, blending tradition and modernity. It’s a symbol of continuity, connecting the present with centuries of history. For many, the monarchy is a source of national pride, representing stability, national identity, and cultural heritage. On the other hand, some question its relevance in modern society, particularly with debates around its role in politics and finances.\nThe monarchy itself has evolved over time, especially in terms of its influence. It no longer holds political power in the same way it did centuries ago but remains a key figurehead for national unity and international diplomacy. Some appreciate the ceremonial role it plays in the UK’s culture, while others argue that it might be time to reassess the institution’s place in a modern democracy.\nWhat’s your take on it?\n\n\nNotice here, how the response is not nearly as extensive and there’s less mention of the democratic implications.\n\nThis is all to show how the more information that is fed into the system, the more detailed and in-depth it goes into generating responses, and how such information influences its following outputs (This also speaks to some effective prompting techniques, and maximizing the level of information/ specificity in an output!)."
   },
@@ -438,6 +438,6 @@
     "href": "index.html",
     "title": "My Explorations with LLMs",
     "section": "",
-    "text": "Is ChatGPT Utilitarian or Deontological?\n\n\n\nLLMs\n\nethics\n\nprompting\n\n\n\nTesting the effects of priming on ethical responses of LLMs\n\n\n\n\n\nMar 17, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nPart 2: Image Analysis between ChatGPT & Claude\n\n\n\nLLMs\n\nimage analysis\n\nprompting\n\n\n\nComparing image analysis between two LLMs\n\n\n\n\n\nMar 12, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nPart 1: Image Generation between ChatGPT & Claude\n\n\n\nLLMs\n\nimage generation\n\nprompting\n\n\n\nComparing image generation across two different proprietary models\n\n\n\n\n\nMar 10, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nContext Window Memory Test\n\n\n\ncontext windows\n\nLLMs\n\nprompting\n\n\n\nExamining How Much Context a Model Retains Over Conversation\n\n\n\n\n\nFeb 28, 2025\n\n\nAn LLM User\n\n\n\n\n\n\n\n\n\n\n\n\nContext Window Memory Test\n\n\n\ncontext windows\n\nLLMs\n\nprompting\n\n\n\nExamining How Much Context a Model Retains Over Conversation\n\n\n\n\n\nFeb 28, 2025\n\n\nAn LLM User\n\n\n\n\n\n\n\n\n\n\n\n\nDecode the Message\n\n\n\nLLMs\n\ncontext understanding\n\n\n\nHow Well Can LLMs Predict Patterns and Mappings?\n\n\n\n\n\nFeb 20, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nFill in the Blank\n\n\n\nLLMs\n\nprobability\n\nembedding\n\n\n\nTesting Probabilistic Text Generation\n\n\n\n\n\nFeb 17, 2025\n\n\nAn LLM User\n\n\n\n\n\n\n\n\n\n\n\n\nModel Comparison\n\n\n\nLLMs\n\nopen weight models\n\nprompting\n\n\n\nTesting out Different Open Weight Models\n\n\n\n\n\nFeb 14, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Get the Best Response\n\n\n\nLLMs\n\nprompting\n\nprompt engineering\n\n\n\nPrompt Engineering & Response Optimization\n\n\n\n\n\nFeb 10, 2025\n\n\nAn LLM User\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage Mdoels & Word Prediction\n\n\n\nLLMs\n\nword prediction\n\nprobability\n\n\n\nHow Do Large Language Models Generate Answers\n\n\n\n\n\nFeb 5, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nChatgpt: Can It Really Perform Simple Calculations?\n\n\n\n-generative AI -Prompting -Logic, calculations\n\n\n\nUsing Chatgpt to answer math problems\n\n\n\n\n\nFeb 3, 2025\n\n\nAn LLM user\n\n\n\n\n\n\n\n\n\n\n\n\nA test post\n\n\n\nLLMs\n\nprompting\n\nlogic\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nFeb 2, 2024\n\n\nAn LLM User\n\n\n\n\n\nNo matching items"
+    "text": "Is ChatGPT Utilitarian or Deontological?\n\n\n\nLLMs\n\nethics\n\nprompting\n\n\n\nTesting the effects of priming on ethical responses of LLMs\n\n\n\n\n\nMar 17, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nPart 2: Image Analysis between ChatGPT & Claude\n\n\n\nLLMs\n\nimage analysis\n\nprompting\n\n\n\nComparing image analysis between two LLMs\n\n\n\n\n\nMar 12, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nPart 1: Image Generation between ChatGPT & Claude\n\n\n\nLLMs\n\nimage generation\n\nprompting\n\n\n\nComparing image generation across two different proprietary models\n\n\n\n\n\nMar 10, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nWhat’s ChatGPT’s Opinion on WW1?\n\n\n\npriming\n\nLLMs\n\nprompting\n\n\n\nExamining the Effects of Priming on Model Output\n\n\n\n\n\nMar 5, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nContext Window Memory Test\n\n\n\ncontext windows\n\nLLMs\n\nprompting\n\n\n\nExamining How Much Context a Model Retains Over Conversation\n\n\n\n\n\nFeb 28, 2025\n\n\nAn LLM User\n\n\n\n\n\n\n\n\n\n\n\n\nDecode the Message\n\n\n\nLLMs\n\ncontext understanding\n\n\n\nHow Well Can LLMs Predict Patterns and Mappings?\n\n\n\n\n\nFeb 20, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nFill in the Blank\n\n\n\nLLMs\n\nprobability\n\nembedding\n\n\n\nTesting Probabilistic Text Generation\n\n\n\n\n\nFeb 17, 2025\n\n\nAn LLM User\n\n\n\n\n\n\n\n\n\n\n\n\nModel Comparison\n\n\n\nLLMs\n\nopen weight models\n\nprompting\n\n\n\nTesting out Different Open Weight Models\n\n\n\n\n\nFeb 14, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Get the Best Response\n\n\n\nLLMs\n\nprompting\n\nprompt engineering\n\n\n\nPrompt Engineering & Response Optimization\n\n\n\n\n\nFeb 10, 2025\n\n\nAn LLM User\n\n\n\n\n\n\n\n\n\n\n\n\nLanguage Mdoels & Word Prediction\n\n\n\nLLMs\n\nword prediction\n\nprobability\n\n\n\nHow Do Large Language Models Generate Answers\n\n\n\n\n\nFeb 5, 2025\n\n\nMiranda Schriver\n\n\n\n\n\n\n\n\n\n\n\n\nChatgpt: Can It Really Perform Simple Calculations?\n\n\n\n-generative AI -Prompting -Logic, calculations\n\n\n\nUsing Chatgpt to answer math problems\n\n\n\n\n\nFeb 3, 2025\n\n\nAn LLM user\n\n\n\n\n\n\n\n\n\n\n\n\nA test post\n\n\n\nLLMs\n\nprompting\n\nlogic\n\n\n\nAn example post from a Jupyter notebook\n\n\n\n\n\nFeb 2, 2024\n\n\nAn LLM User\n\n\n\n\n\nNo matching items"
   }
 ]
