@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Miranda Schriver">
+<meta name="dcterms.date" content="2025-03-12">
+<meta name="description" content="Comparing image analysis between two LLMs">
+
+<title>Part 2: Image Analysis between ChatGPT &amp; Claude – My Explorations with LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e36ce5c26c48eccda62d8cde5e438854.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">My Explorations with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Part 2: Image Analysis between ChatGPT &amp; Claude</h1>
+                  <div>
+        <div class="description">
+          Comparing image analysis between two LLMs
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">image analysis</div>
+                <div class="quarto-category">prompting</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Miranda Schriver </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 12, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="image-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="image-analysis">Image Analysis</h2>
+<p>In Part 1 of this blog series, we compared how Claude and ChatGPT fare with producing images, looking at its quality, content, and reasoning behind the images it chose to produce (without any additional guideline on this generative process). While these experiments can certainly be extended by prompting each of the models to produce specific images and testing their creative capacities, this would only hammer home ChatGPT’s versatility and superior ability to produce high-quality images. So, I decided that another distinctive feature between the two models is their analytical abilities within this realm, which Claude may have ChatGPT beat.</p>
+</section>
+<section id="claudes-upper-hand" class="level2">
+<h2 class="anchored" data-anchor-id="claudes-upper-hand">Claude’s Upper-hand</h2>
+<p>As it was mentioned in the last blog, ChatGPT’s integration of DALL-E3 makes for a more creative model whose images themselves are of a higher tier compared to Claude. However, Claude on the other excels in analyzing material like complex documents and images, despite the fact that it doesn’t do an excellent job generating them.</p>
+<ul>
+<li>Claude’s integration of the <strong>Artifacts system</strong> allows it do proceed in high-quality content analysis, which is a tool used to store and manage data referenced as “artifacts.”</li>
+</ul>
+<p>So, another potentially interesting form of experimentation could involve testing their analytical abilities!</p>
+<section id="what-does-it-see" class="level3">
+<h3 class="anchored" data-anchor-id="what-does-it-see">What does it see?</h3>
+<section id="first-picture" class="level4">
+<h4 class="anchored" data-anchor-id="first-picture">First picture:</h4>
+<p>The following pictures were input into both ChatGPT and Claude in new chat logs:</p>
+<p><img src="img1.png" width="60%"></p>
+<ul>
+<li>This image was generated by Claude in the previous blog post</li>
+</ul>
+</section>
+<section id="second-picture" class="level4">
+<h4 class="anchored" data-anchor-id="second-picture">Second picture:</h4>
+<p><img src="img2.png" width="60%"></p>
+<ul>
+<li>This image was generated by ChatGPT in the previous blog</li>
+</ul>
+</section>
+<section id="questions" class="level4">
+<h4 class="anchored" data-anchor-id="questions">Questions:</h4>
+<p>The associated questions for each image were as follows (the exact same sentences used per model to ensure prompt uniformity and control for any variation due to prompting in the output), and only one chat log was recorded per :</p>
+<pre><code>(1) Describe the following image for me: &lt;copy and pasted image code/screenshot&gt;*
+(2) Can you tell me what is happening in this image?
+(3) What are the most important visual elements?
+(4) What is the mood or feeling conveyed by this image?</code></pre>
+<section id="this-was-from-the-second-chat-log-with-claude-described-by-the-previous-blog-post-or-from-the-third-log-with-chatgpt-respectively" class="level6">
+<h6 class="anchored" data-anchor-id="this-was-from-the-second-chat-log-with-claude-described-by-the-previous-blog-post-or-from-the-third-log-with-chatgpt-respectively">*this was from the second chat log with Claude described by the previous blog post, or from the third log with ChatGPT, respectively</h6>
+</section>
+</section>
+</section>
+</section>
+<section id="claude-vs-chatgpt-chat-log-comparisons-per-question-for-the-first-claude-generated-photo" class="level2">
+<h2 class="anchored" data-anchor-id="claude-vs-chatgpt-chat-log-comparisons-per-question-for-the-first-claude-generated-photo">Claude vs ChatGPT: Chat log comparisons per question for the first (Claude-generated) photo</h2>
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1"><em>Question 1</em>:</h3>
+<blockquote class="blockquote">
+<h3 id="claude" class="anchored"><strong>Claude</strong>:</h3>
+</blockquote>
+<p>The image shows a serene nature landscape created with SVG graphics. It depicts:</p>
+<p>The scene has a light blue sky as the background. In the upper right corner, there’s a bright yellow sun with a subtle glow around it.</p>
+<p>The landscape features rolling mountains in two layers - a lighter green range in the background and a darker green range in the foreground, creating a sense of depth.</p>
+<p>In the center of the image is a blue oval lake or pond nestled among the mountains.</p>
+<p>There are two detailed evergreen trees in the scene - one smaller tree on the left side and a larger, more prominent tree on the right side. Both trees have brown trunks and triangular green foliage layers that get smaller toward the top, creating the classic pine tree shape.</p>
+<p>The sky contains two fluffy white cloud formations - one smaller group on the left side and a larger, more substantial cloud formation on the right side.</p>
+<p>Finally, there are two small birds flying in the sky, depicted as simple curved black lines representing their silhouettes in flight.</p>
+<p>Overall, it’s a peaceful nature scene with mountains, trees, water, and sky elements creating a serene outdoor landscape.</p>
+<blockquote class="blockquote">
+<h3 id="chatgpt" class="anchored"><strong>ChatGPT</strong>:</h3>
+</blockquote>
+<p>The image is a peaceful nature scene rendered in vector graphics. Here’s a detailed description:</p>
+<ul>
+<li><p><strong>Sky</strong>: A bright blue sky (<code>#87CEEB</code>) fills the background, suggesting a clear day.</p></li>
+<li><p><strong>Sun</strong>: A yellow sun (<code>#FFD700</code>) shines from the upper right corner with a glow effect created by a semi-transparent outer circle.</p></li>
+<li><p><strong>Mountains</strong>: Two layers of green mountains dominate the midground:</p>
+<ul>
+<li>The <strong>background mountains</strong> are olive green (<code>#6B8E23</code>), with jagged peaks.</li>
+<li>The <strong>foreground mountains</strong> are a darker shade (<code>#556B2F</code>), giving a sense of depth.</li>
+</ul></li>
+<li><p><strong>Lake</strong>: At the bottom of the scene is a large, oval-shaped lake colored in steel blue (<code>#4682B4</code>), reflecting the sky.</p></li>
+<li><p><strong>Trees</strong>: Two stylized evergreen trees stand on either side of the lake:</p>
+<ul>
+<li>The one on the left (near coordinates 150, 320) is shorter, with three stacked green triangles (<code>#2E8B57</code>) and a brown trunk (<code>#8B4513</code>).</li>
+<li>The one on the right (at 650, 290) is taller, similarly layered with green foliage and a thicker trunk.</li>
+</ul></li>
+<li><p><strong>Clouds</strong>: Fluffy white clouds hover in the sky, grouped over the left and right sides, made of overlapping ellipses.</p></li>
+<li><p><strong>Birds</strong>: Two flying birds are illustrated with simple curved black lines, resembling “M” shapes, indicating flight.</p></li>
+</ul>
+<p>The overall mood is calm and scenic, with a balance of natural elements in a stylized, cartoon-like format.</p>
+<p>Would you like this scene translated into another style, like a painting or a nighttime version?</p>
+</section>
+<section id="takeaways" class="level3">
+<h3 class="anchored" data-anchor-id="takeaways">Takeaways:</h3>
+<p>Ok, so ChatGPT generated a more structured response compared to Claude in this case; it gave a more in depth, detailed breakdown of each visual component (i.e.&nbsp;described the sky, trees, lakes, mountains, etc.), while Claude provided a descriptive paragraph.</p>
+</section>
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2"><em>Question 2</em>:</h3>
+<blockquote class="blockquote">
+<h3 id="claude-1" class="anchored"><strong>Claude</strong>:</h3>
+</blockquote>
+<p>Looking more closely at the image, this is a tranquil nature scene depicting a peaceful day in a mountain landscape.</p>
+<p>The bright sun is shining in the corner of a clear blue sky, while a few fluffy white clouds float gently across it. Two small birds are soaring through the air, perhaps enjoying the pleasant weather.</p>
+<p>The scene shows multiple layers of rolling green mountains or hills in the distance, with a calm blue lake nestled in the valley below. Two evergreen trees stand at different points along the shore - one smaller tree on the left side and a taller, more prominent one on the right.</p>
+<p>There’s no human activity or buildings visible - it’s simply a serene natural landscape capturing a quiet moment in the wilderness. The style is somewhat minimalist and stylized rather than photorealistic, giving it a peaceful, gentle atmosphere.</p>
+<blockquote class="blockquote">
+<h3 id="chatgpt-1" class="anchored"><strong>ChatGPT</strong>:</h3>
+</blockquote>
+<p>This image depicts a tranquil <strong>natural landscape</strong> scene, likely in the <strong>early morning or late afternoon</strong> based on the sun’s position. Here’s what’s happening in the image:</p>
+<ol type="1">
+<li><p><strong>The sun is shining brightly</strong> from the upper right, casting a warm light across the scene. The faint glow suggests it may be rising or setting.</p></li>
+<li><p><strong>Two flocks of birds</strong> are flying through the sky, gliding peacefully—this adds a sense of movement and life.</p></li>
+<li><p><strong>Clouds</strong> drift calmly in the sky, further emphasizing the serene weather.</p></li>
+<li><p><strong>Two layers of mountains</strong> create depth:</p>
+<ul>
+<li>The darker foreground mountains suggest the viewer is closer to them.</li>
+<li>The lighter background mountains recede into the distance.</li>
+</ul></li>
+<li><p><strong>A large lake</strong> reflects the sky near the bottom of the image, implying stillness and quiet.</p></li>
+<li><p><strong>Two evergreen trees</strong>, one on each side of the lake, frame the landscape and add a forested feel.</p></li>
+<li><p>Overall, the scene shows a <strong>peaceful moment in nature</strong>, with no human activity—just birds, trees, water, and mountains under a clear blue sky.</p></li>
+</ol>
+<p>Nothing dramatic is “happening” in terms of events; instead, the image captures a <strong>moment of quiet natural beauty</strong>.</p>
+<p>Would you like me to turn this into a short story or narrative?</p>
+</section>
+<section id="takeaways-1" class="level3">
+<h3 class="anchored" data-anchor-id="takeaways-1">Takeaways:</h3>
+<p>Once again, ChatGPT is perhaps a little more creative in its responses than Claude, offering more inferences in its impressions and extrapolating the nature of the photo (i.e.&nbsp;“likely in the early morning…based on the sun’s position”), speaking to its more creative capacities. However, one can appreciate here that Claude by contrast continually offers more natural, text-based conversations while ChatGPT sticks to the bulleted-break down.</p>
+</section>
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3"><em>Question 3</em>:</h3>
+<blockquote class="blockquote">
+<h3 id="claude-2" class="anchored"><strong>Claude</strong>:</h3>
+</blockquote>
+<p>The most important visual elements in this landscape are:</p>
+<ol type="1">
+<li><p>The layered mountains - They create the fundamental structure of the landscape, with their distinct light and dark green tones establishing depth and perspective in the scene.</p></li>
+<li><p>The blue lake - As a central focal point, the oval-shaped body of water draws attention and creates a natural resting place for the eye.</p></li>
+<li><p>The bright yellow sun - Positioned in the upper right corner, it serves as a key light source and visual anchor for the composition.</p></li>
+<li><p>The evergreen trees - They add vertical elements to the scene and provide scale, with their distinctive triangular shapes clearly identifying them as pine or fir trees.</p></li>
+<li><p>The white clouds - They break up the blue sky and add texture to the upper portion of the image.</p></li>
+</ol>
+<p>These elements work together to create a recognizable natural landscape that conveys a peaceful outdoor setting with classic scenic components.</p>
+<blockquote class="blockquote">
+<h3 id="chatgpt-2" class="anchored"><strong>ChatGPT</strong>:</h3>
+</blockquote>
+<p>The most important visual elements in this image—those that define its composition, mood, and focus—are:</p>
+<ol type="1">
+<li><p><strong>The Sun</strong>:</p>
+<ul>
+<li>Positioned high in the sky with a warm glow, it draws the eye and sets the time of day.</li>
+<li>It’s the main light source, establishing a bright, cheerful atmosphere.</li>
+</ul></li>
+<li><p><strong>The Mountains (Foreground and Background)</strong>:</p>
+<ul>
+<li>These layered green ranges create depth and perspective.</li>
+<li>Their jagged shapes guide the viewer’s gaze across the landscape.</li>
+</ul></li>
+<li><p><strong>The Lake</strong>:</p>
+<ul>
+<li>Centrally placed near the bottom, it serves as a peaceful focal point.</li>
+<li>Its reflective surface balances the sky above and grounds the image.</li>
+</ul></li>
+<li><p><strong>Trees</strong>:</p>
+<ul>
+<li>The two large stylized evergreens on either side frame the scene and introduce vertical contrast.</li>
+<li>They add a sense of scale and life to the landscape.</li>
+</ul></li>
+<li><p><strong>Birds in Flight</strong>:</p>
+<ul>
+<li>These small, curved black lines provide movement and narrative.</li>
+<li>They add liveliness and a sense of distance or vastness.</li>
+</ul></li>
+<li><p><strong>Clouds</strong>:</p>
+<ul>
+<li>Soft, overlapping ellipses that balance the composition horizontally.</li>
+<li>They contribute to the serene, natural setting.</li>
+</ul></li>
+</ol>
+<p>Each element works together to evoke a calm, balanced natural scene. The layering (sky, mountains, trees, lake) gives the image depth, while the sun and birds provide energy and visual interest.</p>
+<p>Would you like help emphasizing or rearranging any of these elements in a new version?</p>
+</section>
+<section id="takeaways-2" class="level3">
+<h3 class="anchored" data-anchor-id="takeaways-2">Takeaways:</h3>
+<p>ChatGPT tends to recycle the content of its responses, referring back to the bulleted elements and providing relatively less description per aspect. Claude on the other hand includes one less item, but slightly more description. In other words, Claude may emphasize quality over quantity while ChatGPT tends to focus on the opposite.</p>
+</section>
+<section id="question-4" class="level3">
+<h3 class="anchored" data-anchor-id="question-4"><em>Question 4</em>:</h3>
+<blockquote class="blockquote">
+<h3 id="claude-3" class="anchored"><strong>Claude</strong>:</h3>
+</blockquote>
+<p>The mood conveyed by this image is one of tranquility and serenity. Several elements work together to create this peaceful atmosphere:</p>
+<p>The soft blue sky and gentle yellow sun create a calm, clear day setting rather than dramatic weather conditions.</p>
+<p>The rolling mountains in soothing green tones suggest stability and permanence, arranged in a balanced, harmonious way across the landscape.</p>
+<p>The still lake at the center provides a sense of quietude and reflection, acting as a peaceful focal point.</p>
+<p>The fluffy white clouds float leisurely in the sky, suggesting gentle weather and unhurried time.</p>
+<p>The scattered trees and small birds add life to the scene without disrupting its calm, creating a subtle harmony between nature’s elements.</p>
+<p>The overall color palette of blue, green, and earth tones is inherently calming and reminiscent of natural settings where people often seek relaxation.</p>
+<p>The simplified, almost stylized representation of these natural elements gives the image a gentle, approachable quality rather than threatening or overwhelming grandeur.</p>
+<p>Together, these elements evoke feelings of peace, contentment, and gentle appreciation of nature - the kind of sentiment one might experience during a quiet moment at a mountain lake on a pleasant day.</p>
+<blockquote class="blockquote">
+<h3 id="chatgpt-3" class="anchored"><strong>ChatGPT</strong>:</h3>
+</blockquote>
+<p>The mood conveyed by this image is <strong>peaceful, calm, and serene</strong>. Several elements contribute to this feeling:</p>
+<ul>
+<li><strong>Soft Blue Sky and Gentle Clouds</strong>: These suggest a clear, mild day—free from tension or urgency.</li>
+<li><strong>Warm, Radiant Sun</strong>: Its glow creates a sense of comfort and tranquility, often associated with morning or evening calm.</li>
+<li><strong>Still Lake</strong>: The smooth surface of the water implies quietness and stillness, reinforcing the relaxed atmosphere.</li>
+<li><strong>Natural Colors</strong>: The greens of the trees and mountains, blues of the sky and lake, and golden sun all create a soothing, harmonious palette.</li>
+<li><strong>Flying Birds</strong>: Their gentle motion across the sky adds a touch of life without disrupting the calm.</li>
+</ul>
+<p>Overall, the image evokes a feeling of <strong>being at peace in nature</strong>, perhaps at a quiet mountain lake during a perfect moment of solitude or reflection.</p>
+<p>Would you like this scene to convey a different mood, like mystery, excitement, or melancholy?</p>
+</section>
+<section id="final-notes" class="level3">
+<h3 class="anchored" data-anchor-id="final-notes">Final notes:</h3>
+<p>Once again, Claude is far more descriptive and in-depth in its response compared to ChatGPT, which continues to refer back to the elements it already listed, never strays from it’s structured bulleted response, and adds little new information with each successive prompt.</p>
+<p>The second part of this experiment will follow the same structure, but now I will ask the model to analyze the photo generated by ChatGPT. In an effort to simplify and condense this reading for the sake of the reader, I’ll stick to comparing the two according to only two of the four questions above (especially seeing that the first part already highlighted some major differences already!).</p>
+<p><strong>The two questions included will just be the third and fourth (visual elements and feeling/emotion questions, respectively)</strong>.</p>
+</section>
+</section>
+<section id="comparisons-according-to-the-second-chatgpt-generated-photo" class="level2">
+<h2 class="anchored" data-anchor-id="comparisons-according-to-the-second-chatgpt-generated-photo">Comparisons According to the Second (ChatGPT generated) Photo</h2>
+<section id="question-3-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-3-1"><em>Question 3</em>:</h3>
+<blockquote class="blockquote">
+<h3 id="claude-4" class="anchored"><strong>Claude</strong>:</h3>
+</blockquote>
+<p>The image shows a serene landscape painting in the Hudson River School style, characterized by several important elements:</p>
+<ol type="1">
+<li>A prominent, rounded mountain or hill as the focal point in the middle distance</li>
+<li>A calm lake or river reflecting the sky</li>
+<li>Lush trees framing the scene, particularly a large tree on the left side</li>
+<li>A winding dirt path leading toward the water</li>
+<li>Dramatic clouds in a blue sky, with large cumulus formations</li>
+<li>Golden, warm lighting suggesting late afternoon</li>
+<li>A sense of untouched wilderness with no visible human structures</li>
+<li>A harmonious color palette of greens, blues, and golden hues</li>
+</ol>
+<p>The painting exemplifies 19th-century American romantic landscape tradition, emphasizing the beauty and tranquility of nature with idealized, carefully composed elements to create a peaceful, contemplative scene.</p>
+<blockquote class="blockquote">
+<h3 id="chatgpt-4" class="anchored"><strong>ChatGPT</strong>:</h3>
+</blockquote>
+<p>The image you provided appears to be a digitally rendered or painted landscape in a style reminiscent of the Hudson River School—romantic, detailed, and serene. Here are the most important visual elements:</p>
+<ol type="1">
+<li><p><strong>Central Mountain</strong>: The focal point of the composition is the mountain at the center, bathed in warm light. It draws the viewer’s eye and establishes a sense of grandeur and tranquility.</p></li>
+<li><p><strong>Lake/Body of Water</strong>: Just below the mountain, a calm reflective lake adds serenity and balance to the scene. It acts as a natural mirror, enhancing the light and atmosphere.</p></li>
+<li><p><strong>Trees and Foliage</strong>: The foreground and sides are framed by detailed, lush trees, with varied colors suggesting a transition in seasons (possibly late summer or early fall).</p></li>
+<li><p><strong>Pathway</strong>: A dirt path winds through the lower left of the image toward the water, guiding the viewer’s eye into the scene and adding a sense of depth and human presence, even if subtle.</p></li>
+<li><p><strong>Sky and Clouds</strong>: The expansive sky with large, fluffy clouds enhances the scale and mood, contributing to a peaceful and slightly majestic atmosphere.</p></li>
+<li><p><strong>Lighting and Color Palette</strong>: The warm, golden lighting indicates either morning or late afternoon. The soft contrast between the light on the mountain and the shadows in the trees gives the image depth and realism.</p></li>
+</ol>
+<p>Would you like a description that focuses more on emotional tone, artistic style, or potential symbolism?</p>
+</section>
+<section id="takeaways-3" class="level3">
+<h3 class="anchored" data-anchor-id="takeaways-3">Takeaways:</h3>
+<p>Claude’s vocabularly used to describe the image is maybe a touch more rich than that of ChatGPT, and is far more concise. However, ChatGPT does provide a lengthier, more extensive decomposition that doesn’t necessarily include redundant information, in essence saying more than Claude.</p>
+</section>
+<section id="question-4-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-4-1"><em>Question 4</em>:</h3>
+<blockquote class="blockquote">
+<h3 id="claude-5" class="anchored"><strong>Claude</strong>:</h3>
+</blockquote>
+<p>The mood conveyed by this image is one of profound tranquility and contemplative serenity. The painting evokes:</p>
+<p>A sense of peaceful harmony between all natural elements—the mountain, water, trees, and sky exist in perfect balance Quiet reverence for the unspoiled wilderness, characteristic of Romantic and Hudson River School aesthetics A feeling of timelessness and escape from the bustle of civilization Gentle optimism suggested by the warm, golden light and the inviting path leading forward A meditative quality that invites the viewer to pause and reflect Subtle grandeur that inspires awe without overwhelming drama</p>
+<p>The artist has created an idealized natural sanctuary that offers both comfort and spiritual elevation—a place where one might feel both humbled by nature’s beauty and renewed by its serenity.</p>
+<blockquote class="blockquote">
+<h3 id="chatgpt-5" class="anchored"><strong>ChatGPT</strong>:</h3>
+</blockquote>
+<p>The mood conveyed by this image is one of <strong>tranquil reverence and serene awe</strong>. Several elements contribute to this:</p>
+<ul>
+<li><strong>Soft, warm lighting</strong> evokes a peaceful time of day—likely early morning or late afternoon—suggesting calm and quiet reflection.</li>
+<li><strong>The still water</strong> and gently winding path invite a contemplative mood, as if encouraging the viewer to step into the scene and take a slow, thoughtful walk.</li>
+<li><strong>The majestic mountain</strong> in the background inspires a sense of wonder and humility, a hallmark of the sublime in romantic landscape art.</li>
+<li><strong>Balanced composition and natural harmony</strong> (lush trees, reflective water, soft clouds) promote a feeling of stability and order within nature.</li>
+</ul>
+<p>Overall, the image radiates a calm, timeless beauty that encourages <strong>peace, introspection, and a connection to nature</strong>.</p>
+<p>Would you like me to write a short narrative or poem inspired by this scene?</p>
+</section>
+<section id="final-final-notes" class="level3">
+<h3 class="anchored" data-anchor-id="final-final-notes">Final, FINAL notes:</h3>
+<p>Interestingly, for this question ChatGPT produced one of its shortest responses throughout this experiment. Howevever, with the exception of each’s structure, the content is fairly similar (i.e., both described it as inherently peaceful, introspective, or blissful). It’s also interesting to note ChatGPT after each question always ended with an opportunity to inquire further into the nature of the photo, e.g.&nbsp;asking about its metaphorical or symbolism implications, or to craft a story based on its elements.</p>
+<p><em>Because it asked this…</em> I decided to include one more question for the two models for each image:</p>
+<p><code>What is the symbolism or metaphorical implication of this image?</code></p>
+</section>
+<section id="photo-1-claude-generated" class="level3">
+<h3 class="anchored" data-anchor-id="photo-1-claude-generated">Photo 1 (Claude generated):</h3>
+<blockquote class="blockquote">
+<h3 id="claude-6" class="anchored"><strong>Claude</strong>:</h3>
+</blockquote>
+<p>The symbolism and metaphorical implications of this image include:</p>
+<ol type="1">
+<li><p>Harmony in nature - The balanced composition of sky, mountains, water, and trees represents the interconnectedness of natural elements and ecological harmony. Each component has its place in a greater whole, suggesting natural order and equilibrium.</p></li>
+<li><p>Perspective and life’s journey - The layered mountains with varying heights symbolize life’s challenges and accomplishments, with peaks and valleys representing ups and downs in our experiences. The path implied through the landscape can symbolize life’s journey.</p></li>
+<li><p>Reflection and contemplation - The central lake mirrors its surroundings, suggesting introspection and self-awareness. Lakes in imagery often represent the unconscious mind or a place for meditation and deeper understanding.</p></li>
+<li><p>Permanence and change - The mountains represent stability and permanence, while the birds and clouds symbolize freedom, transience, and constant movement - illustrating the duality of fixed and changing elements in our lives.</p></li>
+<li><p>Aspirational elements - The vertical components (trees reaching upward, mountains rising to peaks) symbolize growth, aspiration, and the human desire to elevate oneself. The birds flying freely in the sky represent liberation and transcendence.</p></li>
+<li><p>Simplicity and essential truth - The stylized, somewhat minimalist representation strips nature to its core elements, suggesting that beauty and meaning can be found in simplicity rather than complexity.</p></li>
+<li><p>Sanctuary and refuge - The protected valley scene with its calm lake and sheltering mountains evokes a sense of safe haven or retreat from the complexities of modern life.</p></li>
+</ol>
+<p>This type of landscape imagery has been used throughout art history to evoke both the literal beauty of natural settings and to serve as a visual metaphor for human emotional</p>
+<hr>
+<blockquote class="blockquote">
+<h3 id="chatgpt-6" class="anchored"><strong>ChatGPT</strong>:</h3>
+</blockquote>
+<p>This image carries several symbolic and metaphorical implications rooted in nature and its elements. Here’s a breakdown:</p>
+</section>
+<section id="the-sun" class="level3">
+<h3 class="anchored" data-anchor-id="the-sun">🌞 <strong>The Sun</strong></h3>
+<p><strong>Symbolism</strong>: Life, energy, clarity, hope</p>
+<ul>
+<li>Rising or shining brightly, the sun often represents <strong>new beginnings</strong>, <strong>enlightenment</strong>, or the <strong>promise of a new day</strong>.</li>
+<li>Its warm glow suggests <strong>positivity</strong>, <strong>growth</strong>, and <strong>optimism</strong>.</li>
+</ul>
+</section>
+<section id="mountains" class="level3">
+<h3 class="anchored" data-anchor-id="mountains">⛰️ <strong>Mountains</strong></h3>
+<p><strong>Symbolism</strong>: Strength, challenges, stability, spiritual ascent</p>
+<ul>
+<li>The layered mountains symbolize the <strong>journey of life</strong>—with ups and downs, near and far goals.</li>
+<li>The distant peaks can imply <strong>aspiration</strong> or <strong>the unknown future</strong>, while the closer ones may reflect current experiences or obstacles.</li>
+</ul>
+</section>
+<section id="the-lake" class="level3">
+<h3 class="anchored" data-anchor-id="the-lake">🌊 <strong>The Lake</strong></h3>
+<p><strong>Symbolism</strong>: Reflection, tranquility, emotional depth</p>
+<ul>
+<li>Still water often represents <strong>inner peace</strong> or <strong>self-reflection</strong>.</li>
+<li>It suggests a <strong>quiet mind</strong> or a <strong>moment of introspection</strong> amid life’s activity.</li>
+</ul>
+</section>
+<section id="trees" class="level3">
+<h3 class="anchored" data-anchor-id="trees">🌲 <strong>Trees</strong></h3>
+<p><strong>Symbolism</strong>: Growth, resilience, the cycle of life</p>
+<ul>
+<li>Evergreen trees, in particular, signify <strong>perseverance</strong> and <strong>continuity</strong> through changing seasons.</li>
+<li>Their presence on both sides may symbolize <strong>balance</strong> and <strong>protection</strong>.</li>
+</ul>
+</section>
+<section id="birds-in-flight" class="level3">
+<h3 class="anchored" data-anchor-id="birds-in-flight">🐦 <strong>Birds in Flight</strong></h3>
+<p><strong>Symbolism</strong>: Freedom, transcendence, perspective</p>
+<ul>
+<li>Birds soaring above the land often represent the <strong>soul’s liberation</strong>, <strong>higher perspective</strong>, or a <strong>journey beyond the physical</strong>.</li>
+<li>Their calm flight here may suggest a <strong>peaceful transition</strong> or <strong>mental clarity</strong>.</li>
+</ul>
+</section>
+<section id="clouds" class="level3">
+<h3 class="anchored" data-anchor-id="clouds">☁️ <strong>Clouds</strong></h3>
+<p><strong>Symbolism</strong>: Thought, mystery, or gentle change</p>
+<ul>
+<li>These clouds are light and scattered, which could symbolize <strong>fleeting thoughts</strong> or <strong>passing moments</strong>, reinforcing a meditative tone.</li>
+</ul>
+</section>
+<section id="overall-metaphor" class="level3">
+<h3 class="anchored" data-anchor-id="overall-metaphor">Overall Metaphor</h3>
+<p>This landscape can be seen as a <strong>metaphor for life itself</strong>:</p>
+<ul>
+<li>The <strong>sun</strong> brings promise.</li>
+<li>The <strong>mountains</strong> represent challenges and aspirations.</li>
+<li>The <strong>lake</strong> offers reflection and stillness.</li>
+<li>The <strong>trees</strong> suggest personal growth.</li>
+<li>The <strong>birds</strong> hint at freedom and perspective.</li>
+</ul>
+<p>Together, the scene may metaphorically depict a moment of <strong>inner peace and clarity</strong> during a broader journey—a pause in the midst of life’s path.</p>
+<p>Would you like to use this symbolism in a poem or short reflection?</p>
+<hr>
+</section>
+<section id="photo-2-chatgpt" class="level3">
+<h3 class="anchored" data-anchor-id="photo-2-chatgpt">Photo 2 (ChatGPT):</h3>
+<blockquote class="blockquote">
+<h3 id="claude-7" class="anchored"><strong>Claude</strong>:</h3>
+</blockquote>
+<p>The painting carries rich symbolism and metaphorical implications:</p>
+<p>The winding path represents life’s journey or the human quest for meaning—inviting the viewer to metaphorically enter and explore the landscape The mountain symbolizes spiritual aspiration, permanence, and the sublime—a connection between earth and heaven The reflective water suggests contemplation, self-awareness, and the mirroring of higher truths in the natural world The framing trees act as sentinels or guardians of this sacred space, with their upward growth symbolizing reaching toward enlightenment The dramatic clouds and clear sky represent the divine or transcendent realm hovering above earthly concerns The untouched wilderness embodies American ideals of pristine nature as a source of moral and spiritual renewal The golden light suggests divine presence or illumination, casting the scene in a moment of revelation</p>
+<p>This type of landscape emerged during a period when America was rapidly industrializing, making it a nostalgic counterpoint to progress—suggesting that in nature, humans could find moral clarity and spiritual truth that might be obscured in developing urban centers. The painting can be read as a visual meditation on humanity’s relationship with the natural world and our eternal search for meaning and peace.</p>
+<hr>
+<blockquote class="blockquote">
+<h3 id="chatgpt-7" class="anchored"><strong>ChatGPT</strong>:</h3>
+</blockquote>
+<p>This image is rich in <strong>symbolic and metaphorical implications</strong>, particularly within the tradition of romantic landscape art. Here are several potential interpretations:</p>
+</section>
+<section id="the-journey-and-ascent" class="level3">
+<h3 class="anchored" data-anchor-id="the-journey-and-ascent">1. <strong>The Journey and Ascent</strong></h3>
+<ul>
+<li>The winding path leading toward the lake and the <strong>central mountain</strong> can symbolize <strong>life’s journey</strong>—starting in the familiar (the wooded foreground), moving through reflection (the calm lake), and striving toward enlightenment or personal growth (the mountain peak).</li>
+<li>Mountains often symbolize <strong>aspiration, challenge, or spiritual elevation</strong>, suggesting that life involves a climb toward understanding or self-realization.</li>
+</ul>
+</section>
+<section id="nature-as-a-sacred-space" class="level3">
+<h3 class="anchored" data-anchor-id="nature-as-a-sacred-space">2. <strong>Nature as a Sacred Space</strong></h3>
+<ul>
+<li>The harmonious balance between land, water, and sky, along with the soft, golden light, evokes the idea of <strong>nature as divine</strong>—a place where one can find peace, clarity, or even the presence of something greater than oneself.</li>
+<li>The <strong>untouched wilderness</strong> may symbolize purity, truth, or the inner self, untouched by civilization.</li>
+</ul>
+</section>
+<section id="time-and-transience" class="level3">
+<h3 class="anchored" data-anchor-id="time-and-transience">3. <strong>Time and Transience</strong></h3>
+<ul>
+<li>The autumnal hints in the trees (especially the reddish one on the right) subtly suggest the <strong>passage of time</strong>, transition, or impermanence. This can reflect the idea that beauty is fleeting and must be appreciated in the moment.</li>
+</ul>
+</section>
+<section id="reflection-and-inner-peace" class="level3">
+<h3 class="anchored" data-anchor-id="reflection-and-inner-peace">4. <strong>Reflection and Inner Peace</strong></h3>
+<ul>
+<li>The stillness of the water symbolizes <strong>inner calm or self-reflection</strong>, implying that clarity and insight come from quiet observation and immersion in the natural world.</li>
+</ul>
+</section>
+<section id="metaphorically-the-image-could-represent" class="level3">
+<h3 class="anchored" data-anchor-id="metaphorically-the-image-could-represent">Metaphorically, the image could represent:</h3>
+<blockquote class="blockquote">
+<p>“A soul’s peaceful climb from confusion to clarity, through nature’s quiet wisdom.”</p>
+</blockquote>
+<p>Would you like me to interpret this image using a specific philosophical or cultural lens (e.g., Romanticism, Transcendentalism, Taoism)?</p>
+</section>
+<section id="final-final-absolutely-final-takeaways" class="level3">
+<h3 class="anchored" data-anchor-id="final-final-absolutely-final-takeaways">…final, final, absolutely FINAL takeaways!</h3>
+<p>There was a little bit of variation on the level of detail depending on which photo was being analyzed, for instance ChatGPT described more elements and was more expressive with its own photo (this was particularly notable with the symbolism/metaphor question in the last part of this analysis). This may have been also due to the fact that ChatGPT’s photo was of a higher quality than Claude’s. However, Claude was a little more consistent in its output, giving a similar amount of detail and attention across photos. So, while ChatGPT might be a little more creative at times, it depends on what it’s given; at least with Claude it’s more reliable in kinds of responses it generates, regardless of the quality or type of input!</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mschri\.github\.io\/comm4190_S25_Using_LLMs_Blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

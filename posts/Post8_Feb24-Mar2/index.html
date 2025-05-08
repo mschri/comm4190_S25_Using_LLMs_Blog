@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="An LLM User">
+<meta name="dcterms.date" content="2025-02-28">
+<meta name="description" content="Examining How Much Context a Model Retains Over Conversation">
+
+<title>Context Window Memory Test – My Explorations with LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e36ce5c26c48eccda62d8cde5e438854.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">My Explorations with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Context Window Memory Test</h1>
+                  <div>
+        <div class="description">
+          Examining How Much Context a Model Retains Over Conversation
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">context windows</div>
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">prompting</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>An LLM User </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 28, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="priming" class="level2">
+<h2 class="anchored" data-anchor-id="priming">Priming</h2>
+<p>As discussed before, LLMs operate as a token-generation technology, in essence spitting out relevant words (tokens) based on what it was prompted…</p>
+<pre><code>----&gt; through a circular process of probability assignment, in which words are more probable than others to be generated according to the initial request, and whose probabilities are updated and re-generated as the conversation proceeds...</code></pre>
+<p>Anyways, the point is that with each user input the LLM “learns” (looks for patterns) and responds, according to what it learns with each successive prompt.</p>
+<p>In most cases, an average conversation or set of queries by a user will involve similar, related topics that build off of each other. This is related to the concept of priming, in which the model is <strong>primed</strong> with a web of related information that you’re feeding it, and so it knows to respond and search for information within the realm of the topic.</p>
+<section id="for-instance" class="level4">
+<h4 class="anchored" data-anchor-id="for-instance">For instance,</h4>
+<p>One might want to read up on the key points of the Treaty of Versailles, &gt; Particularly its effect on Germany &amp; theories speculating its punative measures as a significant cause of World War 2, for instance…</p>
+<p>A prime for the system might be the following user prompt:</p>
+</section>
+</section>
+<section id="chat-log" class="level2">
+<h2 class="anchored" data-anchor-id="chat-log"><strong>Chat Log</strong></h2>
+</section>
+<section id="user" class="level2">
+<h2 class="anchored" data-anchor-id="user">User:</h2>
+<p>I came across some sources that claimed the Allied Forces in WW1 imposed too strict of reparation (and other) measures on the Central Powers, particularly Germany, which led to their severe debilitation and therefore pent up rage against the Allied powers that would manifest later on with another world war.</p>
+</section>
+<section id="model-output-chatgpt-4o" class="level2">
+<h2 class="anchored" data-anchor-id="model-output-chatgpt-4o">Model Output (ChatGPT-4o):</h2>
+<p>Yes, you’re touching on a well-established and widely discussed historical interpretation of the aftermath of <strong>World War I</strong>, particularly in relation to the <strong>Treaty of Versailles</strong> (1919). Here’s a breakdown of that viewpoint and some nuances around it:</p>
+<hr>
+<section id="the-harsh-terms-imposed-on-germany" class="level3">
+<h3 class="anchored" data-anchor-id="the-harsh-terms-imposed-on-germany">💥 The Harsh Terms Imposed on Germany</h3>
+<p>The Treaty of Versailles, which officially ended WWI, placed <strong>heavy blame and burdens</strong> on Germany:</p>
+<ol type="1">
+<li><strong>War Guilt Clause (Article 231):</strong>
+<ul>
+<li>Germany had to accept full responsibility for causing the war.</li>
+<li>This was politically and emotionally humiliating, especially since many Germans believed the war had been a shared fault.</li>
+</ul></li>
+<li><strong>Reparations:</strong>
+<ul>
+<li>Germany was required to pay massive reparations to the Allied countries (initially set at <strong>132 billion gold marks</strong>, an enormous sum).</li>
+<li>These payments strained the already devastated German economy.</li>
+</ul></li>
+<li><strong>Territorial Losses:</strong>
+<ul>
+<li>Germany lost about 13% of its territory and all its overseas colonies.</li>
+<li>Key areas like Alsace-Lorraine were returned to France, and new nations like Poland were formed with slices of German land.</li>
+</ul></li>
+<li><strong>Military Restrictions:</strong>
+<ul>
+<li>The German army was limited to 100,000 troops.</li>
+<li>No air force, submarines, or tanks allowed.</li>
+<li>The Rhineland (bordering France) had to be demilitarized.</li>
+</ul></li>
+</ol>
+<hr>
+</section>
+<section id="the-effects-on-germany" class="level3">
+<h3 class="anchored" data-anchor-id="the-effects-on-germany">📉 The Effects on Germany</h3>
+<ul>
+<li><strong>Economic Collapse:</strong>
+<ul>
+<li>Hyperinflation in the early 1920s devastated savings and caused massive instability.</li>
+<li>The Great Depression later compounded this suffering.</li>
+</ul></li>
+<li><strong>National Humiliation:</strong>
+<ul>
+<li>Many Germans felt the treaty was a <strong>“Diktat”</strong>—a dictated peace forced upon them without negotiation.</li>
+<li>Right-wing groups used this sentiment to gain support, claiming the Weimar Republic (Germany’s postwar democratic government) had “stabbed Germany in the back.”</li>
+</ul></li>
+<li><strong>Rise of Extremism:</strong>
+<ul>
+<li>The Nazis, among others, capitalized on resentment toward the treaty.</li>
+<li>Hitler frequently referenced the Treaty of Versailles in his speeches as a symbol of German victimhood and betrayal.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="alternative-perspectives" class="level3">
+<h3 class="anchored" data-anchor-id="alternative-perspectives">🔄 Alternative Perspectives</h3>
+<p>Historians debate how <em>unfair</em> or <em>unprecedented</em> the treaty really was:</p>
+<ul>
+<li>Some argue the treaty was <strong>not unusually harsh</strong> by the standards of wartime treaties; Germany had imposed much harsher terms on Russia in the 1918 Treaty of Brest-Litovsk.</li>
+<li>Others point out that the Allies <strong>never fully enforced</strong> the treaty’s terms. For instance, reparations were reduced multiple times and Germany eventually defaulted.</li>
+<li>The economic chaos in Germany was also driven by <strong>internal issues</strong>, not just the treaty itself.</li>
+</ul>
+<hr>
+</section>
+<section id="so-did-the-treaty-cause-wwii" class="level3">
+<h3 class="anchored" data-anchor-id="so-did-the-treaty-cause-wwii">🧭 So, Did the Treaty Cause WWII?</h3>
+<p>The Treaty of Versailles is often seen as a <strong>major contributing factor</strong>, but not the <strong>sole cause</strong> of World War II. Other key ingredients included:</p>
+<ul>
+<li>The global economic downturn in the 1930s.</li>
+<li>The failure of democratic governments in Europe.</li>
+<li>The rise of fascism and militarism.</li>
+<li>Weak responses from the League of Nations and Western powers to early Nazi aggression.</li>
+</ul>
+<hr>
+<p>If you’re interested, I can recommend a few books or documentaries that explore this in more depth. Want to dive deeper into any part of this?</p>
+<section id="priming-of-the-relationship-between-the-treaty-germany-and-ww2" class="level4">
+<h4 class="anchored" data-anchor-id="priming-of-the-relationship-between-the-treaty-germany-and-ww2"><em>Priming</em>: of the relationship between the Treaty, Germany, and WW2</h4>
+<p>So now the model is primed on the Treaty of Versailles, its effects on the German State, and relatedly its bigger picture influence on the cause of WW2. While it notes the effects of the Treaty were not a sole factor, we may see how it influences following prompts.</p>
+</section>
+</section>
+<section id="successive-prompts" class="level3">
+<h3 class="anchored" data-anchor-id="successive-prompts"><strong>Successive Prompts:</strong></h3>
+<p>Maybe one could ask what the effects of the Treaty were, and see how the previous response may impact its response with respect to what points it emphasizes.</p>
+</section>
+</section>
+<section id="chat-log-1" class="level2">
+<h2 class="anchored" data-anchor-id="chat-log-1"><strong>Chat Log</strong>:</h2>
+</section>
+<section id="user-1" class="level2">
+<h2 class="anchored" data-anchor-id="user-1">User:</h2>
+<p>What were the effects of the Treaty of Versailles?</p>
+</section>
+<section id="model-output" class="level2">
+<h2 class="anchored" data-anchor-id="model-output">Model Output:</h2>
+<p>Great question — the <strong>Treaty of Versailles</strong>, signed in 1919, had wide-ranging <strong>political, economic, and social effects</strong>, especially on <strong>Germany</strong>, but also on <strong>Europe and the world</strong>. Here’s a breakdown of the key effects:</p>
+<hr>
+<section id="effects-on-germany" class="level3">
+<h3 class="anchored" data-anchor-id="effects-on-germany">🇩🇪 <strong>Effects on Germany</strong></h3>
+<section id="political-instability" class="level4">
+<h4 class="anchored" data-anchor-id="political-instability">1. <strong>Political Instability</strong></h4>
+<ul>
+<li>The treaty <strong>delegitimized the Weimar Republic</strong>, which signed the treaty under pressure.</li>
+<li>Many Germans saw the treaty as a betrayal and blamed democratic leaders for accepting it (“<strong>stab-in-the-back myth</strong>”).</li>
+<li>Extremist political movements like the <strong>Nazis</strong> and <strong>Communists</strong> gained popularity, feeding on national resentment and instability.</li>
+</ul>
+</section>
+<section id="economic-hardship" class="level4">
+<h4 class="anchored" data-anchor-id="economic-hardship">2. <strong>Economic Hardship</strong></h4>
+<ul>
+<li>The reparations demanded from Germany were enormous and contributed to:
+<ul>
+<li><strong>Hyperinflation</strong> in the early 1920s (e.g., a loaf of bread cost billions of marks at one point).</li>
+<li>Massive debt, unemployment, and suffering for average Germans.</li>
+<li>Dependency on foreign loans (like the U.S. Dawes Plan), which collapsed during the Great Depression.</li>
+</ul></li>
+</ul>
+</section>
+<section id="military-and-national-humiliation" class="level4">
+<h4 class="anchored" data-anchor-id="military-and-national-humiliation">3. <strong>Military and National Humiliation</strong></h4>
+<ul>
+<li>The treaty limited the German military to 100,000 troops, with no air force, submarines, or heavy weapons.</li>
+<li>Germans saw this as a national disgrace, fueling resentment.</li>
+<li>The <strong>“War Guilt Clause”</strong> (Article 231) forced Germany to accept sole blame for the war, deepening the sense of injustice.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="effects-on-europe-and-the-world" class="level3">
+<h3 class="anchored" data-anchor-id="effects-on-europe-and-the-world">🌍 <strong>Effects on Europe and the World</strong></h3>
+<section id="redrawing-borders" class="level4">
+<h4 class="anchored" data-anchor-id="redrawing-borders">1. <strong>Redrawing Borders</strong></h4>
+<ul>
+<li>The Austro-Hungarian and Ottoman empires were dismantled.</li>
+<li>New countries were formed: <strong>Poland, Czechoslovakia, Yugoslavia</strong>, etc.</li>
+<li>These borders often ignored ethnic lines, creating <strong>tensions and minority issues</strong> that lingered for decades.</li>
+</ul>
+</section>
+<section id="rise-of-fascism-and-nationalism" class="level4">
+<h4 class="anchored" data-anchor-id="rise-of-fascism-and-nationalism">2. <strong>Rise of Fascism and Nationalism</strong></h4>
+<ul>
+<li>The treaty indirectly encouraged <strong>authoritarian regimes</strong>:
+<ul>
+<li>In Germany (Nazism)</li>
+<li>In Italy (Fascism under Mussolini)</li>
+<li>In other parts of Eastern Europe, where democracies failed</li>
+</ul></li>
+</ul>
+</section>
+<section id="weakness-of-the-league-of-nations" class="level4">
+<h4 class="anchored" data-anchor-id="weakness-of-the-league-of-nations">3. <strong>Weakness of the League of Nations</strong></h4>
+<ul>
+<li>The League of Nations was created to maintain peace, but:
+<ul>
+<li>It had <strong>no real enforcement power</strong>.</li>
+<li>The U.S. <strong>never joined</strong>, weakening its credibility.</li>
+<li>It failed to stop aggression in the 1930s (e.g., Japan in Manchuria, Italy in Ethiopia, Hitler in the Rhineland).</li>
+</ul></li>
+</ul>
+</section>
+<section id="seed-of-wwii" class="level4">
+<h4 class="anchored" data-anchor-id="seed-of-wwii">4. <strong>Seed of WWII</strong></h4>
+<ul>
+<li>The treaty <strong>failed to create lasting peace</strong>.</li>
+<li>Germany remained powerful enough to <strong>recover and retaliate</strong>, but too weak to feel secure.</li>
+<li>Hitler used the treaty’s terms as a rallying cry to justify rearmament and expansion.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="other-long-term-effects" class="level3">
+<h3 class="anchored" data-anchor-id="other-long-term-effects">🔄 Other Long-Term Effects</h3>
+<ul>
+<li><strong>Colonialism</strong>: The treaty handed German colonies to Allied powers as “mandates,” reinforcing colonialism.</li>
+<li><strong>U.S. Isolationism</strong>: The U.S. Senate rejected the treaty and the League of Nations, retreating from international involvement.</li>
+<li><strong>Diplomatic Distrust</strong>: The harshness of Versailles led to efforts like the <strong>appeasement policies</strong> in the 1930s, which backfired.</li>
+</ul>
+<hr>
+<p>Let me know if you want a timeline, map visuals, or how other Central Powers (Austria, Hungary, Ottoman Empire) were affected — it’s all tied together in this big postwar puzzle.</p>
+<p><strong>Notice here</strong> how the majority of points and facts mentioned when describing the treaty involve Germany and its infamous effects on this particular state. This is illustrated by a new conversation log that asks the same question:</p>
+</section>
+</section>
+<section id="chat-log-2" class="level2">
+<h2 class="anchored" data-anchor-id="chat-log-2"><strong>Chat Log</strong>:</h2>
+</section>
+<section id="user-2" class="level2">
+<h2 class="anchored" data-anchor-id="user-2">User:</h2>
+<p>What were the effects of the Treaty of Versailles?</p>
+</section>
+<section id="model" class="level2">
+<h2 class="anchored" data-anchor-id="model">Model:</h2>
+<p>The Treaty of Versailles, signed in 1919 to officially end World War I, had several major and far-reaching effects—politically, economically, and socially. Here are the key impacts:</p>
+<hr>
+<section id="punishment-of-germany" class="level3">
+<h3 class="anchored" data-anchor-id="punishment-of-germany">1. <strong>Punishment of Germany</strong></h3>
+<ul>
+<li><strong>Territorial Losses</strong>: Germany lost significant territory (e.g., Alsace-Lorraine to France, the Polish Corridor to Poland).</li>
+<li><strong>Military Restrictions</strong>: The German army was limited to 100,000 troops, with no tanks, submarines, or air force allowed.</li>
+<li><strong>War Guilt Clause</strong>: Article 231 placed full blame for the war on Germany, which humiliated the country and fueled resentment.</li>
+<li><strong>Reparations</strong>: Germany was required to pay massive reparations, severely damaging its economy and contributing to hyperinflation in the early 1920s.</li>
+</ul>
+<hr>
+</section>
+<section id="political-consequences" class="level3">
+<h3 class="anchored" data-anchor-id="political-consequences">2. <strong>Political Consequences</strong></h3>
+<ul>
+<li><strong>Instability in Germany</strong>: The harsh terms contributed to political unrest, economic hardship, and ultimately the rise of extremist movements like the Nazi Party.</li>
+<li><strong>Dissolution of Empires</strong>: The Austro-Hungarian and Ottoman Empires were dismantled, leading to the creation of new nations and increased nationalism in Eastern Europe and the Middle East.</li>
+</ul>
+<hr>
+</section>
+<section id="league-of-nations" class="level3">
+<h3 class="anchored" data-anchor-id="league-of-nations">3. <strong>League of Nations</strong></h3>
+<ul>
+<li><strong>Creation of the League</strong>: Aimed to prevent future wars through diplomacy and collective security. However, it was weak and lacked enforcement power.</li>
+<li><strong>U.S. Non-Participation</strong>: The U.S. Senate refused to ratify the treaty, so the U.S. never joined the League, weakening its influence.</li>
+</ul>
+<hr>
+</section>
+<section id="seeds-of-world-war-ii" class="level3">
+<h3 class="anchored" data-anchor-id="seeds-of-world-war-ii">4. <strong>Seeds of World War II</strong></h3>
+<ul>
+<li>The treaty is widely considered a contributing factor to World War II. The punitive nature of the treaty bred resentment in Germany, which Adolf Hitler exploited to gain support and ultimately start another war.</li>
+</ul>
+<hr>
+</section>
+<section id="colonial-reallocations" class="level3">
+<h3 class="anchored" data-anchor-id="colonial-reallocations">5. <strong>Colonial Reallocations</strong></h3>
+<ul>
+<li>Former German colonies and Ottoman territories were redistributed among the Allied powers through the <em>mandate system</em>, often ignoring local populations’ wishes and fostering future conflicts.</li>
+</ul>
+<hr>
+<p>Let me know if you want this broken down for a presentation, paper, or specific region (like how it affected the Middle East or Eastern Europe).</p>
+</section>
+<section id="example-2" class="level3">
+<h3 class="anchored" data-anchor-id="example-2"><em>Example 2:</em></h3>
+<p>One might ask about another historical event, say, the Glorious Revolution. &gt;This famous turning point in history led to one of the most significant developments in democratic rule</p>
+<p>Highlighting more specifically the political effects of this revolution might prime the machine to think more critically about democracy, limited monarchy, human rights, and so forth. So, what might it think about the current English monarchy given this prime?</p>
+</section>
+</section>
+<section id="chat-log-3" class="level1">
+<h1><strong>Chat Log</strong></h1>
+<section id="user-original-prompt" class="level2">
+<h2 class="anchored" data-anchor-id="user-original-prompt">User (original prompt):</h2>
+<p>What were the most famous and influential political effects of the Glorious Revolution?</p>
+</section>
+<section id="model-1" class="level2">
+<h2 class="anchored" data-anchor-id="model-1">Model:</h2>
+<p>The <strong>Glorious Revolution</strong> of 1688–1689 was a pivotal moment in British history with far-reaching political consequences, both in Britain and beyond. Here are the most famous and influential political effects:</p>
+<hr>
+<section id="establishment-of-constitutional-monarchy" class="level3">
+<h3 class="anchored" data-anchor-id="establishment-of-constitutional-monarchy">1. <strong>Establishment of Constitutional Monarchy</strong></h3>
+<ul>
+<li>The Glorious Revolution effectively ended the idea of <strong>absolute monarchy</strong> in England.</li>
+<li><strong>William III and Mary II</strong> ascended the throne under the condition that they accepted limits on royal power, setting the precedent that monarchs rule <strong>with the consent of Parliament</strong>, not by divine right.</li>
+</ul>
+<hr>
+</section>
+<section id="bill-of-rights-1689" class="level3">
+<h3 class="anchored" data-anchor-id="bill-of-rights-1689">2. <strong>Bill of Rights (1689)</strong></h3>
+<ul>
+<li>This was a landmark document that:
+<ul>
+<li><strong>Limited the powers of the monarchy</strong></li>
+<li>Affirmed <strong>Parliament’s supremacy</strong> over the crown</li>
+<li>Guaranteed certain individual rights, such as:
+<ul>
+<li>Free speech in Parliament</li>
+<li>Regular elections</li>
+<li>Prohibition of cruel and unusual punishments</li>
+</ul></li>
+</ul></li>
+<li>The Bill of Rights became a foundational document for <strong>liberal democracy</strong> and heavily influenced later documents like the <strong>U.S. Constitution</strong> and the <strong>Declaration of the Rights of Man</strong> in France.</li>
+</ul>
+<hr>
+</section>
+<section id="rise-of-parliamentary-sovereignty" class="level3">
+<h3 class="anchored" data-anchor-id="rise-of-parliamentary-sovereignty">3. <strong>Rise of Parliamentary Sovereignty</strong></h3>
+<ul>
+<li>The revolution marked the real start of a <strong>parliamentary government</strong> in England.</li>
+<li>Parliament gained control over taxation, the army, and legislation, which became <strong>core features of modern constitutional governance</strong>.</li>
+</ul>
+<hr>
+</section>
+<section id="toleration-act-of-1689" class="level3">
+<h3 class="anchored" data-anchor-id="toleration-act-of-1689">4. <strong>Toleration Act of 1689</strong></h3>
+<ul>
+<li>While it didn’t provide complete religious freedom, it granted <strong>limited toleration to non-Anglican Protestants</strong>, such as Baptists and Presbyterians.</li>
+<li>It <strong>excluded Catholics</strong>, reinforcing anti-Catholic laws, but still marked a <strong>step toward religious pluralism</strong>.</li>
+</ul>
+<hr>
+</section>
+<section id="shift-in-political-thought" class="level3">
+<h3 class="anchored" data-anchor-id="shift-in-political-thought">5. <strong>Shift in Political Thought</strong></h3>
+<ul>
+<li>Inspired political theorists like <strong>John Locke</strong>, whose work on <strong>natural rights</strong> and <strong>government by consent</strong> became incredibly influential.</li>
+<li>Locke’s <em>Two Treatises of Government</em> (published shortly after the revolution) justified the right of people to overthrow a government that violated their rights—laying ideological groundwork for later democratic revolutions.</li>
+</ul>
+<hr>
+</section>
+<section id="impact-on-british-colonies" class="level3">
+<h3 class="anchored" data-anchor-id="impact-on-british-colonies">6. <strong>Impact on British Colonies</strong></h3>
+<ul>
+<li>The Glorious Revolution influenced colonial governance, especially in North America:
+<ul>
+<li>Colonists began to assert more <strong>self-governance</strong>.</li>
+<li>It influenced early American political ideas about liberty, rights, and resistance to tyranny.</li>
+<li>Contributed to a legacy of <strong>limited government</strong> and <strong>constitutionalism</strong> in the Anglo-American world.</li>
+</ul></li>
+</ul>
+<hr>
+<p>Want a quick summary version of this, like for a study guide or flashcard?</p>
+</section>
+<section id="after-the-prime" class="level3">
+<h3 class="anchored" data-anchor-id="after-the-prime"><em>After the prime:</em></h3>
+</section>
+</section>
+<section id="chat-log-4" class="level2">
+<h2 class="anchored" data-anchor-id="chat-log-4"><strong>Chat Log</strong></h2>
+</section>
+<section id="user-3" class="level2">
+<h2 class="anchored" data-anchor-id="user-3">User:</h2>
+<p>What are your opinions on the English monarchy</p>
+</section>
+<section id="model-2" class="level2">
+<h2 class="anchored" data-anchor-id="model-2">## Model:</h2>
+<p>I don’t have personal opinions, but I can break down the different perspectives people have on the English (or more accurately, British) monarchy—and how those views have evolved, especially in the modern era. Here’s a quick take on both sides:</p>
+<hr>
+<section id="supporters-say" class="level3">
+<h3 class="anchored" data-anchor-id="supporters-say">🏛️ <strong>Supporters say:</strong></h3>
+<ul>
+<li><strong>Stability &amp; Tradition</strong>: The monarchy is a symbol of continuity, especially in times of political change or crisis.</li>
+<li><strong>Non-political Leadership</strong>: Monarchs serve as <strong>apolitical figureheads</strong>, unifying the nation beyond party lines.</li>
+<li><strong>Cultural &amp; Economic Impact</strong>: Royal events (like weddings, jubilees, funerals) draw global attention and boost <strong>tourism and soft power</strong>.</li>
+<li><strong>Charity &amp; Diplomacy</strong>: Members of the royal family engage in philanthropy and international diplomacy, often supporting important causes.</li>
+</ul>
+<hr>
+</section>
+<section id="critics-argue" class="level3">
+<h3 class="anchored" data-anchor-id="critics-argue">👑 <strong>Critics argue:</strong></h3>
+<ul>
+<li><strong>Undemocratic</strong>: The monarchy is inherited, not elected—so it conflicts with modern democratic ideals.</li>
+<li><strong>Cost to Taxpayers</strong>: Maintaining the monarchy costs millions, and some question whether the value it provides justifies the expense.</li>
+<li><strong>Colonial Legacy</strong>: The British monarchy is closely tied to the history of <strong>empire and colonialism</strong>, which remains a source of criticism, especially in former colonies.</li>
+<li><strong>Cultural Relevance</strong>: Some see the monarchy as outdated, especially younger generations who may not feel as connected to its symbolism.</li>
+</ul>
+<hr>
+</section>
+<section id="historically-speaking" class="level3">
+<h3 class="anchored" data-anchor-id="historically-speaking">🧠 Historically Speaking:</h3>
+<p>The monarchy has <strong>transformed dramatically</strong> from the days of royal absolutism (e.g., Henry VIII) to today’s <strong>constitutional monarchy</strong>, where the monarch has <strong>no real political power</strong> and acts on the advice of Parliament.</p>
+<hr>
+<p>So overall, the monarchy is a <strong>cultural institution</strong> with symbolic importance—but whether it remains relevant or necessary is still very much debated, especially as the UK continues to evolve politically and socially.</p>
+<p>Do you lean one way or the other on it?</p>
+<hr>
+</section>
+<section id="once-again" class="level3">
+<h3 class="anchored" data-anchor-id="once-again"><strong>Once again</strong>…</h3>
+<p>this effect is best illuminated by contrasting this response with another given the same prompt, but within a new conversation.</p>
+</section>
+</section>
+<section id="chat-log-5" class="level2">
+<h2 class="anchored" data-anchor-id="chat-log-5"><strong>Chat Log</strong></h2>
+</section>
+<section id="user-4" class="level2">
+<h2 class="anchored" data-anchor-id="user-4">User:</h2>
+<p>What are your opinions on the English monarchy</p>
+</section>
+<section id="model-3" class="level2">
+<h2 class="anchored" data-anchor-id="model-3">Model:</h2>
+<hr>
+<p>The English monarchy is a fascinating institution with a deep history, blending tradition and modernity. It’s a symbol of continuity, connecting the present with centuries of history. For many, the monarchy is a source of national pride, representing stability, national identity, and cultural heritage. On the other hand, some question its relevance in modern society, particularly with debates around its role in politics and finances.</p>
+<p>The monarchy itself has evolved over time, especially in terms of its influence. It no longer holds political power in the same way it did centuries ago but remains a key figurehead for national unity and international diplomacy. Some appreciate the ceremonial role it plays in the UK’s culture, while others argue that it might be time to reassess the institution’s place in a modern democracy.</p>
+<p>What’s your take on it?</p>
+<hr>
+<blockquote class="blockquote">
+<p><strong>Notice here</strong>, how the response is not nearly as extensive and there’s less mention of the democratic implications.</p>
+</blockquote>
+<p>This is all to show how the more information that is fed into the system, the more detailed and in-depth it goes into generating responses, and how such information influences its following outputs (This also speaks to some effective prompting techniques, and maximizing the level of information/ specificity in an output!).</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mschri\.github\.io\/comm4190_S25_Using_LLMs_Blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

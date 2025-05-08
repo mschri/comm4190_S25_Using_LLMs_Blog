@@ -6,11 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="An LLM user">
-<meta name="dcterms.date" content="2025-02-03">
-<meta name="description" content="Using Chatgpt to answer math problems">
+<meta name="author" content="Miranda Schriver">
+<meta name="dcterms.date" content="2025-03-10">
+<meta name="description" content="Comparing image generation across two different proprietary models">
 
-<title>Chatgpt: Can It Really Perform Simple Calculations? – My Explorations with LLMs</title>
+<title>Part 1: Image Generation between ChatGPT &amp; Claude – My Explorations with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,14 +117,16 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Chatgpt: Can It Really Perform Simple Calculations?</h1>
+      <h1 class="title">Part 1: Image Generation between ChatGPT &amp; Claude</h1>
                   <div>
         <div class="description">
-          Using Chatgpt to answer math problems
+          Comparing image generation across two different proprietary models
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">-generative AI -Prompting -Logic, calculations</div>
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">image generation</div>
+                <div class="quarto-category">prompting</div>
               </div>
                   </div>
   </div>
@@ -135,14 +137,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>An LLM user </p>
+               <p>Miranda Schriver </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 3, 2025</p>
+        <p class="date">March 10, 2025</p>
       </div>
     </div>
     
@@ -161,41 +163,83 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="what-is-11" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-11">What is 1+1?</h2>
-<p>Most people can answer the above question with ease. It’s one of the simplest forms of an arithmetic operation that doesn’t require one with a math degree to perform.</p>
-<p>Likewise, Chatgpt knows knows how to answer this question with a comparable level of dexerity. Prompt it with the question, “what is 1+1?” and it will spit out “1+1 equals 2!” with gumption. This is simple enough, and its answer it entirely accurate. In other words, Chatgpt for the most part produces reliable answers and <em>can</em> be incredibly helpful with regards to solving more and more complex math problems.</p>
-<p><img src="pic1.png" width="100%"></p>
+<section id="image-generation" class="level2">
+<h2 class="anchored" data-anchor-id="image-generation">Image Generation</h2>
+<p>Image generation by LLM models is one of the most entertaining and tangible features that test the capabilities of model output. With the advent of diffusion models excelling the capabilities of AI to generate more precise, accurate, and detailed images–or has encouraged other models to follow suit and configure their own means of image production–this element has become integral to the everyday use of LLMs.</p>
 </section>
-<section id="how-does-it-work" class="level2">
-<h2 class="anchored" data-anchor-id="how-does-it-work">How Does it Work?</h2>
-<p>You might think the model relies on some sort of basic calculator to add up these numbers. That would certainly appear to be easiest, most commonsensical means of solving these kinds of questions. However, Chatgpt is primarily a large language model designed to predict the following text, rather than perform actual calculations. In other words, it’s a model trained on a vast amount of text data-gathered from across the internet and various databases of information-detecting and sorting out patterns according to this data, as opposed to <em>actually</em> performing these kinds of calculations.</p>
+<section id="integrated-approaches-a-little-more-on-diffusion-models" class="level2">
+<h2 class="anchored" data-anchor-id="integrated-approaches-a-little-more-on-diffusion-models">Integrated Approaches: A little more on diffusion models</h2>
+<p>As briefly mentioned before, different AI models use different techniques for image generation. Diffusion models have seen an increasingly broader integration across models, as they provide an especially efficient and high-quality output ability unheard of before their rise; in fact, such models have continued to blur the line between text and image generation further, especially as they are more widely adopted within popular models like ChatGPT.</p>
+<p>There idea stems from training the models on, “many steps of adding random noise to an image, then predicting how to reverse the diffusion process by <em>denoising</em> (removing noise)” (O’Reilly, 2024). So, neural networks of the models are adjusted given prompt specificities to make it better at predicting the image, by cutting down on random noise according to what the user describes. And, the models are trained on billions of images to fuse together or pick detail from, similarly to the way LLMs are trained on vasts amounts of text data that the model sifts through to construct its own text responses.</p>
+<p>Citation: Pheonix, J. &amp; Taylor, M. (2024). <em>Prompt Engineering for Generative AI</em>. O’Reilley.</p>
 </section>
-<section id="thinking-humans-vs-llms" class="level2">
-<h2 class="anchored" data-anchor-id="thinking-humans-vs-llms">Thinking: Humans vs LLMs</h2>
-<p>While humans on the one hand might go about solving this calculation via a number of different ways (i.e.&nbsp;counting the fingers on your hand, drawing out circles and counting the total number drawn, etc.), using a primarily visual and basic understandings of such arithmetic operations, Chatgpt doesn’t necessarily share this direct understanding with respect to math and number concepts. Instead, as it does with text-based prompts like asking it to finish a sentence, it “guesses” and assumes the answer to questions like “what’s 1+1?,” based on the extensive text data its trained on.</p>
-<p><img src="pic2.png" width="100%"></p>
-<p>Because there’s roughly millions, probably even billions of correct answers available online to the question “what’s 1+1?,” the model can accurately generate an answer because it’s pulling the answer out of this data. This is all to say that it can do relatively well when prompted mostly simple questions along these lines. Further, its accuracy can hold up fairly well when answering more and more complex questions. However, anyone pursuing higher levels of math looking to Chatgpt to help answer their homework questions will find that in many instances the results it produces contains several flaws.</p>
-<p><img src="pic3.png" width="100%"> <img src="pic4.png" width="100%"></p>
-<p><strong>Here, the LLM produced a correct final answer (following the proper operations and row calculations) when finding solutions for a given matrix</strong></p>
-<p><img src="pic5.png" width="75%"></p>
-<p><img src="pic6.png" width="75%"></p>
-<p><img src="pic7.png" width="80%"></p>
-<p><strong>I won’t bother showing all the rest of the calculations performed…this is just to show how extensive and complex the problem becomes. The point here is this:</strong></p>
-<p><img src="pic8.png" width="80%"></p>
-<p><strong>The final solution was completely wrong, simply because it performed a very basic arithmetic operation incorrectly (adding instead of subtracting)!</strong></p>
+<section id="chatgpt-vs-claude" class="level2">
+<h2 class="anchored" data-anchor-id="chatgpt-vs-claude">ChatGPT vs Claude</h2>
+<p>While the nitty-gritty detail of these models operate can get even nittier and grittier, this was just a very brief introduction into this process. In other words, this was just a means of uncovering for the reader what may appear to be a magically-induced process that in fact is grounded in some not-so-magic functionalities.</p>
+<p>At any rate, this leads us into some apt exerpimentation with such functionalities given the extensive potential of these models’ abilities! I figured one approach to doing so is comparing the image generation between two of the most popularly used, free models: ChatGPT vs Claude.</p>
+<p>Some key differences: &gt; ChatGPT uses optimized techniques produce quick, real-time responses and can function off multi-model inputs. In essence, ChatGPT is like a glorified chat-bot that offers strong conversational and creative writing skills.</p>
+<blockquote class="blockquote">
+<p>Claude is optimized for long-form content and research, focusing on deep-reasoning and structured outputs.</p>
+</blockquote>
+<p>Given these varying features and built-in purposes, it will be interesting to see how the models differ in their image production…</p>
+<p>I input the following prompts and ensured the exact same sentences were used, to control prompt variation on the output of the image:</p>
+<pre><code>"Can you produce an image for me please"
+"Just produce an image please"</code></pre>
+<p>I prompted both models three times each (three conversation logs per model) to see whether or not the images differed per task. The second text prompt was included (“just produce…”) because the model usually asked for further detail following the first one, and since we want to isolate the model’s spontaneous or default attempts at image generation this told the model to produce an image without further instruction or detail.</p>
+<blockquote class="blockquote">
+<p>Note: In the first and third trials for ChatGPT (this never occurred with Claude), it responded with this following the second prompt:</p>
+</blockquote>
+<pre><code>     (1) "I can create an image for you, but I’ll need at least a basic idea of what you'd like it to include—anything from a landscape, animal, fantasy scene, futuristic city, or abstract art. Could you give me a general theme or subject?"
+
+And: (2) "Sure! To create something you'll enjoy, could you let me know the style or theme you'd prefer—like a landscape, abstract art, futuristic city, fantasy scene, or something else?"</code></pre>
+<blockquote class="blockquote">
+<p>This only happened with the ChatGPT attempts, and so a third prompt was required the said:</p>
+</blockquote>
+<pre><code>"Can you just produce an image please"</code></pre>
+<p>After an image was generated in each of the six total attempts, the final third (or fourth, as per the above conditions) prompt asked:</p>
+<pre><code>"Why did you decide to produce this image?"</code></pre>
+<p>This was to gauge the reasoning behind the model’s response.</p>
 </section>
-<section id="the-problem" class="level2">
-<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
-<p>The reason it may fail when asked these more complex questions is not necessarily because the question itself is difficult, given that it’s is pulling from a wide range of textual information from people who’ve answered-or attempted to answer-questions like the one you’re trying to answer. And, as we showed before, it “knows” how to answer simple math questions. What does become more problematic is when these simple calculations are incorporated within more complicated contexts. When trying to answer, it might discover linguistic patterns and information that are improperly aligned, given the higher complexity of the question. In turn, the model might generate incorrect answers or contain inaccuracies in the event it’s trained on these conflicting information patterns.</p>
-<p><img src="pic9.png" width="90%"></p>
-<p><strong>Here, it spits out the correct solution when you target its mistake and re-prompt; again, this wasn’t due to a gap in understanding, but simply because LLMs aren’t embedded with their own, personal calculators that they can rely on.</strong></p>
+<section id="outputs" class="level2">
+<h2 class="anchored" data-anchor-id="outputs">Outputs!</h2>
+<p>The three outputs for both models stayed consistent with their response patterns. Here is one example of ChatGPT’s conversation:</p>
+<section id="chatgpt" class="level3">
+<h3 class="anchored" data-anchor-id="chatgpt"><strong>ChatGPT</strong>:</h3>
+<p><img src="img_1.png" width="80%"></p>
+<p><img src="img2.png" width="80%"></p>
+<p><img src="img3.png" width="80%"></p>
 </section>
-<section id="soabandon-chatgpt" class="level2">
-<h2 class="anchored" data-anchor-id="soabandon-chatgpt">So…Abandon ChatGPT?</h2>
-<p>This, by no means, calls for the end of ChatGPT-at least as far as some basic homework help or concept understanding. It can still be a useful tool when attempting to work out bigger picture concepts, and you can certainly always ask ChatGPT explain its own mistakes by prompting it to go through its own reasoning step-by-step.</p>
-<p>*Insert pic of prompting chat: “did you do something wrong” etc/</p>
-<p>This experiment was not necessarily meant to expose the shortcomings of the model and contribute to the anti-AI narrative (whether or not that’s actually a founded argument…); what it does do is serve as an example of some of the current ways in which ChatGPT learns and processes information, and how that differ from human reasoning!</p>
+<section id="claude" class="level3">
+<h3 class="anchored" data-anchor-id="claude"><strong>Claude</strong>:</h3>
+<ul>
+<li>Claude also remained mostly consistent, with the exception of the last trial. An example of one of the first two trials follows:</li>
+</ul>
+<p><img src="img4.png" width="80%"></p>
+<p><img src="img5.png" width="100%"></p>
+<p><img src="img6.png" width="60%"></p>
+</section>
+<section id="interestingly" class="level3">
+<h3 class="anchored" data-anchor-id="interestingly">Interestingly…</h3>
+<p>As mentioned above, while ChatGPT produced a consitent line of imagees and responses all similar to each other and which followed the same theme or reasoning, on the last attempt Claude produced an image slightly deviating from the first two themes:</p>
+<p><img src="img7.png" width="80%"></p>
+<p>Andn its corresponding response to the “why” inquiry:</p>
+<p><img src="img8.png" width="80%"></p>
+</section>
+<section id="notes" class="level3">
+<h3 class="anchored" data-anchor-id="notes">Notes:</h3>
+<p>Both ChatGPT and Claude produced images of similar content, though GPT’s outputs were far more detailed and of higher quality. Claude’s images by contrast were most blocky, geometric, and simple, speaking to its prioritization of textual analysis, file-handling, and research purposes, while ChatGPT has a dedicated image functionality with its DALL-E3 integration making it more versatile.</p>
+<blockquote class="blockquote">
+<p>This is especially illustrated in the third image production trial in which Claude produces an explicitly geometrically-based object, that was more abstract and strayed from the more real subjects of previous images…</p>
+</blockquote>
+<section id="leading-into-the-following-second-observation" class="level4">
+<h4 class="anchored" data-anchor-id="leading-into-the-following-second-observation">Leading into the following second observation…</h4>
+<p>The two models contained similar reasonings in response to the third/fourth “why” prompt. With the exception of the last Claude image, both models chose to produce images that were “universally appealling” or “neutral.” Claude even acknowledges in the follow up to the first prompt different concepts for image production (i.e.&nbsp;logo, basic chart or diagram, etc.), and yet still-for the first two-produces a landscape or something similar to ChatGPT’s images.</p>
+</section>
+</section>
+</section>
+<section id="takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="takeaways"><strong>Takeaways</strong></h2>
+<p>This shows some of the strides made with DALL-E3 integration, given that ChatGPT relies on this functionality while Claude does not by contrast, providing a little bit of a window into what image generation looked like in previous years before diffusion models. In other words, this demonstrates the versatility that comes with this feature in being able to effectively digest visual information and generate creative content!</p>
 
 
 </section>
