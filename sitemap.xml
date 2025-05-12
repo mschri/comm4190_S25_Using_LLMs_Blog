@@ -2,70 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/about.html</loc>
-    <lastmod>2025-05-12T19:17:07.496Z</lastmod>
+    <lastmod>2025-05-12T20:28:23.191Z</lastmod>
   </url>
   <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post14_Mar17-23/index.html</loc>
-    <lastmod>2025-05-12T19:17:07.541Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post2_Feb_3-9_Week1/Post2.html</loc>
-    <lastmod>2025-05-12T19:17:07.545Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post7_Feb24-Mar2_Week4/Post7.html</loc>
-    <lastmod>2025-05-12T19:17:07.561Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post8_Feb24-Mar2/index.html</loc>
-    <lastmod>2025-05-12T19:17:07.563Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post12_Mar_10-16/index.html</loc>
-    <lastmod>2025-05-12T19:17:07.534Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post13_Mar17-23/index.html</loc>
-    <lastmod>2025-05-12T19:17:07.535Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post9_Mar3-Mar9_Week5/index.html</loc>
-    <lastmod>2025-05-12T19:17:07.575Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post1_Feb_3-9_Week1/Post_1.html</loc>
-    <lastmod>2025-05-12T19:17:07.541Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post5_Feb_17-23_Week3/Post_5.html</loc>
-    <lastmod>2025-05-12T19:17:07.554Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post11_Mar10-16_Week6/index.html</loc>
-    <lastmod>2025-05-12T19:17:07.514Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/000_test_post/index.html</loc>
-    <lastmod>2025-05-12T19:17:07.497Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post3_Feb_10-16_Week2/Post3.html</loc>
-    <lastmod>2025-05-12T19:17:07.548Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post10_Mar3-9/index.html</loc>
-    <lastmod>2025-05-12T19:17:07.500Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post6_Feb_17-23/Post6.html</loc>
-    <lastmod>2025-05-12T19:17:07.558Z</lastmod>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post15/index.html</loc>
+    <lastmod>2025-05-12T20:28:23.236Z</lastmod>
   </url>
   <url>
     <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post4_Feb_10-16/Post4_Feb_10-14.html</loc>
-    <lastmod>2025-05-12T19:17:07.553Z</lastmod>
+    <lastmod>2025-05-12T20:28:23.249Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post6_Feb_17-23/Post6.html</loc>
+    <lastmod>2025-05-12T20:28:23.253Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post10_Mar3-9/index.html</loc>
+    <lastmod>2025-05-12T20:28:23.195Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post3_Feb_10-16_Week2/Post3.html</loc>
+    <lastmod>2025-05-12T20:28:23.243Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/000_test_post/index.html</loc>
+    <lastmod>2025-05-12T20:28:23.192Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post11_Mar10-16_Week6/index.html</loc>
+    <lastmod>2025-05-12T20:28:23.210Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post5_Feb_17-23_Week3/Post_5.html</loc>
+    <lastmod>2025-05-12T20:28:23.250Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post1_Feb_3-9_Week1/Post_1.html</loc>
+    <lastmod>2025-05-12T20:28:23.237Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post9_Mar3-Mar9_Week5/index.html</loc>
+    <lastmod>2025-05-12T20:28:23.271Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post13_Mar17-23/index.html</loc>
+    <lastmod>2025-05-12T20:28:23.230Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post12_Mar_10-16/index.html</loc>
+    <lastmod>2025-05-12T20:28:23.230Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post8_Feb24-Mar2/index.html</loc>
+    <lastmod>2025-05-12T20:28:23.259Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post7_Feb24-Mar2_Week4/Post7.html</loc>
+    <lastmod>2025-05-12T20:28:23.257Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post2_Feb_3-9_Week1/Post2.html</loc>
+    <lastmod>2025-05-12T20:28:23.241Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/posts/Post14_Mar17-23/index.html</loc>
+    <lastmod>2025-05-12T20:28:23.236Z</lastmod>
   </url>
   <url>
     <loc>https://mschri.github.io/comm4190_S25_Using_LLMs_Blog/index.html</loc>
-    <lastmod>2025-05-12T19:17:07.496Z</lastmod>
+    <lastmod>2025-05-12T20:28:23.191Z</lastmod>
   </url>
 </urlset>
