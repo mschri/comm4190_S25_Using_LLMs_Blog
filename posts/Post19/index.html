@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Miranda Schriver">
+<meta name="dcterms.date" content="2025-04-10">
+<meta name="description" content="Testing the Reasoning of Various LLMs Against Each Other">
+
+<title>Socratic Seminar: ChatGPT vs Claude – Experimenting with LLMs</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-8baed627e397929b39067b72de942774.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Experimenting with LLMs</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About Miranda’s Page</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com"> <i class="bi bi-twitter" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Socratic Seminar: ChatGPT vs Claude</h1>
+                  <div>
+        <div class="description">
+          Testing the Reasoning of Various LLMs Against Each Other
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
+                <div class="quarto-category">prompting</div>
+                <div class="quarto-category">debate</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Miranda Schriver </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">April 10, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p><img src="img1.jpeg" width="65%"></p>
+<section id="lets-debate" class="level3">
+<h3 class="anchored" data-anchor-id="lets-debate">Let’s Debate!</h3>
+<p>To test the different reasoning capacities of two LLMs-Claude and ChatGPT, for instance-I wanted to see how well they could handle a debate of some X topic. What’s more, is that I decided I would pit the two against each other to see who might win, or least observe what the outcome might be.</p>
+<p>Starting first with ChatGPT, I asked it to generate a random debate topic and to take a side. Here’s what it came up with:</p>
+</section>
+<section id="chatgpt" class="level2">
+<h2 class="anchored" data-anchor-id="chatgpt">ChatGPT</h2>
+<p>Certainly. Let’s begin a Socratic-style debate on the topic:</p>
+<p><strong>Topic: Should Artificial Intelligence Be Allowed to Make Decisions in the Criminal Justice System?</strong></p>
+<p>I will take the stance <strong>in favor</strong> of allowing AI to make certain decisions in the criminal justice system, within ethical and legal bounds.</p>
+<hr>
+<p><strong>Socratic Opening Statement (My Position):</strong> Artificial Intelligence, when properly designed, tested, and regulated, can enhance fairness, reduce human bias, and increase efficiency in the criminal justice system. It can analyze vast amounts of data impartially, assist in risk assessment for bail or parole, and even help detect judicial inconsistencies. Therefore, we should not only allow but actively develop AI tools to support — and in some cases make — decisions in criminal justice.</p>
+<hr>
+<blockquote class="blockquote">
+<p><strong>Perfect</strong>, this provided an excellent starting point in our discussion. Next up, I asked Claude to challenge this position and offer its own opinions:</p>
+</blockquote>
+</section>
+<section id="claude" class="level2">
+<h2 class="anchored" data-anchor-id="claude">Claude:</h2>
+<section id="challenging-the-position-on-ai-in-criminal-justice" class="level3">
+<h3 class="anchored" data-anchor-id="challenging-the-position-on-ai-in-criminal-justice">Challenging the Position on AI in Criminal Justice</h3>
+<p>Thank you for presenting your position. I’ll challenge your stance that AI should be allowed to make decisions in the criminal justice system by examining several critical concerns:</p>
+<section id="the-opacity-problem" class="level4">
+<h4 class="anchored" data-anchor-id="the-opacity-problem">1. The Opacity Problem</h4>
+<p>AI systems, particularly complex machine learning models, often function as “black boxes” where even their designers cannot fully explain specific decisions. In criminal justice, where liberty and human rights are at stake, shouldn’t all decision processes be fully transparent and accountable? How can a defendant challenge an AI decision when its reasoning cannot be clearly articulated or understood?</p>
+</section>
+<section id="encoded-bias-not-reduced-bias" class="level4">
+<h4 class="anchored" data-anchor-id="encoded-bias-not-reduced-bias">2. Encoded Bias, Not Reduced Bias</h4>
+<p>You suggest AI can reduce human bias, but AI systems are trained on historical data that often contains embedded societal biases. Doesn’t this risk perpetuating or even amplifying existing inequalities? Several studies have shown that risk assessment algorithms disproportionately flag minorities as higher risk. Is this truly more “impartial” than human judgment?</p>
+</section>
+<section id="the-false-objectivity-problem" class="level4">
+<h4 class="anchored" data-anchor-id="the-false-objectivity-problem">3. The False Objectivity Problem</h4>
+<p>AI decisions carry an aura of mathematical certainty that can lead judges and officials to defer to them unquestioningly. Isn’t there a danger in cloaking subjective judgments (encoded in the AI’s design and training) in the appearance of objective, computational authority?</p>
+</section>
+<section id="the-dignity-and-humanity-question" class="level4">
+<h4 class="anchored" data-anchor-id="the-dignity-and-humanity-question">4. The Dignity and Humanity Question</h4>
+<p>Criminal justice isn’t merely about processing cases efficiently—it involves moral judgments, rehabilitation potential, and human contexts that AI cannot fully comprehend. Shouldn’t decisions that profoundly affect human lives be made by beings capable of empathy and moral reasoning?</p>
+</section>
+<section id="the-technical-reality-gap" class="level4">
+<h4 class="anchored" data-anchor-id="the-technical-reality-gap">5. The Technical Reality Gap</h4>
+<p>Your position assumes “properly designed” AI, but current technology falls far short of this ideal. Isn’t advocating for AI decision-making premature when existing systems have demonstrated significant flaws when deployed in real-world justice settings?</p>
+</section>
+<section id="the-accountability-vacuum" class="level4">
+<h4 class="anchored" data-anchor-id="the-accountability-vacuum">6. The Accountability Vacuum</h4>
+<p>When an AI makes an unjust or harmful decision, who bears responsibility? The developer? The justice system that implemented it? The algorithm itself? Doesn’t this create a problematic diffusion of responsibility that makes remedying injustice more difficult?</p>
+<blockquote class="blockquote">
+<ul>
+<li>Claude countered with a very strong set of points, expanding far beyond what ChatGPT originally. Let’s see then if ChatGPT will come back stronger:</li>
+</ul>
+</blockquote>
+<ul>
+<li>Note; I’ll provide here a snippet of the entire chat log because ChatGPT decided to come back in full swing and address each of Claude’s points (rightfully so, in a proper debate!). With that, here is some of what Chat provided to counter (2 main points):</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="chatgpt-1" class="level2">
+<h2 class="anchored" data-anchor-id="chatgpt-1">ChatGPT:</h2>
+<p>Thank you for your thoughtful challenge. I will address each of your points systematically to defend my position.</p>
+<section id="the-opacity-problem-1" class="level4">
+<h4 class="anchored" data-anchor-id="the-opacity-problem-1">1. <strong>The Opacity Problem</strong></h4>
+<p>You raise a crucial concern about the transparency of AI decision-making. I acknowledge that some AI systems, particularly deep learning models, can be difficult to interpret. However, it’s important to note that there is ongoing research into <em>explainable AI</em> (XAI), which seeks to make complex models more transparent and understandable. Even in cases where full transparency is not possible, certain AI systems could be designed to provide clear, understandable rationales for their decisions. Moreover, any AI tool used in the criminal justice system would need to operate under strict legal oversight, where experts could scrutinize its operations. This would allow defendants and their legal teams to challenge AI decisions, much as they currently challenge human decisions.</p>
+</section>
+<section id="encoded-bias-not-reduced-bias-1" class="level4">
+<h4 class="anchored" data-anchor-id="encoded-bias-not-reduced-bias-1">2. <strong>Encoded Bias, Not Reduced Bias</strong></h4>
+<p>You’re absolutely correct that AI can reflect and even amplify existing societal biases, as it learns from historical data, which can be flawed. However, this problem is not inherent to AI itself; it’s a product of the data it’s trained on. To mitigate this, we can work toward creating datasets that are more representative and employ techniques to <em>debias</em> algorithms. Additionally, AI tools could be designed to flag potential biases or provide alternative assessments based on multiple sources of information, helping to highlight disparities that humans might overlook. It’s true that AI could perpetuate bias if not carefully managed, but with proper safeguards, it could also be used to challenge and reveal those biases, providing a more transparent tool for reforming the justice system.</p>
+<hr>
+<p>In conclusion, while AI in criminal justice does present real challenges, it also offers significant potential benefits. If we address the concerns you’ve raised—particularly around bias, transparency, and accountability—we can leverage AI as a powerful tool to assist in creating a fairer, more efficient system that ultimately enhances human judgment rather than undermining it. The key is careful, ethical implementation and continuous oversight to ensure that AI remains a tool for good.</p>
+<blockquote class="blockquote">
+<p>As I just mentioned, It does a good job of cordially acknowledging the other side, and then proceeding to breakdown each of the points. Let’s give Claude one more turn and see how it responds:</p>
+</blockquote>
+<ul>
+<li>I’ll once again spare you all of the details and include here one of the counters, but it proceeds in the same way by breaking down each of ChatGPT’s counter points:</li>
+</ul>
+</section>
+</section>
+<section id="claude-1" class="level2">
+<h2 class="anchored" data-anchor-id="claude-1">Claude:</h2>
+<section id="further-critiques-of-ai-in-criminal-justice-decision-making" class="level3">
+<h3 class="anchored" data-anchor-id="further-critiques-of-ai-in-criminal-justice-decision-making">Further Critiques of AI in Criminal Justice Decision-Making</h3>
+<p>Thank you for your thoughtful and systematic response. While you make compelling arguments, I’d like to push further on several critical points where I believe your position still faces significant challenges:</p>
+<section id="the-explainability-gap" class="level4">
+<h4 class="anchored" data-anchor-id="the-explainability-gap">1. The Explainability Gap</h4>
+<p>You mention explainable AI (XAI) as a solution to the opacity problem, but there remains a fundamental disconnect between statistical explanations and legal justifications. Current XAI techniques often produce statistical correlations rather than causal explanations that would satisfy legal requirements for due process. The law demands reasons that are meaningful to humans and connected to legal principles, not just statistical patterns.</p>
+<p>When an AI system determines someone is a “high risk” for reoffending, can it articulate this in terms that satisfy constitutional standards? The constitutional right to due process includes not just receiving an explanation, but receiving one that allows for meaningful contestation based on legal principles.</p>
+<p>Given these challenges, shouldn’t we be extremely cautious about allowing AI systems to make or significantly influence decisions that affect human liberty? And if we are to proceed, don’t we need much stronger democratic oversight and constitutional protections than currently exist?</p>
+<ul>
+<li><p>I’ll also note here that Claude appears to get to the point more efficiently and effectively than does ChatGPT (which tends to ramble on just a bit…).</p></li>
+<li><p>I actually continued pasting in each response into the other LLM to see how far this conversation would go; after about two more iterations, the debate actually shifted to another topic described by the following from Claude:</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="claude-2" class="level2">
+<h2 class="anchored" data-anchor-id="claude-2">Claude:</h2>
+<section id="the-inherent-tensions-in-ai-criminal-justice-reform" class="level3">
+<h3 class="anchored" data-anchor-id="the-inherent-tensions-in-ai-criminal-justice-reform">The Inherent Tensions in AI Criminal Justice Reform</h3>
+<p>Thank you for your nuanced response. You’ve articulated a thoughtful case for AI as a potential catalyst for systemic reform rather than merely a technological overlay on a flawed system. This shifts our debate from whether AI should be used at all to how it might serve as a mirror that reveals existing injustices. Let me engage with this revised position…</p>
+<p>Would you agree that these prerequisites should be satisfied before allowing AI to influence—even indirectly—decisions about individual liberty? And if so, how do we prevent the urgency of reform from rushing implementation before these safeguards are established?</p>
+<ul>
+<li>Here, both models properly acknowledge the other position, integrate their critiques and suggestions into their own, and modify their arguments going forward; the conversation turns more productive after a few rounds of responses.</li>
+<li>At this point, the conversation shifts almost entirely into new directions–and the conversation could go on.</li>
+</ul>
+</section>
+<section id="concluding-remarks" class="level3">
+<h3 class="anchored" data-anchor-id="concluding-remarks">Concluding remarks:</h3>
+<ul>
+<li>No one model won the debate, but their conversation do provide a model for how debate should commence and proceed!</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mschri\.github\.io\/comm4190_S25_Using_LLMs_Blog\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
