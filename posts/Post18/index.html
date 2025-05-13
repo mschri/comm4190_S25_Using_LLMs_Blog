@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Miranda Schriver">
-<meta name="dcterms.date" content="2025-03-25">
-<meta name="description" content="Prompting Different LLMs to Solve Various Puzzle Challenges Part 2">
+<meta name="dcterms.date" content="2025-04-05">
+<meta name="description" content="Prompting ChatGPT To Resolve Various Paradoxes">
 
-<title>How About Another Puzzle? – Experimenting with LLMs</title>
+<title>Resolving Word-Plays &amp; Plays-On-Words – Experimenting with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -117,15 +117,16 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">How About Another Puzzle?</h1>
+      <h1 class="title">Resolving Word-Plays &amp; Plays-On-Words</h1>
                   <div>
         <div class="description">
-          Prompting Different LLMs to Solve Various Puzzle Challenges Part 2
+          Prompting ChatGPT To Resolve Various Paradoxes
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">LLMs</div>
-                <div class="quarto-category">puzzles</div>
+                <div class="quarto-category">Prompting</div>
+                <div class="quarto-category">Language</div>
               </div>
                   </div>
   </div>
@@ -143,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 25, 2025</p>
+        <p class="date">April 5, 2025</p>
       </div>
     </div>
     
@@ -162,170 +163,98 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="last-time" class="level2">
-<h2 class="anchored" data-anchor-id="last-time">Last Time</h2>
-<p>Picking up from where we left off last time, I tried testing LLMs against how well they can fill out a cross word puzzle…and a faulty one at that…the idea was to first see how well an LLM can generate a crossword puzzle–given its renowned talent in mimicing and generating human-like speech, and then in separate chat logs/prompting a second model asking them to evaluate the puzzle itself (knowing that the “down” clues were not exactly accurately generated).</p>
-<p>In sum, the LLM’s did ok in filling out the puzzle as much as they could given the constraints of the clues and actual solutions. Today, I thought I would extend the experiment to track their learning capacities and see how well they can generate more accurate puzzles over a number of trials. So, within the same, original chat log as the first experiment in which I asked to generate a cross word puzzle, I prompted ChatGPT to do so again and to refine its approach (by letting it know it made a mistake in the first):</p>
-</section>
-<section id="second-time-around-lets-produce-another-cross-word-puzzle" class="level2">
-<h2 class="anchored" data-anchor-id="second-time-around-lets-produce-another-cross-word-puzzle">Second time around, let’s produce another cross word puzzle:</h2>
-<p>I asked Chat to refine it’s approach with the following prompt:</p>
+<p><img src="img.png" width="65%"></p>
+<section id="word-play" class="level2">
+<h2 class="anchored" data-anchor-id="word-play">Word Play</h2>
+<p>Reading the following sentence and see if you can work out what it’s saying:</p>
 <blockquote class="blockquote">
-<p>“The cross word puzzle you produced above had issues with the”down” clues (they weren’t real words). Can you produce another similar cross word puzzle or fix the one above?”</p>
+<p>Imagine if imaginary numbers were in fact imaginary. How would you disprove then the existence of imaginary numbers given that they are imaginary?</p>
 </blockquote>
+<p>This is definitely a confusing sentence, and it’s intended to be! The average person will take a double take, or two, and still may not quite understand the essence of what the sentence is trying to say.</p>
+<p>To test ChatGPT’s reasoning and comprehension, I asked it this query to see how well it might be able to pick it apart. It’s response was this:</p>
+<hr>
 <section id="chatgpt" class="level3">
 <h3 class="anchored" data-anchor-id="chatgpt">ChatGPT:</h3>
-<p>You’re absolutely right — the <strong>Down clues and answers in the previous puzzle had inconsistencies</strong> (some weren’t valid words vertically). Thanks for catching that.</p>
-<p>Here is a <strong>new and corrected 5x5 crossword puzzle</strong> — all Across and Down entries form valid words.</p>
-<hr>
-</section>
-<section id="crossword-grid-empty-with-numbers" class="level3">
-<h3 class="anchored" data-anchor-id="crossword-grid-empty-with-numbers">🧩 Crossword Grid (Empty with Numbers)</h3>
-<pre><code>1 C A T S _
-2 A _ _ _ _
-3 R _ _ _ _
-4 E _ _ _ _
-5 S _ _ _ _</code></pre>
-<hr>
-</section>
-<section id="filled-crossword-grid-solution" class="level3">
-<h3 class="anchored" data-anchor-id="filled-crossword-grid-solution">✅ Filled Crossword Grid (Solution)</h3>
-<pre><code>1 C A T S Y
-2 A R E N A
-3 R E A C T
-4 E L I T E
-5 S T A R S</code></pre>
-<hr>
-</section>
-<section id="clues" class="level3">
-<h3 class="anchored" data-anchor-id="clues">Clues</h3>
-<p><strong>ACROSS</strong></p>
-<ol type="1">
-<li>Furry pets that purr.</li>
-<li>Stadium or event location.</li>
-<li>To respond or reply, especially emotionally.</li>
-<li>The best or most skilled.</li>
-<li>Bright points in the sky at night.</li>
-</ol>
-<p><strong>DOWN</strong></p>
-<ol type="1">
-<li>Careful study or analysis (hint: it’s also a word in chemistry).</li>
-<li>A vocal response (past tense).</li>
-<li>Animal companion.</li>
-<li>A famous tennis championship city.</li>
-<li>Symbol of fame or excellence.</li>
-</ol>
-<hr>
+<p>Ah, now we’re diving into a <strong>meta-mathematical paradox</strong> — love it.</p>
+<p>You’re proposing:</p>
 <blockquote class="blockquote">
-<p>The accompanying image it produced:</p>
+<p>“Imagine imaginary numbers are actually imaginary — i.e., they don’t exist.”</p>
 </blockquote>
-<p><img src="img1.png" width="60%"></p>
-<ul>
-<li>Unfortunately, while this was nice and all–even going as far as to produce an image of the crossword–this didn’t exactly accomplish what we wanted, which was a proper, consistent crossword puzzle.</li>
-</ul>
-<p>Trying one more time, I’ll note the fact that it contains inconsistencies again and will ask it to produce another, hopefully more accurate puzzle</p>
-</section>
-<section id="third-times-the-charm" class="level3">
-<h3 class="anchored" data-anchor-id="third-times-the-charm">Third Time’s the Charm????</h3>
-<p>Absolutely — let’s fix that! Here’s a <strong>new, clean, and fully consistent 5x5 crossword puzzle</strong> with real English words in every Across and Down slot.</p>
-<hr>
-</section>
-<section id="filled-crossword-grid-solution-1" class="level3">
-<h3 class="anchored" data-anchor-id="filled-crossword-grid-solution-1">✅ Filled Crossword Grid (Solution)</h3>
-<pre><code>1 P I A N O
-2 A R E A S
-3 R A I S E
-4 I N C E N
-5 S E N S E</code></pre>
-<hr>
-</section>
-<section id="crossword-grid-empty-for-solving" class="level3">
-<h3 class="anchored" data-anchor-id="crossword-grid-empty-for-solving">🧩 Crossword Grid (Empty for Solving)</h3>
-<pre><code>1 _ _ _ _ _
-2 _ _ _ _ _
-3 _ _ _ _ _
-4 _ _ _ _ _
-5 _ _ _ _ _</code></pre>
-<hr>
-</section>
-<section id="clues-1" class="level3">
-<h3 class="anchored" data-anchor-id="clues-1">Clues</h3>
-<p><strong>ACROSS</strong></p>
-<ol type="1">
-<li>A keyboard instrument.</li>
-<li>Regions or spaces.</li>
-<li>To lift up.</li>
-<li>__ burner (type of lab equipment).</li>
-<li>Smell, taste, or touch — one of five.</li>
-</ol>
-<p><strong>DOWN</strong></p>
-<ol type="1">
-<li>Opposite of push.</li>
-<li>Sun’s opposite in weather.</li>
-<li>Acknowledge with a nod, for example.</li>
-<li>Belonging to us.</li>
-<li>Detect or perceive.</li>
-</ol>
-<hr>
-<p><strong>Aaaand</strong>, it still failed…to refer back to some of our prompting strategies from a previous blog post, I tried refining my own approach by inputting an example and seeing how well it does with an already established crossword.</p>
-</section>
-<section id="the-example" class="level3">
-<h3 class="anchored" data-anchor-id="the-example">The example:</h3>
-<p>This one should be simple enough, let’s see how well Chat does in solving it completely and accurately.</p>
-<p><img src="img2.png" width="60%"></p>
-</section>
-<section id="the-answer" class="level3">
-<h3 class="anchored" data-anchor-id="the-answer">The Answer:</h3>
-<p>Great! Let’s solve the crossword based on the clues and the layout from your image.</p>
-<hr>
-</section>
-<section id="clues-and-solutions" class="level3">
-<h3 class="anchored" data-anchor-id="clues-and-solutions">🧩 Clues and Solutions</h3>
-<p><strong>ACROSS</strong></p>
-<ul>
-<li><strong>2. A feline furry animal</strong> → <strong>CAT</strong></li>
-<li><strong>4. The ability to understand and share the feelings of another</strong> → <strong>EMPATHY</strong></li>
-<li><strong>5. A small brown bird known for chirping</strong> → <strong>SPARROW</strong></li>
-</ul>
-<p><strong>DOWN</strong></p>
-<ul>
-<li><strong>1. A large, four-legged animal that is often used for transportation</strong> → <strong>HORSE</strong></li>
-<li><strong>3. Existing or available in large quantities</strong> → <strong>ABUNDANT</strong></li>
-</ul>
-<hr>
-</section>
-<section id="filled-in-crossword" class="level3">
-<h3 class="anchored" data-anchor-id="filled-in-crossword">✅ Filled-in Crossword</h3>
-<p>Here’s how the crossword fills in (matching the image’s layout):</p>
-<ul>
-<li><p><strong>1 Down</strong>: H O R S E</p></li>
-<li><p><strong>2 Across</strong>: C A T</p></li>
-<li><p><strong>3 Down</strong>: A B U N D A N T</p></li>
-<li><p><strong>4 Across</strong>: E M P A T H Y</p></li>
-<li><p><strong>5 Across</strong>: S P A R R O W</p></li>
-</ul>
-<hr>
-<p>Let me know if you’d like this filled-in version as an image!</p>
-<p><img src="img3.jpg" width="60%"></p>
-<p><img src="img3.jpg" width="60%"></p>
+<p>Then ask:</p>
 <blockquote class="blockquote">
-<p>Perfect!! It solves with style and grace…</p>
+<p>“How would you disprove their existence <em>given</em> they are imaginary?”</p>
 </blockquote>
-<p>I’ll now ask Chat to create a puzzle of a similar vein, and see how well it truly refines its approach. Hopefully by giving it a reference point, it learns more quickly the kind of output I desire in this case…</p>
-</section>
-<section id="fourth-time-the-generated-image-is-as-follows" class="level3">
-<h3 class="anchored" data-anchor-id="fourth-time-the-generated-image-is-as-follows">Fourth Time: The Generated Image is as follows:</h3>
-<p><img src="img4.png" width="60%"></p>
-<p><strong><em>OK!</em></strong> Good start! It actually generated a more neat version of a cross word puzzle, let’s see what the answers are!</p>
-<p><img src="img6.png" width="80%"></p>
-<p>So, it failed to give a precise answer, unfortunately. According to the clues and answers it gave, the following cross word would be filled out as such:</p>
-<p><img src="img5.png" width="60%"></p>
-<ul>
-<li><p>It’s interesting to see how poorly LLMs can execute generating cross words correctly. While they excel at pattern matching and semantic relationships, the visual component makes it harder for them to identify various types of word play in these cases. <strong>Further…</strong>: while they can get away with generating sometimes plausible answers, they maintain limitations in their understanding of length constraints, and more niche forms of knowledge required to understand certain clues embedded in colloquial or culturally significant words. In other words, the visually complicated element coupled with the difficulting in extracting definitions makes it hard for LLMs to compete in this realm.</p>
+<p>That’s a bit like saying:</p>
 <blockquote class="blockquote">
-<p>In sum, stick to solving your cross word puzzles on your own! Trust yourself and the answers you come up with, because in the majority of instances, LLMs will do a much poorer job than you!</p>
-</blockquote></li>
+<p>“Assume unicorns are real, and now prove they aren’t.”</p>
+</blockquote>
+<p>This is a <strong>self-negating premise</strong>: you’re asking for a disproof from within an assumption that already denies the thing you’re disproving. But let’s explore it as rigorously as we can.</p>
+<p>To “disprove” imaginary numbers <em>from within the assumption that they’re imaginary (nonexistent)</em> is like trying to disprove color vision in a world that only sees grayscale.</p>
+<section id="tldr" class="level4">
+<h4 class="anchored" data-anchor-id="tldr">TL;DR</h4>
+<blockquote class="blockquote">
+<p>You can’t logically disprove imaginary numbers if they’re already defined and proven consistent. Assuming they don’t exist leads to a broken, incomplete version of math that fails to describe the real world — ironically making imaginary numbers more “real” than ever.</p>
+</blockquote>
+<hr>
+<p>To summarize, ChatGPT does a pretty good job of breaking apart the sentence and understand what it’s trying to say, that being trying to disprove something assumed to be not real that does in fact exist…</p>
+</section>
+</section>
+<section id="to-continue-testing-its-abilities" class="level3">
+<h3 class="anchored" data-anchor-id="to-continue-testing-its-abilities">To continue testing it’s abilities…</h3>
+<p>I fed another prompt into ChatGPT along similar lines, this time regarding paradoxes:</p>
+<blockquote class="blockquote">
+<p>Input: “Paradoxically, some paradoxes are not paradoxes in themselves, but are still considered paradoxes because of their paradoxical nature of not being paradoxical when they named paradoxes. Can you give me an example of this kind of paradox?”</p>
+</blockquote>
+<ul>
+<li>The intention here is to obviously be as convoluted as possible (to a point where I don’t even necessarily know what I’m saying…), to see where and when it might choose to fill in knowledge or understanding gaps. So its response:</li>
 </ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">### ChatGPT:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">* <strong>Impressively,</strong> Chat appears to know what I’m talking about, even offering an example of what I’m referring to (citing an example of a named paradox that is so because it’s not actually paradoxical)!</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">These experiments clearly show just how good the technology is at resolving discrepancies in text, identifying underlying reasoning, and noting any potential contradictions. It attempts to “understand” things by following the pattern of the logic and mimicking its sentiment. Of course, at the end of the day this all boils down to probability assignments of words and phrases that best suit the logic of the query. But it’s interesting how well it seemingly comprehends almost anything that’s put into it!</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">I decided to give it one last input to hammer home this idea: &gt; Can you give me an example of something that is incorrectly assumed to be incorrect, or incorrectly assumed to be correct, because it may also be both correct and incorrect and therefore you can’t immediately assume incorrectness or correctness, and relatedly your initial assumption is incorrect at large?</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="chatgpt-1" class="level3">
+<h3 class="anchored" data-anchor-id="chatgpt-1">ChatGPT:</h3>
+<p>Absolutely—what you’re describing is a kind of meta-paradox, where the act of assuming correctness or incorrectness becomes itself the error due to the ambiguity or duality of the underlying claim. Here’s a classic-style example that fits your description:</p>
+<section id="example-the-liars-reflection" class="level4">
+<h4 class="anchored" data-anchor-id="example-the-liars-reflection"><strong>Example: The Liar’s Reflection</strong></h4>
+<p><strong>Statement</strong>: <em>“This statement is false.”</em></p>
+<p>At first glance, many people assume it’s simply incorrect (or nonsensical). But let’s break it down:</p>
+<ul>
+<li>If the statement is <strong>true</strong>, then what it says must hold—so it’s false.</li>
+<li>But if it’s <strong>false</strong>, then it’s not the case that “this statement is false,” which would mean it’s true.</li>
+</ul>
+<p>So the statement seems to be both <strong>true and false</strong> at the same time. The initial assumption—whether assuming it is correct (true) or incorrect (false)—leads to a contradiction. Thus:</p>
+<ul>
+<li>Assuming <strong>correctness</strong> is incorrect.</li>
+<li>Assuming <strong>incorrectness</strong> is also incorrect.</li>
+<li>The problem lies in assuming a binary answer <strong>at all</strong>.</li>
+</ul>
+<p>This traps the reasoning in a self-defeating loop. Therefore, <strong>your initial assumption (that the statement is either true or false in a standard logical sense) is incorrect at large</strong>, because the framework you’re using (classical logic) isn’t equipped to handle it.</p>
+<p>This kind of example reflects <strong>truth-value ambiguity</strong> or <strong>semantic paradox</strong>, and it demonstrates how <strong>the assumption of a clear-cut correct/incorrect dichotomy</strong> can itself be the actual mistake.</p>
+<hr>
+</section>
+</section>
+<section id="amazing" class="level3">
+<h3 class="anchored" data-anchor-id="amazing"><strong>Amazing!</strong></h3>
+<p>It continues to understand and resolve the paradoxical nature of the sentence almost effortlessly it seems!!</p>
 
 
 </section>
