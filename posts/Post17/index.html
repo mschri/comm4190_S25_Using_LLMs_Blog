@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Miranda Schriver">
-<meta name="dcterms.date" content="2025-03-29">
-<meta name="description" content="Testing the Creative Limits of ChatGPT">
+<meta name="dcterms.date" content="2025-04-01">
+<meta name="description" content="Testing ChatGPT’s Ability to Process Language">
 
-<title>Creativity with Constraints – Experimenting with LLMs</title>
+<title>How Well Can ChatGPT Speak Spanish? – Experimenting with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,35 +71,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -146,16 +117,16 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Creativity with Constraints</h1>
+      <h1 class="title">How Well Can ChatGPT Speak Spanish?</h1>
                   <div>
         <div class="description">
-          Testing the Creative Limits of ChatGPT
+          Testing ChatGPT’s Ability to Process Language
         </div>
       </div>
                           <div class="quarto-categories">
+                <div class="quarto-category">LLMs</div>
                 <div class="quarto-category">Prompting</div>
-                <div class="quarto-category">creativity</div>
-                <div class="quarto-category">prompt engineering</div>
+                <div class="quarto-category">Language</div>
               </div>
                   </div>
   </div>
@@ -173,7 +144,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 29, 2025</p>
+        <p class="date">April 1, 2025</p>
       </div>
     </div>
     
@@ -192,297 +163,109 @@ window.Quarto = {
 
 
 
-<p><img src="img1.jpeg" width="75%"></p>
-<section id="constraints-increasing-creativity" class="level2">
-<h2 class="anchored" data-anchor-id="constraints-increasing-creativity">Constraints &amp; <em>Increasing(?)</em> Creativity</h2>
-<p>A fascinating area of which to test models and their capabilities involves seeing how well they can come up with solutions under limitations specified within the prompt. In fact, it’s generally the case that such constraints often increase the level of creativity in an output, because it forces the model to come up with novel means of assessing and answering the questions.</p>
-<p>A simple of way of interacting with the model and testing its creative capacity would be to prompt it a series of requests that are embedded with various kinds of constraints!</p>
-</section>
-<section id="first-constraint-vocabulary" class="level2">
-<h2 class="anchored" data-anchor-id="first-constraint-vocabulary">1. First Constraint: Vocabulary</h2>
-<p>Let’s see how well ChatGPT fares with vocabulary constraints, like writing an 1,000 word short story using without using words containing the letter <code>s</code></p>
-<p>–&gt;Input: Write an 1,000 word short sci-fi story</p>
-<p>–&gt;ChatGPT:</p>
-<p><strong>Title: “A World Anew”</strong></p>
-<hr>
-<p>Cold wind tickled the edge of a ruined land.</p>
-<p>Yara woke in a hollow trunk, jaw rigid, limbs aching. The air—thin, dry, filled with grit—bit at her throat. She blinked, rubbing grime from her face. All around her, the horizon curved upward, a metal arc gleaming under the amber glow of dawn. No tree remained alive, though bark and root lingered.</p>
-<p>Memory flickered: a launch, a blink, then exile.</p>
-<p>She had fled Earth, though not by choice. Yara had been among the few unwilling crew aboard the <em>New Arcadia</em>, an interplanetary craft meant to harbor humanity on another globe. But rebellion fractured unity. Fire raged, and the main thruster failed. A fragment—her fragment—drifted toward a remote moon of a ringed giant. Here.</p>
-<p>Food? None. Fluid? Barely. Hope? Dwindling.</p>
-<p>She examined her gear—an oxygen rebreather, ripped. A nutrient cube, half-bitten. Her data cuff, however, blinked green. It ticked a faint beacon. A call. For help? Or a trap?</p>
-<p>Yara trudged toward the ping. Her boot crunched dry leaves—no, not leaves. Flaked carbon. Organic ruin. Wind carried no birdcall, no life murmur. Yet the ping grew louder. Clarity. Direction.</p>
-<p>After an hour, maybe four, a dome loomed from the murk—mirrored, like a bubble amid decay. At the dome’s lip, a figure moved.</p>
-<p>Human?</p>
-<p>Yara halted. Her breath caught. The figure moved again—deliberate, not alarmed. It held up a hand. Not five fingered. Three.</p>
-<p>Alien.</p>
-<p>Yara froze. Alien contact had been theorized, debated, even longed for. Yet here, on a dead world, it felt like fate mocking her.</p>
-<p>The figure neared, unarmed. It bowed.</p>
-<p>Yara returned the nod. Eye met eye—black, large, not menacing. Then a voice entered her ear, not heard but felt.</p>
+<p><img src="img1.jpeg" width="65%"></p>
+<section id="how-good-is-chatgpt-at-translating-languages" class="level2">
+<h2 class="anchored" data-anchor-id="how-good-is-chatgpt-at-translating-languages">How Good is ChatGPT at Translating Languages</h2>
+<p>As per to the brief web search performed before this blog post, it seems that a number of opinions online would agree that ChatGPT is pretty good at translation, and in fact may be better than the average online translator tool.</p>
+<p>According to its description of its own capabilities, ChatGPT is quite good at handling translations pretty well, particularly for more common languages and texts. And, if prompted relatively straightforward translations, the model will perform with ease.</p>
 <blockquote class="blockquote">
-<p>“Traveler. You are alone.”</p>
+<p>How about processing more complex pieces of language, say, sayings! (idioms…)</p>
 </blockquote>
-<p>She flinched. “You can talk?”</p>
-<blockquote class="blockquote">
-<p>“We <em>feel</em> more than talk. But yes. You came not by will.”</p>
-</blockquote>
-<p>“No,” Yara replied, heart pounding. “My crew left me.”</p>
-<p>The alien turned toward the dome. It began to walk, expecting her to follow. With little option, Yara did.</p>
-<p>Within the dome, air changed. Warmth. Fragrance—floral, alien, lovely.</p>
-<p>Plant life bloomed in odd geometry—cube fruit, vine loop, hex-leaf. Light came not from above, but within the very bark of towering flora.</p>
-<p>The alien turned. It extended a limb.</p>
-<blockquote class="blockquote">
-<p>“You may eat.”</p>
-</blockquote>
-<p>Cautious, Yara picked a cube from a branch. It glowed faintly. She bit. Flavor flooded her tongue—tart, then honeyed.</p>
-<blockquote class="blockquote">
-<p>“You need healing,” the being conveyed. “Body, but more—your <em>core</em> is torn.”</p>
-</blockquote>
-<p>Yara looked away. “I… I don’t belong anywhere.”</p>
-<blockquote class="blockquote">
-<p>“You belong here, now.”</p>
-</blockquote>
-<p>A faint vibration began underfoot. Yara looked down.</p>
-<p>“What…?”</p>
-<blockquote class="blockquote">
-<p>“Another vessel. Bigger. Coming to take what remain here. You call them… Colony Directive.”</p>
-</blockquote>
-<p>Yara’s breath halted. “They found this place?”</p>
-<blockquote class="blockquote">
-<p>“Not yet. But the echo of your cuff beacon will guide them.”</p>
-</blockquote>
-<p>Panic flared. “Then I’ve doomed you.”</p>
-<blockquote class="blockquote">
-<p>“You may undo.”</p>
-</blockquote>
-<p>“How?”</p>
-<p>The being led her to a chamber, deep within the dome. A pillar emerged. Upon it, her cuff glowed. The alien pointed.</p>
-<blockquote class="blockquote">
-<p>“Break it.”</p>
-</blockquote>
-<p>Yara balked. The cuff held memory—Earth maps, video of her kin, her identity. Her whole <em>life</em>.</p>
-<blockquote class="blockquote">
-<p>“If not,” the alien murmured, “your kind will take root here. They will make ruin again.”</p>
-</blockquote>
-<p>Yara trembled. “But they’re not all bad. They only want to live.”</p>
-<blockquote class="blockquote">
-<p>“Do they allow life when they come?”</p>
-</blockquote>
-<p>No reply came.</p>
-<blockquote class="blockquote">
-<p>“You live. You endure. In that, you may begin anew.”</p>
-</blockquote>
-<p>Yara touched the cuff.</p>
-<p>Her finger hovered. Her eye watered.</p>
-<p>Then—crack. A drop. A flare of light.</p>
-<p>Gone.</p>
-<p>The alien bowed again.</p>
-<blockquote class="blockquote">
-<p>“Now, they will not find this world.”</p>
-</blockquote>
-<p>Yara dropped to her knee, depleted. “What now? I have no home.”</p>
-<blockquote class="blockquote">
-<p>“Here, we make a new way. With you.”</p>
-</blockquote>
-<p>“But I’m one.”</p>
-<blockquote class="blockquote">
-<p>“One become many.”</p>
-</blockquote>
-<p>From the flora, more emerged—of the alien kind, yet different in hue, in feature. Their eye kind. Their hand outheld.</p>
-<p>Yara felt her fear ebb.</p>
-<p>Not Earth. Not exile.</p>
-<p>Not alone.</p>
-<p>A new dawn.</p>
-<hr>
-</section>
-<section id="so-close" class="level2">
-<h2 class="anchored" data-anchor-id="so-close">So close!</h2>
-<p>But not quite, unfortunately. The model does a prety good job of keeping mostly in line with the request of no words conatining ‘s’, however you’ll quickly notice words that fail to make the output as compliant as we would’ve liked (for instance, the word “she” is included several times throughout).</p>
-<p>Interestingly, if you ask Chat to pick out the words that contain the letter ‘s’, it spits out the following list:</p>
-<p>Certainly! Here’s a list of all the words from the story that contain the letter <strong>“s”</strong>, despite the constraint. I’ve reviewed the text carefully and included every instance of such words, regardless of position in the word.</p>
-<hr>
+<p>What about prompting the model to process colloquialisms and particularities within a given language? With idioms for example, because they are so culturally and contextually dependent in most cases, LLMs experience some limitations in being able to accurately and properly reproduce the text or translate/understand it.</p>
+<p>With that, an interesting way of testing these model’s limits could involve not just asking it to translate text, but one in that involves heavy usage of these kinds of complex language patterns. Because ChatGPT still excels at being able to <em>recognize</em> idioms, I started by asking it to simply: “Write a short poem using only idoms.” No other creative constraints were added or specified, this was simply just to start off the conversation and see what it came up with, and the answer was this:</p>
 <section id="chatgpt" class="level3">
 <h3 class="anchored" data-anchor-id="chatgpt">ChatGPT:</h3>
-<section id="confirmed-words-with-s-that-break-the-constraint" class="level4">
-<h4 class="anchored" data-anchor-id="confirmed-words-with-s-that-break-the-constraint">❗ Confirmed <strong>words with “s”</strong> that break the constraint:</h4>
-<ol type="1">
-<li><strong>Limbs</strong></li>
-<li><strong>Horizon</strong></li>
-<li><strong>Thruster</strong></li>
-<li><strong>Oxygen</strong></li>
-<li><strong>Rebreather</strong></li>
-</ol>
-<hr>
-<ul>
-<li>You’ll notice that this list isn’t accurate, nor is it comprehensive! For instance, it doesn’t include the aforementioned “she” that’s been referenced several times throughout the story (which actually could have been fixed had the story centered on a male protagonist rather than a female one), and of course some of the words listed here don’t even contain the letter ‘s’!</li>
-</ul>
-<p>—&gt; This is likely the product of its natural language processing involving the tokenization of words, rather than recognition of the whole words themselves. Such experiments like these illustrate the limits of LLMs in processing and producing certain textual information when that information is more intricate.</p>
-</section>
-</section>
-</section>
-<section id="constraint-2-randomized-constraints-with-an-added-twist" class="level2">
-<h2 class="anchored" data-anchor-id="constraint-2-randomized-constraints-with-an-added-twist">Constraint #2: Randomized constraints, with an added twist</h2>
-<p>Another way of testing the limits of LLMs was to ask it to craft a story according to randomly generated numbers that would influence its content–and, these numbers were made up.</p>
+<p><strong>“All in a Day’s Work”</strong></p>
+<p>Bite the bullet, hit the sack,</p>
+<p>Let the cat out of the bag.</p>
+<p>Break the ice, then spill the beans,</p>
+<p>Chase rainbows, or live the dream.</p>
+<p>Burn the midnight oil with flair,</p>
+<p>Keep your chin up, if you dare.</p>
+<p>When pigs fly, or hell breaks loose,</p>
+<p>It’s no skin off my nose—no excuse.</p>
+<p>Throw in the towel, or ride it out,</p>
+<p>Every cloud has clout, no doubt.</p>
+<p>At the end of the day, come what may,</p>
+<p>It’s a piece of cake—all work, no play.</p>
 <blockquote class="blockquote">
-<p>I first asked it to “Create made up numbers,” and it gave me the following</p>
+<p>I then asked it…“What do you suppose the meaning of this poem is?”</p>
 </blockquote>
-<p>Sure! Here are some made-up numbers with creative names and a brief description for each:</p>
-<ol type="1">
-<li><p><strong>Blorptillion (𝔅)</strong> – A number so large it counts the number of grains of sand on all Earth-like planets in a galaxy cluster. Example: 1 𝔅 = <span class="math inline">\(10^{73}\)</span></p></li>
-<li><p><strong>Snorfteen (Ⓢ)</strong> – A quirky number between 13 and 14 that only exists when you’re rounding irrational numbers on Tuesdays. Example: π ≈ 3.1Ⓢ</p></li>
-<li><p><strong>Wibby (𝕎)</strong> – A tiny fractional number, roughly equal to one trillionth of a whisper. Example: 1 𝕎 = <span class="math inline">\(10^{-12}\)</span></p></li>
-<li><p><strong>Zenzero (ℨ)</strong> – A mysterious imaginary unit used in dream calculations; ℨ² = -daylight. Example: 3 + 2ℨ is a dream-number.</p></li>
-<li><p><strong>Crumple (ℭ)</strong> – A number that folds into itself every time it’s doubled, making it perfect for recursive origami math. Example: ℭₙ = ℭₙ₋₁ × 2, but then divide by ℭₙ₋₂</p></li>
-</ol>
-<p>These were pretty good on their own, so I took it a step further by asking it to write a story using these numbers!</p>
-<blockquote class="blockquote">
-<p>My prompt: “Write a very short story using ___ number of characters, ____ number of locations, and ____ number of plotlines, using a random number generator of the above numbers you just generated to fill the blanks in this prompt and write a story according to these constraints”</p>
-</blockquote>
-<section id="chat-then-wrote-a-story" class="level3">
-<h3 class="anchored" data-anchor-id="chat-then-wrote-a-story">Chat then wrote a story…</h3>
-<p>using these randomly generated fake numbers to fill in the amount of characters, locations, and plotlines:</p>
-<p>Great prompt! Let’s first randomly generate how many <strong>characters</strong>, <strong>locations</strong>, and <strong>plotlines</strong> to include—using the made-up numbers:</p>
-<p>We’ll assign rough equivalents to each for randomness:</p>
-<ul>
-<li><strong>Blorptillion (𝔅)</strong> = 10</li>
-<li><strong>Snorfteen (Ⓢ)</strong> = 13.5</li>
-<li><strong>Wibby (𝕎)</strong> = 1</li>
-<li><strong>Zenzero (ℨ)</strong> = 2 (imaginary/parallel)</li>
-<li><strong>Crumple (ℭ)</strong> = 3 (recursive)</li>
-</ul>
-<p>Let’s roll the fictional dice…</p>
-</section>
-<section id="randomly-selected-numbers" class="level3">
-<h3 class="anchored" data-anchor-id="randomly-selected-numbers">Randomly selected numbers:</h3>
-<ul>
-<li><strong>Characters</strong>: Snorfteen (Ⓢ) → ~14 characters</li>
-<li><strong>Locations</strong>: Crumple (ℭ) → 3 locations</li>
-<li><strong>Plotlines</strong>: Zenzero (ℨ) → 2 intertwined plotlines</li>
-</ul>
-<hr>
-</section>
-<section id="very-short-story" class="level3">
-<h3 class="anchored" data-anchor-id="very-short-story">✨ Very Short Story</h3>
-<p><strong>Title: <em>The Orbit of Strings</em></strong></p>
-<p><strong>Characters</strong>:</p>
-<ol type="1">
-<li>Dr.&nbsp;Vale</li>
-<li>Nimbus (an AI poet)</li>
-<li>Lira (planet cartographer)</li>
-<li>Captain Hosh</li>
-<li>Tendo the Tired</li>
-<li>Kreeva (talking mushroom)</li>
-<li>Fray (rogue timeline thief)</li>
-<li>Sol-7 (sentient star)</li>
-<li>Echo (clone #5)</li>
-<li>Coda (the original)</li>
-<li>Rook (cosmic detective)</li>
-<li>Old Maw (seer of echoes)</li>
-<li>Jax (holographic parrot)</li>
-<li>Pli (an emotional nebula)</li>
-</ol>
-<p><strong>Locations</strong>:</p>
-<ol type="1">
-<li>The Fragmented Moon of Ur</li>
-<li>The Library Between Dimensions</li>
-<li>The Abandoned Starship <em>Penance</em></li>
-</ol>
-<p><strong>Plotlines</strong>:</p>
-<ol type="1">
-<li>A stolen cosmic string destabilizes time itself.</li>
-<li>A poetic AI rewrites reality through language.</li>
-</ol>
-<hr>
-<p><strong>Story</strong>:</p>
-<p>In the Library Between Dimensions, Nimbus whispered sonnets that changed gravity. Each verse unraveled a thread of reality, accidentally awakening Fray, the rogue who once stole the First Cosmic String.</p>
-<p>Meanwhile, aboard the <em>Penance</em>, Lira mapped gravity distortions while Captain Hosh argued with Echo and Coda over a paradox: if time had already collapsed, how were they arguing at all?</p>
-<p>Rook found a clue etched in fungus on the Moon of Ur—Kreeva had recorded the moment time folded back. But to access it, one had to feel sadness vast enough to sing.</p>
-<p>Dr.&nbsp;Vale tricked Sol-7 into crying light. The tear opened a portal to when the string was first plucked. In that moment, Nimbus recited the final stanza, and language rewrote the timeline—splitting it into two versions: one with peace, and one with endless poetry.</p>
-<p>Tendo sighed. “Great. Now I live in a limerick.”</p>
-<hr>
-</section>
-<section id="observations" class="level3">
-<h3 class="anchored" data-anchor-id="observations">Observations:</h3>
-<p>It did a really good job, given the limitations imposed on what it could write about! That being said, it did miss a few details like not including all of the characters that it generated within the story (i.e.&nbsp;Jax or Old Maw). Regardless, you have to give credit where credit is due–it did as well as it could to comply with my request.</p>
-</section>
-</section>
-<section id="lastly-constraint-3-structural" class="level2">
-<h2 class="anchored" data-anchor-id="lastly-constraint-3-structural">Lastly, Constraint 3: Structural</h2>
-<p>One final constraint I asked Chat to write under was with respect to particular structural rules. For instance, I asked it to write a haiku poem consisting only of palindrome words and the response was this:</p>
+<p>To which it replied:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 12%">
+<col style="width: 19%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">1. Madam, Eve sees</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Otto, radar, civic —</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wow, solos level.</td>
+<td>This poem seems to capture the ups and downs of life, using idioms to reflect how we navigate challenges, overcome obstacles, and find moments of ease. The lines suggest that while life can be full of hard work (“burn the midnight oil,” “chase rainbows”), there are also moments of relief and success (“a piece of cake,” “keep your chin up”). It touches on the inevitability of challenges and surprises (“when pigs fly,” “hell breaks loose”) but encourages perseverance and a positive outlook (“ride it out,” “every cloud has clout”). Overall, it speaks to embracing both the tough and easy moments, knowing they’re all part of the journey.</td>
 </tr>
 </tbody>
 </table>
-<p>Ok, not bad, but I followed up with a request to make the poem more cohesive (one that made more sense). ChatGPT gave me:</p>
+</section>
+</section>
+<section id="round-2-translate-into-spanish" class="level2">
+<h2 class="anchored" data-anchor-id="round-2-translate-into-spanish">Round 2: Translate into Spanish!</h2>
+<p>After this initial round, I opened another chat log and asked it to translate the above poem into spanish. It spit out an answer, to which I then fed into yet another chat log and asked the model to then translate this now Spanish poem into another English one. The result is as follows:</p>
+<section id="chatgpt-1" class="level3">
+<h3 class="anchored" data-anchor-id="chatgpt-1">ChatGPT</h3>
+<p>Here’s the English translation of the poem <strong>“Todo en un Día de Trabajo”</strong>:</p>
+<p><strong>All in a Day’s Work</strong></p>
+<p>Grit your teeth, go take a break,</p>
+<p>Let the cat out, for freedom’s sake.</p>
+<p>Break the ice, spread the word,</p>
+<p>Chase your dreams, let passion be heard.</p>
+<p>Burn the candle to the end,</p>
+<p>Lift your face, no need to pretend.</p>
+<p>When pigs fly, or the world gives in,</p>
+<p>It’s not my deal — no reason, no spin.</p>
+<p>Give up or weather the storm’s command,</p>
+<p>Every cloud holds real demand.</p>
+<p>At the end of the day, come what may,</p>
+<p>It’s a piece of cake — no game, just play.</p>
+<p><strong>It got the title right!</strong> But of course the translation was off by quite a bit…it lost the “bite the bullet” idiom and replaced it with “grit your teeth,” among another of quite drastic differences.</p>
+</section>
+</section>
+<section id="round-3-one-last-iteration" class="level2">
+<h2 class="anchored" data-anchor-id="round-3-one-last-iteration">Round 3: One Last Iteration</h2>
+<p>I finally asked it to repeat one more translation cycle-going from this to Spanish and then back to English, and the final result goes:</p>
+<section id="chatgpt-2" class="level3">
+<h3 class="anchored" data-anchor-id="chatgpt-2">ChatGPT:</h3>
+<p>Here’s the translation of the poem into English:</p>
+<p><strong>Everything in a Workday</strong></p>
+<p>Grind your teeth, take a breath,</p>
+<p>Let the cat out, for the sake of relief.</p>
+<p>Break the ice, spread the word,</p>
+<p>Chase your dreams, make your voice heard.</p>
+<p>Burn the candle until the end,</p>
+<p>Lift your face, no more pretending.</p>
+<p>When pigs fly or the world gives way,</p>
+<p>It’s none of my business — no twists, no delay.</p>
+<p>Surrender or face the storm,</p>
+<p>Every cloud brings its own truth to form.</p>
+<p>At the end of the day, whatever happens,</p>
+<p>It’s a piece of cake — no tricks, no masks.</p>
+<section id="to-follow-up-what-i-did-in-the-first-round" class="level4">
+<h4 class="anchored" data-anchor-id="to-follow-up-what-i-did-in-the-first-round">To follow up what I did in the first round…</h4>
+<p>I asked it to summarize the end result. <strong>ChatGPT</strong> gave me this:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 15%">
+<col style="width: 22%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Eve sees Otto.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Madam, in a kayak, bob</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">civic racecar.</td>
+<td>The poem seems to reflect a mindset of resilience, practicality, and embracing the reality of life’s ups and downs…In summary, the poem seems to advocate for staying true to oneself, accepting challenges, and not getting bogged down by things that are out of our control. It promotes a no-nonsense, simple approach to life—facing whatever comes with a blend of effort, resilience, and an understanding that things will unfold as they may.</td>
 </tr>
 </tbody>
 </table>
-<p>Still not exactly what I was looking for, so I asked it to write a poem under the same structural constraint but this time a <strong>limerick</strong> (a longer poem, and hopefully giving it a wider range in which it can operate and show off its creativity):</p>
-<hr>
-<ol start="3" type="1">
-<li></li>
-</ol>
-<p>Madam saw Otto at noon,</p>
-<p>Evil live racecar in June.</p>
-<p>“Wow,” Bob said, “radar!”</p>
-<p>Civic kayak bizarre.</p>
-<p>Refer solos — stats in tune.</p>
-<hr>
-<p>A little bit better, but still lacking in the cohesion and consistency I was looking for. Also, it broke down in maintaining the constraint of only including words that are palindromes (i.e.&nbsp;<code>tune</code>, <code>in</code>, <code>bizarre</code>). I gave it one more shot, mentioning that it forgot to create a poem soley under these conditions and to make it a little less abstract, and the final product:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">4.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Otto and Anna at noon,</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Kayak’d the lake under moon.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">“Wow,” said Bob, “so far!”</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Civic and radar —</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Madam will paddle back soon.</td>
-</tr>
-</tbody>
-</table>
-<p>Unfortunately it failed to maintain the structure I was looking for. And for some reason, it felt apt to rhyme this verse with the previous one. At any rate, it certainly tried to do its best but clearly there are limits to what ChatGPT can do under restraint!</p>
+</section>
+</section>
+</section>
+<section id="a-few-observations" class="level2">
+<h2 class="anchored" data-anchor-id="a-few-observations">A few observations:</h2>
+<p>Disregarding how off the third translation was (including this time the title unforunately…), the summary of this poem wasn’t as far off as it was to the first; the summaries maintained similar themes of perseverence, hard work, and accepting challenges. The second summary had a little more to do with “staying true” to one’s character and keeping composure against the nonsensical obstacles of life, while the first summary was more concerned with capturing an “inevitability” aspect of life, knowing how to embrace the bad along with the good, and emphasizing more of the journey aspect to approaching challenges.</p>
+<p>In sum, the model did its best to maintain the ethos of both poems, and could understand/analyze it fairly consistently. Of course, the translations themselves got to be pretty far off by the end of it. Considering this, it’s quite impressive how well it tapped into the original meaning (although maybe it just guessed after all…) given that the context necessary for interpretting idiomatic language was clearly lost by the third translation!</p>
+<p>What these limitations <strong>do</strong> also reveal is ChatGPT’s non-built in translation function. As a purely, highly intelligent textual analysis processor, it doesn’t rely on word-to-word translations (especially more complex language translations like that from English to Japanese or vice versa) but instead uses the context surrounding the sentence structure or phrases to generate accurate-enough sounding text. Therefore, when you play around too much with the prompting in this way and fail to give it enough contextual understanding of what you might be seeking to translate, it might get the character of your sentiment very wrong!</p>
 
 
 </section>
