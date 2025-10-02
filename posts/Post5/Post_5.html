@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Miranda Schriver">
-<meta name="dcterms.date" content="2025-02-20">
-<meta name="description" content="How Well Can LLMs Predict Patterns and Mappings?">
+<meta name="author" content="An LLM User">
+<meta name="dcterms.date" content="2025-02-17">
+<meta name="description" content="Testing Probabilistic Text Generation">
 
-<title>Decode the Message – Experimenting with LLMs</title>
+<title>Fill in the Blank – Experimenting with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,14 +35,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8baed627e397929b39067b72de942774.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1db3f541d99483cdc7a0d9cf38862b2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,6 +83,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Experimenting with LLMs</span>
     </a>
@@ -117,15 +120,16 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Decode the Message</h1>
+      <h1 class="title">Fill in the Blank</h1>
                   <div>
         <div class="description">
-          How Well Can LLMs Predict Patterns and Mappings?
+          Testing Probabilistic Text Generation
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">LLMs</div>
-                <div class="quarto-category">context understanding</div>
+                <div class="quarto-category">probability</div>
+                <div class="quarto-category">embedding</div>
               </div>
                   </div>
   </div>
@@ -136,14 +140,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Miranda Schriver </p>
+               <p>An LLM User </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 20, 2025</p>
+        <p class="date">February 17, 2025</p>
       </div>
     </div>
     
@@ -162,61 +166,62 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="llms-and-contextual-understanding" class="level2">
-<h2 class="anchored" data-anchor-id="llms-and-contextual-understanding">LLMs and Contextual Understanding</h2>
-<p>As we know, LLMs have an acute pattern recognition and contextual understanding based on the prompts that users feed it. It’s well-versed in a variety of problems and puzzles people have managed to think up, and its intelligent includes a number of techniques involved in language processing. For example, it relies primarily on its language modeling (the large textual dataset it’s trained on), along with basic trial and error measures, simple deciphering methods, and other coding mechanisms that anyone could likely implement themselves.</p>
-<section id="experiment" class="level3">
-<h3 class="anchored" data-anchor-id="experiment">Experiment:</h3>
-<p>In the spirit of stretching prompt complexity to see how LLMs respond and react, I came up with a relatively simple code using a one-to-one character mapping, and seeing if the LLM could decipher the sentences I fed it. This was to test the contextual understanding and pattern recognition capabilities of LLMs, and see how quickly (or slowly) they can pick up a complex input.</p>
-<p>Let’s test using one of the latest ChatGPT models:</p>
-<pre><code>the coded message: )3””9,,_)92_-43_697_59:-6 
-And the answer: Hello, how are you today</code></pre>
+<section id="probabilistic-text-generation-oreilly" class="level2">
+<h2 class="anchored" data-anchor-id="probabilistic-text-generation-oreilly">Probabilistic Text Generation (O’Reilly):</h2>
+<p>A significant feature that drives LLM text generation is its ability to pick out patterns of text input (prompts you feed it) and provide text output according to those patterns. It does so through a process of assigning probabilities to certain words within texts and according to the data it’s trained on, and spits out text that appears most likely. So in a process of election, each word in a sentence “casts votes on the importance of other words for its meaning” (Pheonix &amp; Taylor, Chapter 2).</p>
+<blockquote class="blockquote">
+<p>For reference: Phoenix, J. &amp; Taylor, M.(2024) Prompt Engineering for Generative AI. O’Reilly Media, Inc.</p>
+</blockquote>
+<section id="relatedly-numerical-representations-of-language" class="level3">
+<h3 class="anchored" data-anchor-id="relatedly-numerical-representations-of-language">Relatedly: Numerical Representations of Language:</h3>
+<p>Further, word embeddings describe words (represented as word vectors) situated close to each other (within a space/plane), allowing the model to calculate and “understand” the relationship between these two words and hence its ability to follow along an input’s context, syntax, and other broader language relationship features.</p>
+<p>It can be pictured as such (also referencing the O’Reilly textbook on: Prompt Engineering for Generative AI):</p>
+<p><img src="pic1.png" width="75%"></p>
+</section>
+</section>
+<section id="testing-llms" class="level2">
+<h2 class="anchored" data-anchor-id="testing-llms">Testing LLMs…</h2>
+<section id="model-anthropicclaude-3.5-sonnet" class="level3">
+<h3 class="anchored" data-anchor-id="model-anthropicclaude-3.5-sonnet">(model: anthropic/claude-3.5-sonnet)</h3>
+<p>This led to a small experiment that tests the language model’s ability to process certain texts/prompts, particularly when maybe they don’t follow typical conventions.</p>
+<p><strong><em>One experiment:</em></strong> testing its probabilistic text feature to finish sentences with a particular rhyming structure:</p>
+<blockquote class="blockquote">
+<p>We can see here it does a good job of completing the sentences according to the patterns within each text input (It guessed all of the words correctly that I had in mind for completing these sentences!).</p>
+</blockquote>
+<p><img src="pic2.png" width="75%"></p>
+</section>
+<section id="interestingly" class="level3">
+<h3 class="anchored" data-anchor-id="interestingly"><strong>Interestingly</strong></h3>
+<p>the system inititally fails to guess correctly when colloquialisms are expected to finish a sentence.</p>
+<p><img src="pic3.png" width="75%"></p>
 <ul>
-<li>(where double comma = a comma, and _ represents a space between words.)</li>
+<li><strong>Or at least…</strong> it was not its first guess to finish the sentence with a slang term. What’s also interesting is that it chose to maintain strict/perfect rhyming patterns by default, and not neccessarily look to creating or maintaining assonance (as it notes upon correction in its response).</li>
+</ul>
+<p><strong><em>A “second” experiment:</em></strong> examining how it learns from your rhyming patterns/speech tendencies based on the context of your previous prompts and inputs. * it assigns new probabilities to words based on previous inputs you give it</p>
+<p><img src="pic4.png" width="75%"></p>
+<ul>
+<li>Still had a little bit of trouble getting exactly the word in mind, but was definitely on the right track!</li>
+</ul>
+<section id="another-example" class="level4">
+<h4 class="anchored" data-anchor-id="another-example">Another example:</h4>
+<p><img src="pic5.png" width="75%"></p>
+<ul>
+<li>Here it got the question with ease (granted, the slang term is well-established/less obscure than the previous examples…); let’s try to see if the model can predict a slang term that is more recent (from 2024-25):</li>
+</ul>
+</section>
+<section id="a-third-example-new-slang-term" class="level4">
+<h4 class="anchored" data-anchor-id="a-third-example-new-slang-term">A third example: New slang term</h4>
+<p><img src="pic6.png" width="75%"></p>
+<ul>
+<li>It picked up on the slang usage!</li>
 </ul>
 <blockquote class="blockquote">
-<p>The mapping is as follows: each of the letters on a phone keyboard equate to the corresponding characters located in the same positions within the 123 keyboard</p>
+<p>This shows just how adaptable LLMs are, and how it learns to pick up modern language particularities.</p>
 </blockquote>
-<p><strong>Picture for Reference:</strong></p>
-<p>“Original” keyboard (standard QWERTY keyboard) &gt; This is the standard, default keyboard layout for a phone <img src="pic3.png" width="60%"></p>
-<p>“Alternate” keyboard &gt; When you press the “123” button on the keyboard in the lower left-hand corner, the alternate character keyboard (for numbers, punctuation marks, etc.) appear:</p>
-<p><img src="pic4.png" width="60%"></p>
-<section id="mapping" class="level4">
-<h4 class="anchored" data-anchor-id="mapping"><strong>Mapping:</strong></h4>
-<p>So for instance, Q=1, P=0, A=-, N=!, and so forth…</p>
-<pre><code>With that, let's see whether or not/how fast one of ChatGPT's latest models can pick up this pattern!</code></pre>
-<p><img src="pic1.png" width="100%"></p>
-</section>
-<section id="observation" class="level4">
-<h4 class="anchored" data-anchor-id="observation">Observation:</h4>
-<p>Understandably, the LLM doesn’t immediately pick up the pattern of the coded message, as anyone upon first glance can also agree, it appears to look like straight gibberish.</p>
-<blockquote class="blockquote">
-<p>Let’s see what happens when we give it another, fairly allusive hint:</p>
-</blockquote>
-<p><img src="pic5.png" width="80%"></p>
-</section>
-<section id="observation-1" class="level4">
-<h4 class="anchored" data-anchor-id="observation-1">Observation:</h4>
-<blockquote class="blockquote">
-<p>As per the second half of its response to the second query, we can see that the LLM already picks up a clue/sense as to what the mapping might involve!</p>
-</blockquote>
-<ul>
-<li>These prompts and corresponding LLM outputs demonstrate the extent to which these models are not purely glorified auto-completion or password-cracking algorithms; as previously mentioned, they incorporate a combination of these functionalities, alongside an intricate system of language processing and contextual understanding.
-<ul>
-<li>Note: the second query did not give any mapping hints!</li>
-</ul></li>
-</ul>
-<p><strong>Trying a third query</strong> (that makes no reference to the explicit mappings)</p>
-<p><img src="pic7.png" width="100%"></p>
-<p><img src="pic8.png" width="100%"></p>
-</section>
-</section>
-</section>
-<section id="was-it-right" class="level2">
-<h2 class="anchored" data-anchor-id="was-it-right">Was it right?!</h2>
-<p>The LLM was right!….mostly… It was slightly off in guessing the portion of the sentence that included the 697, and attributing it to a mapping of the question mark character, but once again it’s impressive to note how the model can decode messages with contextual clues that make no explicit reference to a mapping hint.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -271,13 +276,14 @@ And the answer: Hello, how are you today</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

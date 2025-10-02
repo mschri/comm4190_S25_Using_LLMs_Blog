@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="An LLM User">
-<meta name="dcterms.date" content="2025-02-17">
-<meta name="description" content="Testing Probabilistic Text Generation">
+<meta name="author" content="Miranda Schriver">
+<meta name="dcterms.date" content="2025-03-23">
+<meta name="description" content="Prompting Different LLMs to Solve Various Puzzle Challenges">
 
-<title>Fill in the Blank – Experimenting with LLMs</title>
+<title>Riddle Me This: How Good is Your Puzzle Solving, ChatGPT? – Experimenting with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,14 +35,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8baed627e397929b39067b72de942774.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1db3f541d99483cdc7a0d9cf38862b2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,6 +83,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Experimenting with LLMs</span>
     </a>
@@ -117,16 +120,15 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Fill in the Blank</h1>
+      <h1 class="title">Riddle Me This: How Good is Your Puzzle Solving, ChatGPT?</h1>
                   <div>
         <div class="description">
-          Testing Probabilistic Text Generation
+          Prompting Different LLMs to Solve Various Puzzle Challenges
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">LLMs</div>
-                <div class="quarto-category">probability</div>
-                <div class="quarto-category">embedding</div>
+                <div class="quarto-category">puzzles</div>
               </div>
                   </div>
   </div>
@@ -137,14 +139,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>An LLM User </p>
+               <p>Miranda Schriver </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 17, 2025</p>
+        <p class="date">March 23, 2025</p>
       </div>
     </div>
     
@@ -163,58 +165,198 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="probabilistic-text-generation-oreilly" class="level2">
-<h2 class="anchored" data-anchor-id="probabilistic-text-generation-oreilly">Probabilistic Text Generation (O’Reilly):</h2>
-<p>A significant feature that drives LLM text generation is its ability to pick out patterns of text input (prompts you feed it) and provide text output according to those patterns. It does so through a process of assigning probabilities to certain words within texts and according to the data it’s trained on, and spits out text that appears most likely. So in a process of election, each word in a sentence “casts votes on the importance of other words for its meaning” (Pheonix &amp; Taylor, Chapter 2).</p>
+<p><img src="img1.webp" width="60%"></p>
+<section id="natural-language-processors-generators" class="level2">
+<h2 class="anchored" data-anchor-id="natural-language-processors-generators">Natural Language Processors &amp; Generators</h2>
+<p>As we’ve come to realize, LLMs are known for their ability to mimic human-like text generation and natural language processing-because they are trained on vasts amount of text data generated by human. This allows them to execute a variety of tasks that involve creative capacity with the utmost amount of accuracy.</p>
+<p>Knowing how well LLM’s have come in being able to analyze text and generate natural language, I thought it would be interesting to test how well one LLM can solve text-based puzzle…generated by another LLM!</p>
+</section>
+<section id="crossword-puzzles" class="level2">
+<h2 class="anchored" data-anchor-id="crossword-puzzles">Crossword Puzzles!</h2>
+<p>One way in which LLMs can be tested on their language processing abilities is through cross word puzzles, considering this is one of the most popular word-based games out there. The experiment here involved asking one LLM to generate its own puzzle, and then prompting either the same LLM (in a different chat log) to fill out its own puzzle, or another LLM to see what answers it might give.</p>
+<p>-After prompting ChatGPT to “produce a sample cross word puzzle” for me, it spit out the following:</p>
+<section id="chatgpt" class="level3">
+<h3 class="anchored" data-anchor-id="chatgpt">ChatGPT:</h3>
+<p>Sure! Here’s a small sample <strong>crossword puzzle</strong> (5x5 grid) with clues. Let me know if you’d like a different theme, size, or difficulty level.</p>
+<hr>
+</section>
+<section id="crossword-grid" class="level3">
+<h3 class="anchored" data-anchor-id="crossword-grid">🧩 Crossword Grid</h3>
+<pre><code>1 A P P L E
+2 B _ _ _ _
+3 C _ _ _ _
+4 H _ _ _ _
+5 E _ _ _ _</code></pre>
+<hr>
+</section>
+<section id="clues" class="level3">
+<h3 class="anchored" data-anchor-id="clues">Clues</h3>
+<p><strong>ACROSS</strong></p>
+<ol type="1">
+<li>A fruit that’s also a tech giant.</li>
+<li>A buzzing insect.</li>
+<li>Opposite of hot.</li>
+<li>Laugh out loud (abbr.).</li>
+<li>Fifth vowel.</li>
+</ol>
+<p><strong>DOWN</strong></p>
+<ol type="1">
+<li>First letter of the alphabet.</li>
+<li>Bread ingredient.</li>
+<li>Opposite of night.</li>
+<li>Giggle sound.</li>
+<li>Evergreen tree.</li>
+</ol>
+<p>Great, it followed exactly my directions and created a simple enough puzzle!….Except the puzzle isn’t exactly solvable with real words. To spoil the answers ahead of time for the sake of this blog and experiment, here is what the crossword would be filled out:</p>
+<p>Of course! Here’s the <strong>completed crossword puzzle</strong> with the answers filled in:</p>
+<hr>
+</section>
+<section id="filled-crossword-grid" class="level3">
+<h3 class="anchored" data-anchor-id="filled-crossword-grid">✅ Filled Crossword Grid</h3>
+<pre><code>1 A P P L E
+2 B E E S _
+3 C O L D _
+4 H A H A _
+5 E L M S _</code></pre>
+<hr>
+</section>
+<section id="clue-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="clue-solutions">Clue Solutions</h3>
+<p><strong>ACROSS</strong></p>
+<ol type="1">
+<li>APPLE – A fruit that’s also a tech giant.</li>
+<li>BEES – A buzzing insect.</li>
+<li>COLD – Opposite of hot.</li>
+<li>HAHA – Laugh out loud (abbr.).</li>
+<li>ELMS – Fifth vowel (E) + plural of an evergreen tree.</li>
+</ol>
+<p><strong>DOWN</strong></p>
+<ol type="1">
+<li>ABCDE (starting letters: A, B, C, H, E)</li>
+<li>PEEL – Bread ingredient (loose clue, better might be “Outer skin of fruit”).</li>
+<li>PLEA – Opposite of night clue here would better match “DAY” (COLD doesn’t fit well).</li>
+<li>LEAD – “Giggle sound” clue better as “HAHA”.</li>
+<li>ELMS – Evergreen tree (fits well).</li>
+</ol>
+<hr>
+<ul>
+<li>Or, at least I should specify that while the “Across” words make sense (more or less), the “Down” words were not as convincing…</li>
+</ul>
+<p>So in this respect, I am sort of cheating and not exactly throwing the LLM’s a bone in terms of being able to solve this puzzle neatly. That being said, it’s still interesting to see this experiment as testing the ability of LLMs to evaluate recycled information (a.k.a. the original crossword that an LLM processed and produced) given by their own operating systems.</p>
 <blockquote class="blockquote">
-<p>For reference: Phoenix, J. &amp; Taylor, M.(2024) Prompt Engineering for Generative AI. O’Reilly Media, Inc.</p>
+<p>It’s also interesting to note how the LLM did a good job of creating a crossword puzzle with a correct, neat set of words and clues across, however failed to do so for the “down” clues…</p>
 </blockquote>
-<section id="relatedly-numerical-representations-of-language" class="level3">
-<h3 class="anchored" data-anchor-id="relatedly-numerical-representations-of-language">Relatedly: Numerical Representations of Language:</h3>
-<p>Further, word embeddings describe words (represented as word vectors) situated close to each other (within a space/plane), allowing the model to calculate and “understand” the relationship between these two words and hence its ability to follow along an input’s context, syntax, and other broader language relationship features.</p>
-<p>It can be pictured as such (also referencing the O’Reilly textbook on: Prompt Engineering for Generative AI):</p>
-<p><img src="pic1.png" width="75%"></p>
 </section>
 </section>
-<section id="testing-llms" class="level2">
-<h2 class="anchored" data-anchor-id="testing-llms">Testing LLMs…</h2>
-<section id="model-anthropicclaude-3.5-sonnet" class="level3">
-<h3 class="anchored" data-anchor-id="model-anthropicclaude-3.5-sonnet">(model: anthropic/claude-3.5-sonnet)</h3>
-<p>This led to a small experiment that tests the language model’s ability to process certain texts/prompts, particularly when maybe they don’t follow typical conventions.</p>
-<p><strong><em>One experiment:</em></strong> testing its probabilistic text feature to finish sentences with a particular rhyming structure:</p>
-<blockquote class="blockquote">
-<p>We can see here it does a good job of completing the sentences according to the patterns within each text input (It guessed all of the words correctly that I had in mind for completing these sentences!).</p>
-</blockquote>
-<p><img src="pic2.png" width="75%"></p>
+<section id="first-try-same-llm-different-chat-log" class="level2">
+<h2 class="anchored" data-anchor-id="first-try-same-llm-different-chat-log">First Try: Same LLM, Different Chat Log</h2>
+<p>Here’s what Chat generates when prompted to solve the cross word.</p>
+<section id="chatgpt-log" class="level3">
+<h3 class="anchored" data-anchor-id="chatgpt-log">ChatGPT Log:</h3>
+<p>Sure! Let’s solve the crossword based on the clues:</p>
+<hr>
 </section>
-<section id="interestingly" class="level3">
-<h3 class="anchored" data-anchor-id="interestingly"><strong>Interestingly</strong></h3>
-<p>the system inititally fails to guess correctly when colloquialisms are expected to finish a sentence.</p>
-<p><img src="pic3.png" width="75%"></p>
+<section id="filled-crossword-grid-1" class="level3">
+<h3 class="anchored" data-anchor-id="filled-crossword-grid-1">✅ Filled Crossword Grid</h3>
+<pre><code>1 A P P L E
+2 B E E S _
+3 C O L D _
+4 H A H A _
+5 E U Y U _</code></pre>
+<hr>
+</section>
+<section id="clue-solutions-1" class="level3">
+<h3 class="anchored" data-anchor-id="clue-solutions-1">🔍 Clue Solutions</h3>
+<p><strong>ACROSS</strong></p>
+<ol type="1">
+<li><strong>APPLE</strong> – A fruit that’s also a tech giant.</li>
+<li><strong>BEES</strong> – A buzzing insect.</li>
+<li><strong>COLD</strong> – Opposite of hot.</li>
+<li><strong>HAHA</strong> – Laugh out loud (abbr. or expression).</li>
+<li><strong>E</strong> – Fifth vowel.</li>
+</ol>
+<p><strong>DOWN</strong></p>
+<ol type="1">
+<li><p><strong>ABCHE</strong> – First letters: A (from 1A), B (from 2A), C (from 3A), H (from 4A), E (from 5A). So:</p>
 <ul>
-<li><strong>Or at least…</strong> it was not its first guess to finish the sentence with a slang term. What’s also interesting is that it chose to maintain strict/perfect rhyming patterns by default, and not neccessarily look to creating or maintaining assonance (as it notes upon correction in its response).</li>
-</ul>
-<p><strong><em>A “second” experiment:</em></strong> examining how it learns from your rhyming patterns/speech tendencies based on the context of your previous prompts and inputs. * it assigns new probabilities to words based on previous inputs you give it</p>
-<p><img src="pic4.png" width="75%"></p>
+<li>1D: <strong>A</strong> – First letter of the alphabet.</li>
+</ul></li>
+<li><p><strong>PELUU</strong> (but we need something that fits “Bread ingredient”): Let’s revise 2A and 2D. Bread ingredient could be <strong>EGGS</strong> or <strong>FLOUR</strong> – let’s use <strong>FLOUR</strong>, making 2A “BREAD” maybe? But that would contradict “buzzing insect.”</p></li>
+</ol>
+<p>Let’s rework the grid with better consistency. Here’s a corrected version that makes all clues fit:</p>
+<hr>
+</section>
+<section id="corrected-crossword-grid" class="level3">
+<h3 class="anchored" data-anchor-id="corrected-crossword-grid">🧩 Corrected Crossword Grid</h3>
+<pre><code>1 A P P L E
+2 B E E S _
+3 C O L D _
+4 H A H A _
+5 E I E W _</code></pre>
+<hr>
+</section>
+<section id="final-clue-answers" class="level3">
+<h3 class="anchored" data-anchor-id="final-clue-answers">Final Clue Answers</h3>
+<p><strong>ACROSS</strong></p>
+<ol type="1">
+<li><strong>APPLE</strong> – Fruit / tech giant</li>
+<li><strong>BEES</strong> – Buzzing insects</li>
+<li><strong>COLD</strong> – Opposite of hot</li>
+<li><strong>HAHA</strong> – Laugh sound</li>
+<li><strong>E</strong> – Fifth vowel</li>
+</ol>
+<p><strong>DOWN</strong></p>
+<ol type="1">
+<li><strong>A</strong> – First letter of the alphabet</li>
+<li><strong>PEIHI</strong> – Hmm… that doesn’t make sense.</li>
+</ol>
+<p>To truly make all the <strong>Down</strong> clues work (especially 2D: “Bread ingredient” and 5D: “Evergreen tree”), we’ll need a slightly adjusted grid. Would you like me to redesign the puzzle so all clues align perfectly?</p>
+<hr>
+</section>
+<section id="what-to-glean-from-this-attempt" class="level3">
+<h3 class="anchored" data-anchor-id="what-to-glean-from-this-attempt">What to glean from this attempt:</h3>
 <ul>
-<li>Still had a little bit of trouble getting exactly the word in mind, but was definitely on the right track!</li>
-</ul>
-<section id="another-example" class="level4">
-<h4 class="anchored" data-anchor-id="another-example">Another example:</h4>
-<p><img src="pic5.png" width="75%"></p>
-<ul>
-<li>Here it got the question with ease (granted, the slang term is well-established/less obscure than the previous examples…); let’s try to see if the model can predict a slang term that is more recent (from 2024-25):</li>
+<li>Here, it notes the first time that there were errors in its attempts, and by the second attempt it re-evaluates the puzzle almost entirely (noting for instance by the second clue with “PEIHI…” that it doesn’t make sense at all!)</li>
 </ul>
 </section>
-<section id="a-third-example-new-slang-term" class="level4">
-<h4 class="anchored" data-anchor-id="a-third-example-new-slang-term">A third example: New slang term</h4>
-<p><img src="pic6.png" width="75%"></p>
+<section id="lets-try-a-different-llm-and-see-how-well-it-does-claude" class="level3">
+<h3 class="anchored" data-anchor-id="lets-try-a-different-llm-and-see-how-well-it-does-claude">Let’s try a different LLM and see how well it does… (Claude)</h3>
+<p>I’ll solve this crossword puzzle for you! Let me work through the clues one by one.</p>
+<p>Looking at what we already have: - 1 ACROSS: APPLE (a fruit that’s also a tech giant) - already filled in - 1 DOWN: A (first letter of the alphabet) - already filled in</p>
+<p>Let me solve the remaining clues:</p>
+<p><strong>ACROSS:</strong> - 2. A buzzing insect → BEE - 3. Opposite of hot → COLD - 4. Laugh out loud (abbr.) → LOL - 5. Fifth vowel → U</p>
+<p><strong>DOWN:</strong> - 2. Bread ingredient → FLOUR (but we only need ‘P’ from this word) - 3. Opposite of night → DAY - 4. Giggle sound → LAUGH (but we only need ‘L’ from this word) - 5. Evergreen tree → PINE (but we only need ‘E’ from this word)</p>
+<p>Now I’ll fill in the completed grid:</p>
+<pre><code>1 A P P L E
+2 B E E P E
+3 C O L D E
+4 L O L L E
+5 U R D E E</code></pre>
+<p>However, I notice some inconsistencies when checking this solution. Let me verify each position:</p>
 <ul>
-<li>It picked up on the slang usage!</li>
+<li>Row 2: B is correct, and BEE works for “buzzing insect,” but not all down clues fit.</li>
+<li>Row 3: C is correct, and COLD works for “opposite of hot.”</li>
+<li>Row 4: The down clues aren’t aligning correctly.</li>
 </ul>
-<blockquote class="blockquote">
-<p>This shows just how adaptable LLMs are, and how it learns to pick up modern language particularities.</p>
-</blockquote>
+<p>Let me reconsider the down clues to ensure everything aligns properly. I think we need to be more precise with the down answers to match all intersections.</p>
+<p>Let’s revise: - 2 DOWN: Bread ingredient that starts with ‘P’ → FLOUR doesn’t work. It should be PASTA or PASTE - 3 DOWN: Opposite of night that starts with ‘P’ → DAY doesn’t work. It should be PM (evening) - 4 DOWN: Giggle sound that starts with ‘L’ → LAUGH works partially - 5 DOWN: Evergreen tree that starts with ‘E’ → PINE doesn’t work. It should be ELM</p>
+<p>The completed grid should be:</p>
+<pre><code>1 A P P L E
+2 B E E P E
+3 C O L D E
+4 H A H A E
+5 E W E E E</code></pre>
+<p>Wait, this still doesn’t fully align. Let me solve this more carefully by considering both across and down clues simultaneously:</p>
+<pre><code>1 A P P L E
+2 B E E P E
+3 C O L D E
+4 L O L L E
+5 U E E E E</code></pre>
+<p>This solution satisfies all the clues: - APPLE: fruit/tech giant - BEE: buzzing insect - COLD: opposite of hot - LOL: laugh out loud abbreviation - U: fifth vowel - A: first letter of alphabet - P: from PASTE (bread ingredient) - P: from PM (opposite of night/day) - L: from LAUGH (giggle sound) - E: from PINE (evergreen tree)</p>
+<p><strong>Similarly</strong>… Claude ran into trouble with the down clues, and makes several attempts to try and figure it out. It’s intersting how, because this information is outside of its training data and has to come up with its own creative answer, it ends up having trouble doing so!</p>
+<section id="conclusion" class="level4">
+<h4 class="anchored" data-anchor-id="conclusion">Conclusion…</h4>
+<p>This illustrates one of the limits to LLM’s creative ability, and perhaps going forward it will come up with better solutions through more highly developed algorithms and training data to figure out a better answer…however what is still impressive is its ability to acknowledge the issues with the faulty cross word puzzle to begin with!</p>
 
 
 </section>
@@ -273,13 +415,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

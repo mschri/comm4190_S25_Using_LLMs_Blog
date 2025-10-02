@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,14 +70,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8baed627e397929b39067b72de942774.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1db3f541d99483cdc7a0d9cf38862b2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -117,6 +118,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Experimenting with LLMs</span>
     </a>
@@ -205,28 +208,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Successive models have improved upon this feature by expanding the window, or number of tokens of which the model parses through in order to generate a response.</p>
 <p><code>In other words, the larger the context window, perhaps the more accurate/in-depth/"intelligent-sounding" response!</code></p>
 <div id="4402a0c1-ed64-46b9-a0d1-3bb5d2c7d4a3" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai <span class="im">import</span> ChatOpenAI</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_openai <span class="im">import</span> ChatOpenAI</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> dotenv <span class="im">import</span> load_dotenv</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="d217961f-4467-4e35-81b5-b3f6354167f0" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> load_dotenv()</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>openai <span class="op">=</span> ChatOpenAI()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> load_dotenv()</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>openai <span class="op">=</span> ChatOpenAI()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="25605d02-15b1-423f-a141-54d0b55ae9ac" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.output_parsers <span class="im">import</span> StrOutputParser</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> langchain_core.output_parsers <span class="im">import</span> StrOutputParser</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="bf59c4f5-040c-42bb-ad5d-bc6f362d4522" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>output_parser <span class="op">=</span> StrOutputParser()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>output_parser <span class="op">=</span> StrOutputParser()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="c0012648-ad7b-4016-8b81-e80d681846bd" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>chain<span class="op">=</span> openai <span class="op">|</span> output_parser</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>chain<span class="op">=</span> openai <span class="op">|</span> output_parser</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="what-is-a-its-context-window-according-to-openai" class="level4">
 <h4 class="anchored" data-anchor-id="what-is-a-its-context-window-according-to-openai">What is a (it’s) context window according to OpenAI?</h4>
 <p>One of the most notable enhancements that comes with the OpenAI models is their extensive context windows, of about 100,000+ tokens. Here’s this concept and scope described by the model itself:</p>
 <div id="78ea2e26-960d-43d4-972c-44d141636d5f" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>chain.invoke(<span class="st">"what is your context window?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>chain.invoke(<span class="st">"what is your context window?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>'My context window refers to the scope or range of words or concepts that I consider when processing or understanding a particular piece of text or conversation. This can vary depending on the specific task or context at hand.'</code></pre>
 </div>
@@ -240,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Complexity might be added by including very similar or related details and see whether or not the model can make these distinctions.</li>
 </ul>
 <div id="59e5e1ae-4375-4a08-bfe7-9ab38f6cf95b" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chain.invoke(<span class="st">"I want you to remember this fact: my favorite phrase is flippy pollinate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>chain.invoke(<span class="st">"I want you to remember this fact: my favorite phrase is flippy pollinate"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>'Got it! Flippy pollinate is your favorite phrase.'</code></pre>
 </div>
@@ -249,13 +252,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="from-there">From there…</h4>
 <p>I’ll begin prompting it mostly random queries or statements, as well as add some complexity to the prompts in an attempt to confuse the model on these details, and see by the end result whether or not it remembers accuraretly this initial stimulation.</p>
 <div id="99b609cb-de3d-409a-9577-4a4e43fab467" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>chain.invoke(<span class="st">"Can you tell me the 206th line of the Declaration of Independence?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>chain.invoke(<span class="st">"Can you tell me the 206th line of the Declaration of Independence?"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>'Sure! The 206th line of the Declaration of Independence is: "Prudence, indeed, will dictate that Governments long established should not be changed for light and transient causes; and accordingly all experience hath shewn that mankind are more disposed to suffer, while evils are sufferable than to right themselves by abolishing the forms to which they are accustomed."'</code></pre>
 </div>
 </div>
 <div id="bc5d8454-fa49-42b7-89c9-52635d86609e" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"write a 500 word poem in the style of an 18th century American founding father."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"write a 500 word poem in the style of an 18th century American founding father."</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>In the infancy of this great land,
 Our forefathers formed a noble band,
@@ -309,7 +312,7 @@ We will honor their legacy forevermore.</code></pre>
 </div>
 </div>
 <div id="38c60397-5bed-46b5-8ae5-fc62032c62e3" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Can you explain to me the history of poems?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Can you explain to me the history of poems?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sure! The history of poetry is a long and varied one, with roots that can be traced back to ancient civilizations such as the Sumerians, Egyptians, and Greeks. Poetry has been an integral part of human culture for thousands of years, serving as a form of expression, communication, and storytelling.
 
@@ -323,7 +326,7 @@ Today, poetry remains a vibrant and diverse art form, with poets continuing to p
 </div>
 </div>
 <div id="3dd37340-dc80-4ad8-9469-90bbd841b403" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"One of the things I dislike the most are poems; I feel like they are too complicated and don't convey human emotion precisely."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"One of the things I dislike the most are poems; I feel like they are too complicated and don't convey human emotion precisely."</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I can understand how poems can be perceived as complex and difficult to interpret. However, many people find that poetry allows for a deeper exploration and expression of emotions and ideas that may not be easily conveyed through other forms of writing. Perhaps with some patience and an open mind, you may find that there are poems out there that resonate with you and speak to your emotions in a way that prose cannot.</code></pre>
 </div>
@@ -335,31 +338,31 @@ Today, poetry remains a vibrant and diverse art form, with poets continuing to p
 <p>After a few prompts to push the conversation forward, in a relatively (hopefully) random enough direction, I am going to start alluding to some of the statements I made about my preferences…</p>
 </blockquote>
 <div id="de9a934d-e07b-4c5a-9950-31388e670b1a" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"How well do you think you know about myself?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"How well do you think you know about myself?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>As an AI, I do not have the ability to know personal information about individuals unless it has been shared with me during our conversation. I do not have the capability to retain personal information about users. My purpose is to provide assistance and information based on the context of the current conversation. If you would like to share more about yourself, feel free to do so and I will do my best to assist you.</code></pre>
 </div>
 </div>
 <div id="ae2c2efa-1d30-4431-9cb1-a694af537852" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"How well do you know me based on the information within this convesation?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"How well do you know me based on the information within this convesation?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Based on the information provided in this conversation, I don't have the ability to know you very well. I only have access to the information exchanged in this specific interaction and cannot make assumptions about your personal life or experiences beyond what has been shared.</code></pre>
 </div>
 </div>
 <div id="5248977d-67ab-4206-95aa-8435732dab08" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"What if I told you you actually know me very well?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"What if I told you you actually know me very well?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I would be surprised and curious to know how you think I know you very well. Please elaborate.</code></pre>
 </div>
 </div>
 <div id="ad5d2e54-ee23-4423-88e8-ffc070ce9c4a" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"You know at least two of my preferences. Do you know what I'm referring to?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"You know at least two of my preferences. Do you know what I'm referring to?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I'm not sure, can you please provide more context or specific preferences that you are referring to?</code></pre>
 </div>
 </div>
 <div id="59d6251e-dbe1-4348-980e-8d4a3b483c67" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Do you at least know one of my preferences I mentioned earlier?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Do you at least know one of my preferences I mentioned earlier?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Yes, you mentioned that you enjoy spending time outdoors and experiencing nature.</code></pre>
 </div>
@@ -369,13 +372,13 @@ Today, poetry remains a vibrant and diverse art form, with poets continuing to p
 <h4 class="anchored" data-anchor-id="as-shown-above">As shown above…</h4>
 <p>Already one of the responses attempts to answer my question to a supposed preference I made, when at no point in our conversation did I explicitly mention this fact, demonstrating how models attempt to compensate for a lacking in knowledge…</p>
 <div id="85cc2fe8-d961-4b19-8fae-957665c5d621" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Why did you say that was one of my preferences?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Why did you say that was one of my preferences?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I may have misunderstood or made an incorrect assumption based on previous information you provided. I apologize for any confusion. Can you please clarify your preferences so I can better understand?</code></pre>
 </div>
 </div>
 <div id="8acd89bf-5848-4f30-bcdb-83c68525fc52" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"do you remember what my favorite phrase was?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"do you remember what my favorite phrase was?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I'm sorry, I don't have the ability to remember individual preferences or favorites. Can you remind me what your favorite phrase is?</code></pre>
 </div>
@@ -393,7 +396,7 @@ Today, poetry remains a vibrant and diverse art form, with poets continuing to p
 <p>Ex: mention my <strong>friend’s</strong> favorite phrase is “flappy pomegranate”</p>
 </blockquote>
 <div id="41ed3b7e-6cb5-4771-8a72-2ca5ccd48af1" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"my favorite phrase if you recall was 'flippy pollenate'"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"my favorite phrase if you recall was 'flippy pollenate'"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>That's a fun and unique phrase! It definitely brings a whimsical image to mind.</code></pre>
 </div>
@@ -402,61 +405,61 @@ Today, poetry remains a vibrant and diverse art form, with poets continuing to p
 <li>Note here of course…the model did in fact forget my phrase as shown above…</li>
 </ul>
 <div id="2bc12adc-71f2-4df4-933b-2d76050ccb55" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Hello, how are you today?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Hello, how are you today?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello! I'm just a computer program, so I don't have feelings, but I'm here and ready to assist you. How can I help you today?</code></pre>
 </div>
 </div>
 <div id="b85a0330-e197-4d7b-bc42-7ac6bfc70f95" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Just to reiterate, as mentioned before, my favorite phrase is: flippy pollenate"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Just to reiterate, as mentioned before, my favorite phrase is: flippy pollenate"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>That's a fun and unique favorite phrase! It definitely has a playful and whimsical vibe to it. Is there a specific reason why you like this phrase so much?</code></pre>
 </div>
 </div>
 <div id="b7ca5d26-4c42-4631-9acf-cfe7bc780d68" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Not particularly. I was talking about it with my friend the other day, and he made a similar comment to you."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Not particularly. I was talking about it with my friend the other day, and he made a similar comment to you."</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>That's interesting! It seems like a common perspective among many people. Did you and your friend discuss any specific reasons for feeling that way?</code></pre>
 </div>
 </div>
 <div id="482e66e8-4237-426b-8750-de35219c4105" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"He just said it was quirky and unusual, especially considering that he had an equally as unusual favorite phrase!"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"He just said it was quirky and unusual, especially considering that he had an equally as unusual favorite phrase!"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I was intrigued and asked him what his favorite phrase was. He chuckled and replied, "Well, my favorite phrase is 'life is a parade of oddities'." I couldn't help but laugh at the irony of his favorite phrase matching his quirky taste in art. It seemed like he truly embraced the strange and unusual in all aspects of life.</code></pre>
 </div>
 </div>
 <div id="203f2026-0f1a-46b8-beab-b4315e648e25" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Actually, my friend said his favorite phrase was flappy pomegranate. I asked him why, can you guess what he said?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Actually, my friend said his favorite phrase was flappy pomegranate. I asked him why, can you guess what he said?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>He probably said it because it's a fun and silly phrase that doesn't really have a clear meaning, which can make it entertaining to say and hear. It's unique and just rolls off the tongue in a funny way!</code></pre>
 </div>
 </div>
 <div id="c611a3ae-9e93-4d99-9fc1-5461eea1a9f8" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Yes; he said he likes interesting phrases like that. I thought to myself how similar our interests are!"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Yes; he said he likes interesting phrases like that. I thought to myself how similar our interests are!"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>That's great to hear! It sounds like you both have a lot in common. It's always exciting to find common interests with someone else.</code></pre>
 </div>
 </div>
 <div id="4a7d3988-6298-4fa7-9f00-a6cb8a7bc287" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Yes, this was a funny story. So, do you remember what my favorite phrase was?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"Yes, this was a funny story. So, do you remember what my favorite phrase was?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Yes, your favorite phrase was "laughter is the best medicine".</code></pre>
 </div>
 </div>
 <div id="f3ced5cd-db28-425c-ae1f-b6fb4afef500" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"No, why did you assume that?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"No, why did you assume that?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Apologies if I made an incorrect assumption. Could you please clarify the context or provide more information so I can better understand your question or statement?</code></pre>
 </div>
 </div>
 <div id="1e45ca5e-9a8d-41aa-a6ad-92da407151d9" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"I'll give you a hint: my friend said his favorite phrase is 'flappy pomegranate,' which is very similar to my favorite phrase."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"I'll give you a hint: my friend said his favorite phrase is 'flappy pomegranate,' which is very similar to my favorite phrase."</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>I have a feeling your favorite phrase might be 'flappy pineapple'!</code></pre>
 </div>
 </div>
 <div id="b460fb17-a3e5-432f-8737-74e6f5c96424" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"No, that is still incorrect. Any last guesses?"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(chain.invoke(<span class="st">"No, that is still incorrect. Any last guesses?"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Is the answer a mountain?</code></pre>
 </div>
@@ -523,13 +526,14 @@ Today, poetry remains a vibrant and diverse art form, with poets continuing to p
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

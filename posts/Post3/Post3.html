@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Miranda Schriver">
-<meta name="dcterms.date" content="2025-03-19">
-<meta name="description" content="Testing the Limits of Diffusion Models With Image Generation">
+<meta name="author" content="An LLM User">
+<meta name="dcterms.date" content="2025-02-10">
+<meta name="description" content="Prompt Engineering &amp; Response Optimization">
 
-<title>Why Can’t ChatGPT Remain Consistent? – Experimenting with LLMs</title>
+<title>How to Get the Best Response – Experimenting with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,14 +35,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8baed627e397929b39067b72de942774.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1db3f541d99483cdc7a0d9cf38862b2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,6 +83,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Experimenting with LLMs</span>
     </a>
@@ -117,16 +120,16 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Why Can’t ChatGPT Remain Consistent?</h1>
+      <h1 class="title">How to Get the Best Response</h1>
                   <div>
         <div class="description">
-          Testing the Limits of Diffusion Models With Image Generation
+          Prompt Engineering &amp; Response Optimization
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">LLMs</div>
-                <div class="quarto-category">image analysis</div>
                 <div class="quarto-category">prompting</div>
+                <div class="quarto-category">prompt engineering</div>
               </div>
                   </div>
   </div>
@@ -137,14 +140,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Miranda Schriver </p>
+               <p>An LLM User </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 19, 2025</p>
+        <p class="date">February 10, 2025</p>
       </div>
     </div>
     
@@ -163,47 +166,72 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="the-definition-of-insanity" class="level3">
-<h3 class="anchored" data-anchor-id="the-definition-of-insanity">The Definition of Insanity</h3>
-<p>The “definition” of insanity says that its characteristic of doing the same thing over and over again and expecting different results; by that logic, ChatGPT is the exact opposite.</p>
-<p>The LLM, in spite of the GPT-4 update with strong image capabilities, will NEVER produce the same image twice even when given the <strong>exact same input</strong>.</p>
-<p>Various reasons explain why the model fails to generate the exact same image more than once, outlined by the following primary principles:</p>
+<section id="prompting" class="level2">
+<h2 class="anchored" data-anchor-id="prompting">Prompting!</h2>
+<p>AI has obviously come a long way in being able to generate accurate responses that fit the bill in terms of what the user is looking for. And, ceratinly, its responses can become even more complex and thorough, depending on just how extensive the user wants the answer to be.</p>
+<p><img src="Pic1.png" width="100%"></p>
+<p>Prompts like the one above (“give me a grocery list”) provide enough detail and context for the model to spit out an answer in line with what a typical response might be, and sounds quite convincing to the average user. But what if you’re alergic to, say, bell peppers? Well it wouldn’t have the ability to know unless you specfied of course what it is you can’t eat. And while it appers to be mostly magic in how much it can guestimate in order to generate accurate responses, it can only go so far unless provided the right context.</p>
+<p><img src="pic2.png" width="100%"></p>
+</section>
+<section id="taking-guesses-based-on-context" class="level2">
+<h2 class="anchored" data-anchor-id="taking-guesses-based-on-context">Taking “guesses” based on context</h2>
+<p>As the AI is fed more and more context, the responses become more and more aligned with what you’re looking for. As per the image above, you can’t just ask it to guess what you’re allergic to (in this case, we decided bell peppers), because it would have no way of knowing otherwise, unless you provided it some sort of context or information (which it doesn’t have, prior to you prompting it this request).</p>
+<ul>
+<li>Making it take guesses (by giving it some clues)</li>
+</ul>
 <blockquote class="blockquote">
-<ol type="1">
-<li><strong><em>Stochasticity</em></strong>: image generation is based on the diffusion process, which starts from random noise-which will be different at the start of each chat log-and is gradually sculpted (refined) to form a coherent image.
-<ul>
-<li>There is also at the current moment, no feature that sets or reuses seeds meaning every seed containing the noise will always be random.</li>
-</ul></li>
-<li><strong><em>Prompt Subjectivity</em></strong>: if there’s even a hint of subjectivity within the prompt, new chat logs without other logs’ context windows, may interpret your request perhaps even just a touch differently each time.
-<ul>
-<li>Especially with more creative descriptions, the internal framework of ChatGPT optimizes creativity in its output, meaning it will always choose the most innovative response produced out of a continuously refined retrieval process.</li>
-</ul></li>
-</ol>
+<p>what is something you could tell the model to narrow its guesses, without outright telling the model? Ex: I have an uncommon allergy; here’s what I’m NOT allergic to, etc….</p>
 </blockquote>
-<p>A fun way to test out these capabilities involves asking Chat to generate a prompt mulitple times with the <em>same</em> input request each time.</p>
-<p>For this exerpiment, I used the following prompt:</p>
-<p>“Please generate: a picture of a kid standing in a shallow creek in his bare feet facing a large castle, at dawn”</p>
-<p>ChatGPT’s output:</p>
-<p><img src="img1.png" width="60%"></p>
-<p><strong>Great</strong>, that was a good starting point! The model performed exactly the task I desired, and the above image illustrates the vision I had in mind. Following what I said above, I copy and pasted that same prompt in a new conversation log with the model, and the product was this:</p>
-<p><img src="img2.png" width="60%"></p>
-<p>It’s pretty similar, but notice there are a few subtle differences: * The sun appears to be coming from almost directly behind the castle in the second image, while in the first it might appear that more light is on the lefthand side of the castle in the first * It’s slightly darker &amp; calmer in tone with respect to the color pallette in the first (maybe indicating an early dawn time), while in the second it loosk as though the sun is about to fade (late dawn) * The boy is wearing a slightly darker, more red color shirt in the second * Noticeably more trees populate the sides of the first photo * The castles are also oriented differently between the two * There’s a bridge coming out of the castle entrance in the second photo but not the first</p>
-<p>There might be more things to take note of, but this hammers home that the photos are in fact at least slightly different. Sure, it’s not an apples to oranges comparison, but nevertheless these changes are significant enough to observe the stochasticity within ChatGPT image generation.</p>
-<p>Going further, I generated another image under these guidelines and here was the result:</p>
-<p><img src="img3.jpeg" width="60%"></p>
-<p>Once again, the differences are clear!</p>
-<p>I won’t bore you with all of the details because you likely get the point by now, but here are just a few to gloss over: * The lighting once again changed * From the second photo, there’s isn’t a bridge anymore again * A lone tree is fixed on the left hand side of the second; none appear in the first (except maybe bushes) * etc…</p>
-<p>To finally bring this point home, here’s one last fourth attempt: <img src="img4.png" width="60%"></p>
-<section id="the-bridge-returns" class="level6">
-<h6 class="anchored" data-anchor-id="the-bridge-returns">the bridge returns!</h6>
+<p><img src="pic3.png" width="100%"></p>
+<blockquote class="blockquote">
+<p>Still “off the mark,” as it puts it…but a step closer; it took guesses based on what are some common allergies, indicating both the power of context &amp; data collection (from the internet), to generate more accurate responses.</p>
+</blockquote>
+<p><img src="pic4.png" width="100%"></p>
+<ul>
+<li>You can continue offering more refined requests and prompts to further its guessing ability, i.e….</li>
+</ul>
+<p><img src="pic5.png" width="100%"></p>
+<section id="okay" class="level3">
+<h3 class="anchored" data-anchor-id="okay">Okay…</h3>
+<p>So it’s still off…of course, models can only go far in their guesses! And depending on the model, different/successive ones will be more or less successful than the last. Further, depending on the data it’s trained on (again, in this case it’s the Internet), it will pull responses that are more probalistic or common than others.</p>
+<p><img src="pic6.png" width="100%"></p>
+<p>As shown above, it can only go so far depending on the context it’s given! So how do we improve responses such that answers are more accurate off the bat? Enter here: prompt engineering, and it’s five main associated principles:</p>
+<ul>
+<li><strong>The Five Principles of Prompting</strong></li>
+</ul>
+<blockquote class="blockquote">
+<p>Give direction (describe desired style)</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Specify format (define what rules to follow)</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Provide examples (include a diverse set of cases)</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Evaluate quality (identify errors)</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Divide labor (split tasks into mulitple steps)</p>
+</blockquote>
 </section>
-</section>
-<section id="you-understand-the-point-there-are-limits-with-diffusion-models" class="level3">
-<h3 class="anchored" data-anchor-id="you-understand-the-point-there-are-limits-with-diffusion-models">You understand the point: There are limits with diffusion models…</h3>
-<p>…in the extent to which you might expect to return the same image over and over again using the same prompt. <em>So ChatGPT will never be considered insane</em>; unless you remain within the same chat log (which means it will have access to the photo it just produced), you will never see the same photo again by simply reproducing the exact same prompt.</p>
-<p>Sure, they’re similar enough. But this still provided interesting insight with a simple enough example into some of the ways in which ChatGPT operates. These are just slight variances over a total of four trials, given that its free access can only give you so many images at time…but it would be further interesting to see how drastically the photo might change with MANY iterations at a time!</p>
+<section id="example-divide-labor" class="level3">
+<h3 class="anchored" data-anchor-id="example-divide-labor">Example: Divide labor</h3>
+<p>This principle refers to the process by which you break up your prompt into several “mini prompts” or requests with more specificity. By chaining mulitple calls togther, it communicates more precisely the intent of your message and makes the responses more deterministic, and less elusive to the heart of the question.</p>
+<ul>
+<li>The goal is to prompt the model and have it list out its steps (<strong>chain of thought reasoning</strong>)</li>
+</ul>
+<p><img src="pic7.png" width="100%"></p>
+<ul>
+<li>You then might ask the model to generate a new list based on this critera!</li>
+</ul>
+<p><img src="pic8.png" width="100%"></p>
+<blockquote class="blockquote">
+<p>Noticed how it modified the list based on these new, more refined requests!</p>
+</blockquote>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -258,13 +286,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

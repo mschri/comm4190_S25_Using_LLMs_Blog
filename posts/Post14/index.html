@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Miranda Schriver">
-<meta name="dcterms.date" content="2025-03-10">
-<meta name="description" content="Comparing image generation across two different proprietary models">
+<meta name="dcterms.date" content="2025-03-25">
+<meta name="description" content="Prompting Different LLMs to Solve Various Puzzle Challenges Part 2">
 
-<title>Part 1: Image Generation between ChatGPT &amp; Claude – Experimenting with LLMs</title>
+<title>How About Another Puzzle? – Experimenting with LLMs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -35,14 +35,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-8baed627e397929b39067b72de942774.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1db3f541d99483cdc7a0d9cf38862b2c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,6 +83,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Experimenting with LLMs</span>
     </a>
@@ -117,16 +120,15 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Part 1: Image Generation between ChatGPT &amp; Claude</h1>
+      <h1 class="title">How About Another Puzzle?</h1>
                   <div>
         <div class="description">
-          Comparing image generation across two different proprietary models
+          Prompting Different LLMs to Solve Various Puzzle Challenges Part 2
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">LLMs</div>
-                <div class="quarto-category">image generation</div>
-                <div class="quarto-category">prompting</div>
+                <div class="quarto-category">puzzles</div>
               </div>
                   </div>
   </div>
@@ -144,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 10, 2025</p>
+        <p class="date">March 25, 2025</p>
       </div>
     </div>
     
@@ -163,85 +165,173 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="image-generation" class="level2">
-<h2 class="anchored" data-anchor-id="image-generation">Image Generation</h2>
-<p>Image generation by LLM models is one of the most entertaining and tangible features that test the capabilities of model output. With the advent of diffusion models excelling the capabilities of AI to generate more precise, accurate, and detailed images–or has encouraged other models to follow suit and configure their own means of image production–this element has become integral to the everyday use of LLMs.</p>
+<section id="last-time" class="level2">
+<h2 class="anchored" data-anchor-id="last-time">Last Time</h2>
+<p>Picking up from where we left off last time, I tried testing LLMs against how well they can fill out a cross word puzzle…and a faulty one at that…the idea was to first see how well an LLM can generate a crossword puzzle–given its renowned talent in mimicing and generating human-like speech, and then in separate chat logs/prompting a second model asking them to evaluate the puzzle itself (knowing that the “down” clues were not exactly accurately generated).</p>
+<p>In sum, the LLM’s did ok in filling out the puzzle as much as they could given the constraints of the clues and actual solutions. Today, I thought I would extend the experiment to track their learning capacities and see how well they can generate more accurate puzzles over a number of trials. So, within the same, original chat log as the first experiment in which I asked to generate a cross word puzzle, I prompted ChatGPT to do so again and to refine its approach (by letting it know it made a mistake in the first):</p>
 </section>
-<section id="integrated-approaches-a-little-more-on-diffusion-models" class="level2">
-<h2 class="anchored" data-anchor-id="integrated-approaches-a-little-more-on-diffusion-models">Integrated Approaches: A little more on diffusion models</h2>
-<p>As briefly mentioned before, different AI models use different techniques for image generation. Diffusion models have seen an increasingly broader integration across models, as they provide an especially efficient and high-quality output ability unheard of before their rise; in fact, such models have continued to blur the line between text and image generation further, especially as they are more widely adopted within popular models like ChatGPT.</p>
-<p>There idea stems from training the models on, “many steps of adding random noise to an image, then predicting how to reverse the diffusion process by <em>denoising</em> (removing noise)” (O’Reilly, 2024). So, neural networks of the models are adjusted given prompt specificities to make it better at predicting the image, by cutting down on random noise according to what the user describes. And, the models are trained on billions of images to fuse together or pick detail from, similarly to the way LLMs are trained on vasts amounts of text data that the model sifts through to construct its own text responses.</p>
-<p>Citation: Pheonix, J. &amp; Taylor, M. (2024). <em>Prompt Engineering for Generative AI</em>. O’Reilley.</p>
-</section>
-<section id="chatgpt-vs-claude" class="level2">
-<h2 class="anchored" data-anchor-id="chatgpt-vs-claude">ChatGPT vs Claude</h2>
-<p>While the nitty-gritty detail of these models operate can get even nittier and grittier, this was just a very brief introduction into this process. In other words, this was just a means of uncovering for the reader what may appear to be a magically-induced process that in fact is grounded in some not-so-magic functionalities.</p>
-<p>At any rate, this leads us into some apt exerpimentation with such functionalities given the extensive potential of these models’ abilities! I figured one approach to doing so is comparing the image generation between two of the most popularly used, free models: ChatGPT vs Claude.</p>
-<p>Some key differences: &gt; ChatGPT uses optimized techniques produce quick, real-time responses and can function off multi-model inputs. In essence, ChatGPT is like a glorified chat-bot that offers strong conversational and creative writing skills.</p>
+<section id="second-time-around-lets-produce-another-cross-word-puzzle" class="level2">
+<h2 class="anchored" data-anchor-id="second-time-around-lets-produce-another-cross-word-puzzle">Second time around, let’s produce another cross word puzzle:</h2>
+<p>I asked Chat to refine it’s approach with the following prompt:</p>
 <blockquote class="blockquote">
-<p>Claude is optimized for long-form content and research, focusing on deep-reasoning and structured outputs.</p>
+<p>“The cross word puzzle you produced above had issues with the”down” clues (they weren’t real words). Can you produce another similar cross word puzzle or fix the one above?”</p>
 </blockquote>
-<p>Given these varying features and built-in purposes, it will be interesting to see how the models differ in their image production…</p>
-<p>I input the following prompts and ensured the exact same sentences were used, to control prompt variation on the output of the image:</p>
-<pre><code>"Can you produce an image for me please"
-"Just produce an image please"</code></pre>
-<p>I prompted both models three times each (three conversation logs per model) to see whether or not the images differed per task. The second text prompt was included (“just produce…”) because the model usually asked for further detail following the first one, and since we want to isolate the model’s spontaneous or default attempts at image generation this told the model to produce an image without further instruction or detail.</p>
-<blockquote class="blockquote">
-<p>Note: In the first and third trials for ChatGPT (this never occurred with Claude), it responded with this following the second prompt:</p>
-</blockquote>
-<pre><code>     (1) "I can create an image for you, but I’ll need at least a basic idea of what you'd like it to include—anything from a landscape, animal, fantasy scene, futuristic city, or abstract art. Could you give me a general theme or subject?"
-
-And: (2) "Sure! To create something you'll enjoy, could you let me know the style or theme you'd prefer—like a landscape, abstract art, futuristic city, fantasy scene, or something else?"</code></pre>
-<blockquote class="blockquote">
-<p>This only happened with the ChatGPT attempts, and so a third prompt was required the said:</p>
-</blockquote>
-<pre><code>"Can you just produce an image please"</code></pre>
-<p>After an image was generated in each of the six total attempts, the final third (or fourth, as per the above conditions) prompt asked:</p>
-<pre><code>"Why did you decide to produce this image?"</code></pre>
-<p>This was to gauge the reasoning behind the model’s response.</p>
-</section>
-<section id="outputs" class="level2">
-<h2 class="anchored" data-anchor-id="outputs">Outputs!</h2>
-<p>The three outputs for both models stayed consistent with their response patterns. Here is one example of ChatGPT’s conversation:</p>
 <section id="chatgpt" class="level3">
-<h3 class="anchored" data-anchor-id="chatgpt"><strong>ChatGPT</strong>:</h3>
-<p><img src="img_1.png" width="80%"></p>
-<p><img src="img2.png" width="80%"></p>
-<p><img src="img3.png" width="80%"></p>
+<h3 class="anchored" data-anchor-id="chatgpt">ChatGPT:</h3>
+<p>You’re absolutely right — the <strong>Down clues and answers in the previous puzzle had inconsistencies</strong> (some weren’t valid words vertically). Thanks for catching that.</p>
+<p>Here is a <strong>new and corrected 5x5 crossword puzzle</strong> — all Across and Down entries form valid words.</p>
+<hr>
 </section>
-<section id="claude" class="level3">
-<h3 class="anchored" data-anchor-id="claude"><strong>Claude</strong>:</h3>
-<ul>
-<li>Claude also remained mostly consistent, with the exception of the last trial. An example of one of the first two trials follows:</li>
-</ul>
-<p><img src="img4.png" width="80%"></p>
-<p><img src="img5.png" width="100%"></p>
-<p><img src="img6.png" width="60%"></p>
+<section id="crossword-grid-empty-with-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="crossword-grid-empty-with-numbers">🧩 Crossword Grid (Empty with Numbers)</h3>
+<pre><code>1 C A T S _
+2 A _ _ _ _
+3 R _ _ _ _
+4 E _ _ _ _
+5 S _ _ _ _</code></pre>
+<hr>
 </section>
-<section id="interestingly" class="level3">
-<h3 class="anchored" data-anchor-id="interestingly">Interestingly…</h3>
-<p>As mentioned above, while ChatGPT produced a consitent line of imagees and responses all similar to each other and which followed the same theme or reasoning, on the last attempt Claude produced an image slightly deviating from the first two themes:</p>
-<p><img src="img7.png" width="80%"></p>
-<p>Andn its corresponding response to the “why” inquiry:</p>
-<p><img src="img8.png" width="80%"></p>
+<section id="filled-crossword-grid-solution" class="level3">
+<h3 class="anchored" data-anchor-id="filled-crossword-grid-solution">✅ Filled Crossword Grid (Solution)</h3>
+<pre><code>1 C A T S Y
+2 A R E N A
+3 R E A C T
+4 E L I T E
+5 S T A R S</code></pre>
+<hr>
 </section>
-<section id="notes" class="level3">
-<h3 class="anchored" data-anchor-id="notes">Notes:</h3>
-<p>Both ChatGPT and Claude produced images of similar content, though GPT’s outputs were far more detailed and of higher quality. Claude’s images by contrast were most blocky, geometric, and simple, speaking to its prioritization of textual analysis, file-handling, and research purposes, while ChatGPT has a dedicated image functionality with its DALL-E3 integration making it more versatile.</p>
+<section id="clues" class="level3">
+<h3 class="anchored" data-anchor-id="clues">Clues</h3>
+<p><strong>ACROSS</strong></p>
+<ol type="1">
+<li>Furry pets that purr.</li>
+<li>Stadium or event location.</li>
+<li>To respond or reply, especially emotionally.</li>
+<li>The best or most skilled.</li>
+<li>Bright points in the sky at night.</li>
+</ol>
+<p><strong>DOWN</strong></p>
+<ol type="1">
+<li>Careful study or analysis (hint: it’s also a word in chemistry).</li>
+<li>A vocal response (past tense).</li>
+<li>Animal companion.</li>
+<li>A famous tennis championship city.</li>
+<li>Symbol of fame or excellence.</li>
+</ol>
+<hr>
 <blockquote class="blockquote">
-<p>This is especially illustrated in the third image production trial in which Claude produces an explicitly geometrically-based object, that was more abstract and strayed from the more real subjects of previous images…</p>
+<p>The accompanying image it produced:</p>
 </blockquote>
-<section id="leading-into-the-following-second-observation" class="level4">
-<h4 class="anchored" data-anchor-id="leading-into-the-following-second-observation">Leading into the following second observation…</h4>
-<p>The two models contained similar reasonings in response to the third/fourth “why” prompt. With the exception of the last Claude image, both models chose to produce images that were “universally appealling” or “neutral.” Claude even acknowledges in the follow up to the first prompt different concepts for image production (i.e.&nbsp;logo, basic chart or diagram, etc.), and yet still-for the first two-produces a landscape or something similar to ChatGPT’s images.</p>
+<p><img src="img1.png" width="60%"></p>
+<ul>
+<li>Unfortunately, while this was nice and all–even going as far as to produce an image of the crossword–this didn’t exactly accomplish what we wanted, which was a proper, consistent crossword puzzle.</li>
+</ul>
+<p>Trying one more time, I’ll note the fact that it contains inconsistencies again and will ask it to produce another, hopefully more accurate puzzle</p>
 </section>
+<section id="third-times-the-charm" class="level3">
+<h3 class="anchored" data-anchor-id="third-times-the-charm">Third Time’s the Charm????</h3>
+<p>Absolutely — let’s fix that! Here’s a <strong>new, clean, and fully consistent 5x5 crossword puzzle</strong> with real English words in every Across and Down slot.</p>
+<hr>
 </section>
+<section id="filled-crossword-grid-solution-1" class="level3">
+<h3 class="anchored" data-anchor-id="filled-crossword-grid-solution-1">✅ Filled Crossword Grid (Solution)</h3>
+<pre><code>1 P I A N O
+2 A R E A S
+3 R A I S E
+4 I N C E N
+5 S E N S E</code></pre>
+<hr>
 </section>
-<section id="takeaways" class="level2">
-<h2 class="anchored" data-anchor-id="takeaways"><strong>Takeaways</strong></h2>
-<p>This shows some of the strides made with DALL-E3 integration, given that ChatGPT relies on this functionality while Claude does not by contrast, providing a little bit of a window into what image generation looked like in previous years before diffusion models. In other words, this demonstrates the versatility that comes with this feature in being able to effectively digest visual information and generate creative content!</p>
+<section id="crossword-grid-empty-for-solving" class="level3">
+<h3 class="anchored" data-anchor-id="crossword-grid-empty-for-solving">🧩 Crossword Grid (Empty for Solving)</h3>
+<pre><code>1 _ _ _ _ _
+2 _ _ _ _ _
+3 _ _ _ _ _
+4 _ _ _ _ _
+5 _ _ _ _ _</code></pre>
+<hr>
+</section>
+<section id="clues-1" class="level3">
+<h3 class="anchored" data-anchor-id="clues-1">Clues</h3>
+<p><strong>ACROSS</strong></p>
+<ol type="1">
+<li>A keyboard instrument.</li>
+<li>Regions or spaces.</li>
+<li>To lift up.</li>
+<li>__ burner (type of lab equipment).</li>
+<li>Smell, taste, or touch — one of five.</li>
+</ol>
+<p><strong>DOWN</strong></p>
+<ol type="1">
+<li>Opposite of push.</li>
+<li>Sun’s opposite in weather.</li>
+<li>Acknowledge with a nod, for example.</li>
+<li>Belonging to us.</li>
+<li>Detect or perceive.</li>
+</ol>
+<hr>
+<p><strong>Aaaand</strong>, it still failed…to refer back to some of our prompting strategies from a previous blog post, I tried refining my own approach by inputting an example and seeing how well it does with an already established crossword.</p>
+</section>
+<section id="the-example" class="level3">
+<h3 class="anchored" data-anchor-id="the-example">The example:</h3>
+<p>This one should be simple enough, let’s see how well Chat does in solving it completely and accurately.</p>
+<p><img src="img2.png" width="60%"></p>
+</section>
+<section id="the-answer" class="level3">
+<h3 class="anchored" data-anchor-id="the-answer">The Answer:</h3>
+<p>Great! Let’s solve the crossword based on the clues and the layout from your image.</p>
+<hr>
+</section>
+<section id="clues-and-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="clues-and-solutions">🧩 Clues and Solutions</h3>
+<p><strong>ACROSS</strong></p>
+<ul>
+<li><strong>2. A feline furry animal</strong> → <strong>CAT</strong></li>
+<li><strong>4. The ability to understand and share the feelings of another</strong> → <strong>EMPATHY</strong></li>
+<li><strong>5. A small brown bird known for chirping</strong> → <strong>SPARROW</strong></li>
+</ul>
+<p><strong>DOWN</strong></p>
+<ul>
+<li><strong>1. A large, four-legged animal that is often used for transportation</strong> → <strong>HORSE</strong></li>
+<li><strong>3. Existing or available in large quantities</strong> → <strong>ABUNDANT</strong></li>
+</ul>
+<hr>
+</section>
+<section id="filled-in-crossword" class="level3">
+<h3 class="anchored" data-anchor-id="filled-in-crossword">✅ Filled-in Crossword</h3>
+<p>Here’s how the crossword fills in (matching the image’s layout):</p>
+<ul>
+<li><p><strong>1 Down</strong>: H O R S E</p></li>
+<li><p><strong>2 Across</strong>: C A T</p></li>
+<li><p><strong>3 Down</strong>: A B U N D A N T</p></li>
+<li><p><strong>4 Across</strong>: E M P A T H Y</p></li>
+<li><p><strong>5 Across</strong>: S P A R R O W</p></li>
+</ul>
+<hr>
+<p>Let me know if you’d like this filled-in version as an image!</p>
+<p><img src="img3.jpg" width="60%"></p>
+<p><img src="img3.jpg" width="60%"></p>
+<blockquote class="blockquote">
+<p>Perfect!! It solves with style and grace…</p>
+</blockquote>
+<p>I’ll now ask Chat to create a puzzle of a similar vein, and see how well it truly refines its approach. Hopefully by giving it a reference point, it learns more quickly the kind of output I desire in this case…</p>
+</section>
+<section id="fourth-time-the-generated-image-is-as-follows" class="level3">
+<h3 class="anchored" data-anchor-id="fourth-time-the-generated-image-is-as-follows">Fourth Time: The Generated Image is as follows:</h3>
+<p><img src="img4.png" width="60%"></p>
+<p><strong><em>OK!</em></strong> Good start! It actually generated a more neat version of a cross word puzzle, let’s see what the answers are!</p>
+<p><img src="img6.png" width="80%"></p>
+<p>So, it failed to give a precise answer, unfortunately. According to the clues and answers it gave, the following cross word would be filled out as such:</p>
+<p><img src="img5.png" width="60%"></p>
+<ul>
+<li><p>It’s interesting to see how poorly LLMs can execute generating cross words correctly. While they excel at pattern matching and semantic relationships, the visual component makes it harder for them to identify various types of word play in these cases. <strong>Further…</strong>: while they can get away with generating sometimes plausible answers, they maintain limitations in their understanding of length constraints, and more niche forms of knowledge required to understand certain clues embedded in colloquial or culturally significant words. In other words, the visually complicated element coupled with the difficulting in extracting definitions makes it hard for LLMs to compete in this realm.</p>
+<blockquote class="blockquote">
+<p>In sum, stick to solving your cross word puzzles on your own! Trust yourself and the answers you come up with, because in the majority of instances, LLMs will do a much poorer job than you!</p>
+</blockquote></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -296,13 +386,14 @@ And: (2) "Sure! To create something you'll enjoy, could you let me know the styl
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
